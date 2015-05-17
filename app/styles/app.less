@@ -1,0 +1,116 @@
+@import 'bower_components/bootstrap/less/bootstrap';
+@import 'bower_components/bootstrap/less/theme';
+@import 'mixins';
+
+html {
+  .box-sizing(border-box);
+}
+
+body {
+  margin: 0;
+  background-color: #F5F5F5;
+}
+
+*, *:before, *:after {
+  .box-sizing(inherit);
+}
+
+a {
+  cursor: pointer;
+}
+
+#top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background-color: #4A4A4A;
+
+  h1 {
+    margin: 0;
+    padding: 4px;
+    font-size: 24px;
+    line-height: 24px;
+    color: #FF9B56;
+  }
+}
+
+#side-nav {
+  position: fixed;
+  top: 32px;
+  left: 0;
+  bottom: 0;
+  width: 240px;
+  background-color: #E79054;
+  color: white;
+  padding-top: 24px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
+    position: relative;
+    font-size: 18px;
+    line-height: 32px;
+
+    .icon {
+      position: absolute;
+      left: 8px;
+      font-size: 28px;
+      line-height: 32px;
+    }
+  }
+
+  a {
+    position: relative;
+    background: none;
+    color: white;
+    padding: 4px 4px 4px 60px;
+    display: block;
+
+    &:link, &:visited, &:hover, &:active {
+      color: white;
+      text-decoration: none;
+    }
+
+    &.active {
+      background-color: #9B9B9B;
+
+      &:after {
+        position: absolute;
+        top: 0;
+        right: -24px;
+        width: 0;
+        height: 0;
+        content: ' ';
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-left: 24px solid #9B9B9B;
+      }
+    }
+  }
+}
+
+#application-container {
+  margin-top: 32px;
+  margin-left: 264px;
+  padding: 8px;
+}
+
+
+@media (max-width: 648px) {
+}
+
+@import 'calendar-month-component';
+@import 'calendar-events-component';
+@import 'workout-builder-form-component';
+
+/* route style sheets */
+@import 'scheduler-route';
+@import 'stop-watch-route';
+@import 'workout-builder-route';
+@import 'workout-builder-index-route';

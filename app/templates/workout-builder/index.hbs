@@ -1,0 +1,25 @@
+<div id="workout-builder-index">
+  {{#link-to 'workout-builder.new' classNames="btn btn-primary"}}New{{/link-to}}
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each content as |workout|}}
+        <tr {{action 'show' workout}}>
+          <td>{{workout.name}}</td>
+          <td>{{workout.description}}</td>
+          <td><button class="btn btn-danger" {{action 'destroyWorkout' workout}}>Delete</button></td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan="3">No workouts exist. {{#link-to 'workout-builder.new'}}Add a workout{{/link-to}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

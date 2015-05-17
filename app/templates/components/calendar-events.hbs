@@ -1,0 +1,8 @@
+<ul class="event-section">
+  <li class="event-section-title">{{title}}</li>
+  {{#each events as |event|}}
+    <li class="event">
+      {{yield event}}
+    </li>
+  {{/each}}
+</ul>

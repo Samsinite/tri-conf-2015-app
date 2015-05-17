@@ -1,0 +1,27 @@
+.box-sizing(@boxmodel) {
+  -webkit-box-sizing: @boxmodel;
+  -moz-box-sizing: @boxmodel;
+  box-sizing: @boxmodel;
+}
+
+.transform(@type) {
+  -webkit-transform: @type;
+  -moz-transform: @type;
+  -o-transform: @type;
+  -ms-transform: @type;
+  transform: @type;
+}
+
+.calc(@prop; @val) {
+  //Ex Usage: .calc(width; "100% - 200px");
+  // Will do: width: calc(100% - 200px);
+  @{prop}: calc(~'@{val}');
+  @{prop}: -moz-calc(~'@{val}');
+  @{prop}: -webkit-calc(~'@{val}');
+  @{prop}: -o-calc(~'@{val}');
+}
+
+.box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow; // iOS <4.3 & Android <4.1
+  box-shadow: @shadow;
+}

@@ -1,0 +1,89 @@
+.calendar-events-component {
+  .box-shadow(0px 10px 16px 4px rgba(0,0,0,0.25));
+
+  background-color: white;
+  display: block;
+  vertical-align: top;
+  padding: 0;
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .event-section {
+    position: relative;
+    margin: 0;
+    padding: 38px 0 0 0;
+    list-style-type: none;
+
+    &:first-child {
+      padding: 29px 0 0 0;
+      margin-top: 0;
+
+      .event-section-title {
+        margin-top: 0;
+        border-top: none;
+      }
+    }
+  }
+
+  .event-section-title {
+    position: absolute;
+    left: 8px;
+    right: 0;
+    top: 0;
+    line-height: 29px;
+    font-size: 10px;
+    margin-top: 8px;
+
+    border-top: 1px solid #888;
+    color: #999;
+  }
+
+  .event {
+    position: relative;
+    background-color: #B77C1A;
+    color: white;
+    margin-top: 8px;
+    padding: 8px 42px 8px 8px;
+    min-height: 36px;
+    font-size: 12px;
+    line-height: 18px;
+
+    a {
+      background: none;
+      color: white;
+
+      &:link, &:visited, &:hover, &:active {
+        color: white;
+        text-decoration: none;
+      }
+    }
+
+    .right-action {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      padding-right: 8px;
+
+      /* ghost element with 100% height to nudge action to center */
+      &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+
+      i {
+        vertical-align: middle;
+      }
+    }
+
+  }
+
+  .event-title {
+    font-weight: bold;
+  }
+}

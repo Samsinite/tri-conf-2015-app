@@ -1,0 +1,23 @@
+<h2>{{month}}</h2>
+<table>
+  <thead>
+    <tr>
+      <th>S</th>
+      <th>M</th>
+      <th>T</th>
+      <th>W</th>
+      <th>T</th>
+      <th>F</th>
+      <th>S</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each rows as |row|}}
+      <tr>
+        {{#each row.days as |day|}}
+          {{yield day}}
+        {{/each}}
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

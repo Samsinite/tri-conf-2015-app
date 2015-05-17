@@ -1,0 +1,43 @@
+<form {{action "save" workout on="submit"}}>
+  <fieldset class="workout-main-form-group form-inline">
+    {{bootstrap-input label="Workout Name"
+      placeholder="Enter Workout Name..."
+      value=workout.name}}
+  </fieldset>
+  {{#each workout.availableSets as |set|}}
+    <fieldset class="workout-set-form-group">
+      <div class="workout-set-form-group-header">
+        {{bootstrap-input label="Set Description"
+          placeholder="Enter Description..."
+          value=set.description}}
+        <a class="remove-set" {{action 'removeSet' set}}><i class="fa fa-times-circle fa-2x"></i></a>
+      </div>
+      {{#each set.availableExercises as |exercise|}}
+        <div class="set-exercise-form-group form-inline">
+          {{bootstrap-input srOnly=true
+            label="Exercise Name"
+            placeholder="Exercise Name"
+            value=exercise.name}}
+          {{bootstrap-input srOnly=true
+            label="Details"
+            placeholder="Details"
+            value=exercise.details}}
+          {{bootstrap-input srOnly=true
+            label="quantity"
+            placeholder="Quantity"
+            value=exercise.quantity}}
+          <a class="remove-exercise" {{action 'removeExercise' exercise}}><i class="fa fa-minus-circle fa-2x"></i></a>
+        </div>
+      {{/each}}
+      <div class="center-inline">
+        <a class="add-exercise-button" {{action 'addExercise' set}}><i class="fa fa-plus-circle fa-3x"></i></a>
+      </div>
+    </fieldset>
+  {{/each}}
+  <div class="add-set-wrapper">
+    <a class="add-set-button" {{action 'addSet' workout}}><i class="fa fa-plus-square fa-4x"></i></a>
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+  <button class="btn btn-danger" {{action "cancel"}}>Cancel</button>
+</form>
+

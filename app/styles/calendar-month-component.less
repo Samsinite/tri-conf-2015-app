@@ -1,0 +1,61 @@
+.calendar-month-component {
+  display: block;
+
+  h2 {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
+  }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  th, .day-title, .day-events {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  td {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    vertical-align: top;
+  }
+
+  .day-title {
+    background: none;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+
+    &.today {
+      border-radius: 50%;
+      border: 1px solid #ccc;
+    }
+
+    &.selected {
+      border-radius: 50%;
+      border: 1px solid #FF9B56;
+      background-color: #FF9B56;
+    }
+  }
+
+  .day-events {
+  }
+
+  .event {
+    border-radius: 50%;
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background-color: black;
+  }
+}
