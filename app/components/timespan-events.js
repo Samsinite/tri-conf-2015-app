@@ -3,12 +3,17 @@ import inject from 'ember-cli-injection/inject';
 
 var injectStore = inject('store');
 
+/*
+ * Just a component that looks up and iterates/loops over events that occur
+ * during its date/time span. The passed block to this component is rendered
+ * for each event that occurs.
+ */
+
 export default Ember.Component.extend({
-  classNames: ['calendar-events-component'],
-  title: "May 17th",
+  classNames: ['day-events-component'],
+  store: injectStore('main'),
   start: null, // should be either a date or moment object
   end: null,   // should be either a date or moment object
-  store: injectStore('main'),
 
   events: Ember.computed('start', 'end',  function() {
     var start = this.get('start');

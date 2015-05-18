@@ -1,12 +1,29 @@
 .calendar-month-component {
   display: block;
 
-  h2 {
-    padding: 0;
-    margin-top: 0;
-    margin-bottom: 10px;
-    display: block;
-    text-align: center;
+  header {
+    position: relative;
+
+    h2 {
+      padding: 0;
+      margin-top: 0;
+      margin-bottom: 10px;
+      display: block;
+      text-align: center;
+    }
+
+    .move-back-button, .move-forward-button {
+      position: absolute;
+      top: 0;
+    }
+
+    .move-back-button {
+      left: 0;
+    }
+
+    .move-forward-button {
+      right: 0;
+    }
   }
 
   table {
@@ -28,6 +45,30 @@
     margin-right: auto;
     text-align: center;
     vertical-align: top;
+    cursor: pointer;
+
+
+    &.today {
+      .day-title {
+        border-radius: 50%;
+        border: 1px solid #ccc;
+      }
+    }
+
+    &.selected, &.selected.weekday:hover {
+      .day-title {
+        border-radius: 50%;
+        border: 1px solid #FF9B56;
+        background-color: #FF9B56;
+      }
+    }
+
+    &.weekday:hover {
+      .day-title {
+        border-radius: 50%;
+        background-color: #ccc;
+      }
+    }
   }
 
   .day-title {
@@ -35,17 +76,7 @@
     width: 24px;
     height: 24px;
     line-height: 24px;
-
-    &.today {
-      border-radius: 50%;
-      border: 1px solid #ccc;
-    }
-
-    &.selected {
-      border-radius: 50%;
-      border: 1px solid #FF9B56;
-      background-color: #FF9B56;
-    }
+    text-align: center;
   }
 
   .day-events {

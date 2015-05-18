@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForComponent('day-events', {
+moduleForComponent('timespan-events', {
   // Specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar']
 });
