@@ -1,5 +1,3 @@
-import Ember from 'ember';
-
 function read(object) {
   if (object && object.isStream) {
     return object.value();
@@ -10,7 +8,7 @@ function read(object) {
 
 export function timeEqual(t1, t2) {
   if (t1 && t2) {
-    return t1.toString() === t2.toString();;
+    return t1.toString() === t2.toString();
   }
 }
 

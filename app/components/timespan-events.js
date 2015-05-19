@@ -1,7 +1,4 @@
 import Ember from 'ember';
-import inject from 'ember-cli-injection/inject';
-
-var injectStore = inject('store');
 
 /*
  * Just a component that looks up and iterates/loops over events that occur
@@ -11,16 +8,15 @@ var injectStore = inject('store');
 
 export default Ember.Component.extend({
   classNames: ['day-events-component'],
-  store: injectStore('main'),
   start: null, // should be either a date or moment object
   end: null,   // should be either a date or moment object
 
-  events: Ember.computed('start', 'end',  function() {
+  workoutEvents: Ember.computed('start', 'end',  function() {
     var start = this.get('start');
     var end = this.get('end');
 
     if (start && end) {
-      return this.store.find('event', { start: start, end: end });
+      return this.get('store').find('workout-event', { start: start, end: end });
     } else {
       return [];
     }

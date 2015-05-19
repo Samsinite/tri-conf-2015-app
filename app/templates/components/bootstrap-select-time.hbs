@@ -1,0 +1,25 @@
+<label for="{{hourSelectId}}">{{label}}</label>
+<p class="form-inline">
+  {{x-select value=hour
+    action="hourSelected"
+    content=selectionHours
+    classNames="form-control"
+    optionLabelPath="content"
+    optionValuePath="content"}}{{#if selectionMinutes}}<!--
+--><strong>:</strong>{{x-select value=minute
+    action="minuteSelected"
+    content=selectionMinutes
+    classNames="form-control"
+    optionLabelPath="content"
+    optionValuePath="content"}}
+  {{/if}}
+  {{#if selectionTimeOfDay}}
+    {{x-select value=timeOfDay
+      action="timeOfDaySelected"
+      content=selectionTimeOfDay
+      classNames="form-control"
+      optionLabelPath="content"
+      optionValuePath="content"}}
+  {{/if}}
+</p>
+

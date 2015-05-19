@@ -108,6 +108,7 @@ export default Ember.Component.extend({
   actions: {
     selectDay: function(day) {
       this.set('day', day);
+      this.sendAction('on-day-selected', day);
     },
 
     moveTimeRangeBack: function() {

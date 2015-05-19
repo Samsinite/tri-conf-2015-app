@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import moment from 'moment';
 import { startOfDay } from './start-of-day';
 import { timeEqual } from './time-equal';

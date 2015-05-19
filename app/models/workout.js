@@ -1,8 +1,10 @@
 import Ember from 'ember';
 import DS from 'ember-data';
 
+const { get, set } = Ember;
+
 export default DS.Model.extend({
-  event: DS.belongsTo('event'),
+  workoutEvents: DS.belongsTo('workout-event'),
   workoutSets: DS.hasMany('workout-set'),
 
   name: DS.attr('string'),
@@ -12,39 +14,39 @@ export default DS.Model.extend({
   }),
 
   rollback: function() {
-    var sets = this.get('workoutSets') || [];
+    var workoutSets = get(this, 'workoutSets') || [];
 
-    sets.forEach(function(set) {
-      var exercises = set.get('exercises') || [];
+    workoutSets.forEach(function(workoutSet) {
+      var exercises = get(workoutSet, 'exercises') || [];
 
       exercises.forEach(function(exercise) {
-        if (exercise.get('flaggedForDeletion')) {
-          exercise.set('flaggedForDeletion', false);
+        if (get(exercise, 'flaggedForDeletion')) {
+          exercise.workoutSet('flaggedForDeletion', false);
         }
         exercise.rollback();
       });
 
-      if (set.get('flaggedForDeletion')) {
-        set.set('flaggedForDeletion', false);
+      if (get(workoutSet, 'flaggedForDeletion')) {
+        set(workoutSet, 'flaggedForDeletion', false);
       }
-      set.rollback();
+      workoutSet.rollback();
     });
 
     this._super();
   },
 
   save: function() {
-    var sets = this.get('workoutSets') || [];
+    var workoutSets = get(this, 'workoutSets') || [];
 
-    sets.forEach(function(set) {
-      var exercises = set.get('exercises') || [];
-      var shouldDeleteSet = set.get('flaggedForDeletion');
+    workoutSets.forEach(function(workoutSet) {
+      var exercises = get(workoutSet, 'exercises') || [];
+      var shouldDeleteSet = get(workoutSet, 'flaggedForDeletion');
 
       exercises.forEach(function(exercise) {
         if (shouldDeleteSet) {
           exercise.deleteRecord();
         } else {
-          var shouldDeleteExercise = exercise.get('flaggedForDeletion');
+          var shouldDeleteExercise = get(exercise, 'flaggedForDeletion');
 
           if (shouldDeleteExercise) {
             exercise.deleteRecord();
@@ -53,7 +55,7 @@ export default DS.Model.extend({
       });
 
       if (shouldDeleteSet) {
-        set.deleteRecord();
+        workoutSet.deleteRecord();
       }
     });
 

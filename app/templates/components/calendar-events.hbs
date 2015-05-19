@@ -1,8 +1,13 @@
 <ul class="event-section">
-  <li class="event-section-title">{{title}}</li>
-  {{#each events as |event|}}
+  <li class="event-section-title">{{moment eventsDay 'MMMM Do YYYY'}}</li>
+  {{#each calendarEvents as |event|}}
     <li class="event">
       {{yield event}}
     </li>
   {{/each}}
 </ul>
+{{#if on-add}}
+  <div class="add">
+    <a {{action 'add'}}><i class="fa fa-plus-circle fa-2x"></i></a>
+  </div>
+{{/if}}

@@ -1,8 +1,7 @@
 import Ember from 'ember';
 
-export function padNumber(params) {
-  var str  = params[0] + "";
-  var size = params[1];
+export function padNumber(number, size) {
+  var str  = number + "";
 
   while (str.length < size) {
     str = "0" + str;
@@ -11,4 +10,6 @@ export function padNumber(params) {
   return str;
 }
 
-export default Ember.HTMLBars.makeBoundHelper(padNumber);
+export default Ember.HTMLBars.makeBoundHelper(function(params) {
+  padNumber(params[0], params[1]);
+});

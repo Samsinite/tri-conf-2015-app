@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import moment from 'moment';
 
 function read(object) {
@@ -11,12 +10,12 @@ function read(object) {
 
 export function endOfDay(day) {
   if (day) {
-    var day = moment(day);
+    var momentDay = moment(day);
     var oneDay = moment.duration(1, 'd');
-    return moment([day.year(), day.month(), day.date()]).add(oneDay);
+    return moment([momentDay.year(), momentDay.month(), momentDay.date()]).add(oneDay);
   }
 }
 
-export default function(params, hash, options, env) {
+export default function(params) {
   return endOfDay(read(params[0]));
 }

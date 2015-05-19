@@ -1,6 +1,6 @@
 <div id="scheduler">
   <div class="dynamic-column">
-    {{#calendar-month as |day|}}
+    {{#calendar-month day=calendarDay on-day-selected="daySelected" as |day|}}
       <div class="day-title">
         {{#if day}}
           {{moment day 'D'}}
@@ -129,7 +129,7 @@
     --}}
   </div><!--
 --><div class="dynamic-column">
-    {{#calendar-events start=(start-of-day day) end=(end-of-day day) as |event|}}
+    {{#calendar-events eventsDay=eventsDay on-select="eventSelected" on-add="addEvent" start=startOfEventsDay end=endOfEventsDay as |event|}}
       <div class="event-title">{{event.title}}</div>
       <div class="event-time">{{event.dateTime}}</div>
       <div class="event-details">{{event.details}}</div>
