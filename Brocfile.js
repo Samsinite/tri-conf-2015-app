@@ -12,6 +12,9 @@ var app = new EmberApp({
     importBootstrapTheme: false,
     importBootstrapCSS: false,
     importBootstrapFont: true
+  },
+  'ember-cli-selectize': {
+    theme: 'bootstrap3'
   }
 });
 

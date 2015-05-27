@@ -1,135 +1,18 @@
 <div id="scheduler">
   <div class="dynamic-column">
-    {{#calendar-month day=calendarDay on-day-selected="daySelected" as |day|}}
+    {{#calendar-month selectedDay=selectedDay on-day-selected="daySelected" as |day|}}
       <div class="day-title">
         {{#if day}}
           {{moment day 'D'}}
         {{/if}}
       </div>
-      {{#timespan-events start=(start-of-day day) end=(end-of-day day) as |event|}}
+      {{#timespan-events start=day end=day as |event|}}
         <div class="event">{{event.title}}</div>
       {{/timespan-events}}
     {{/calendar-month}}
-    {{!--
-    <div class="calendar-month-component">
-      <header>
-        <a {{action 'moveTimeRangeBack'}}><i class="fa fa-chevron-circle-left"></i></a>
-        <h2>April</h2>
-        <a {{action 'moveTimeRangeForward'}}><i class="fa fa-chevron-circle-right"></i></a>
-      </header>
-      <table>
-        <thead>
-          <tr>
-            <th>S</th>
-            <th>M</th>
-            <th>T</th>
-            <th>W</th>
-            <th>T</th>
-            <th>F</th>
-            <th>S</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="day-title">
-              </div>
-              <div class="day-events">
-              </div>
-            </td>
-            <td>
-              <div class="day-title">
-              </div>
-              <div class="day-events">
-              </div>
-            </td>
-            <td>
-              <div class="day-title">
-              </div>
-              <div class="day-events">
-              </div>
-            </td>
-            <td>
-              <div class="day-title">1</div>
-              <div class="day-events">
-              </div>
-            </td>
-            <td>
-              <div class="day-title today">2</div>
-              <div class="day-events">
-                <div class="event"> </div>
-              </div>
-            </td>
-            <td>
-              <div class="day-title">3</div>
-              <div class="day-events">
-              </div>
-            </td>
-            <td>
-              <div class="day-title selected">4</div>
-              <div class="day-events">
-                <div class="event"> </div>
-                <div class="event"> </div>
-                <div class="event"> </div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="day-title">5</div>
-              <div class="day-events">
-              </div>
-            </td>
-            <td>
-              <div class="day-title">6</div>
-              <div class="day-events">
-              </div>
-            </td>
-            <td>
-              <div class="day-title">7</div>
-              <div class="day-events">
-              </div>
-            </td>
-            <td>
-              <div class="day-title">8</div>
-              <div class="day-events">
-              </div>
-            </td>
-            <td>
-              <div class="day-title">9</div>
-              <div class="day-events">
-              </div>
-            </td>
-            <td>
-              <div class="day-title">10</div>
-              <div class="day-events">
-              </div>
-            </td>
-            <td>
-              <div class="day-title">11</div>
-              <div class="day-events">
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td>
-          </tr>
-          <tr>
-            <td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
-          </tr>
-          <tr>
-            <td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td></td>
-          </tr>
-          <tr>
-            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    --}}
   </div><!--
 --><div class="dynamic-column">
-    {{#calendar-events eventsDay=eventsDay on-select="eventSelected" on-add="addEvent" start=startOfEventsDay end=endOfEventsDay as |event|}}
+    {{#calendar-events start=selectedDay end=selectedDay on-select="eventSelected" on-add="addEvent" as |event|}}
       <div class="event-title">{{event.title}}</div>
       <div class="event-time">{{event.dateTime}}</div>
       <div class="event-details">{{event.details}}</div>

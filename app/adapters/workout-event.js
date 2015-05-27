@@ -1,4 +1,5 @@
 import ApplicationAdapter from './application';
+import moment from 'moment';
 
 export default ApplicationAdapter.extend({
   /*
@@ -13,12 +14,16 @@ export default ApplicationAdapter.extend({
       var end = query.end;
       var id;
       var record;
+      var datetime;
 
       for (id in records) {
         record = records[id];
+        if (record.datetime) {
+          datetime = moment(record.datetime).toDate();
+        }
 
         // Check if datetime of event is inside start -- end time
-        if (record.datetime >= start && record.datetime <= end) {
+        if (datetime >= start && datetime < end) {
           results.push(record); // push record onto end of result array
         }
       }

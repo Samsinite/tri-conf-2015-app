@@ -5,13 +5,15 @@
     content=selectionHours
     classNames="form-control"
     optionLabelPath="content"
-    optionValuePath="content"}}{{#if selectionMinutes}}<!--
---><strong>:</strong>{{x-select value=minute
-    action="minuteSelected"
-    content=selectionMinutes
-    classNames="form-control"
-    optionLabelPath="content"
-    optionValuePath="content"}}
+    optionValuePath="content"~}}
+  {{~#if selectionMinutes~}}
+    <strong>:</strong>
+    {{~x-select value=minute
+      action="minuteSelected"
+      content=selectionMinutes
+      classNames="form-control"
+      optionLabelPath="content"
+      optionValuePath="content"}}
   {{/if}}
   {{#if selectionTimeOfDay}}
     {{x-select value=timeOfDay

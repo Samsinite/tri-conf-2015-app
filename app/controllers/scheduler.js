@@ -4,24 +4,11 @@ import { startOfDay } from '../helpers/start-of-day';
 import { endOfDay } from '../helpers/end-of-day';
 
 export default Ember.Controller.extend({
-  calendarDay: moment(),
-  eventsDay: moment(),
-
-  startOfEventsDay: Ember.computed('eventsDay', function() {
-    var eventsDay = this.get('eventsDay');
-
-    return startOfDay(eventsDay);
-  }),
-
-  endOfEventsDay: Ember.computed('eventsDay', function() {
-    var eventsDay = this.get('eventsDay');
-
-    return endOfDay(eventsDay);
-  }),
+  selectedDay: moment(),
 
   actions: {
     daySelected: function(day) {
-      this.set('eventsDay', day);
+      this.set('selectedDay', day);
     },
 
     eventSelected: function(event) {
@@ -29,7 +16,8 @@ export default Ember.Controller.extend({
     },
 
     addEvent: function() {
-      this.transitionToRoute('events.new');
+      var eventsDay = moment(this.get('eventsDay'));
+      this.transitionToRoute('events.new', { queryParams: { day: eventsDay.toString() } });
     },
 
     destroyEvent: function(event) {

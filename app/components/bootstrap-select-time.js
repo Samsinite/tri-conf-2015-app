@@ -1,7 +1,6 @@
 import Ember from 'ember';
 import { padNumber } from '../helpers/pad-number';
 
-
 function generateMinutes() {
   var minutes = [];
 
@@ -20,9 +19,15 @@ export default Ember.Component.extend({
 
   actions: {
     hourSelected: function(value) {
+      this.sendAction('on-hour-selected', value);
     },
 
     minuteSelected: function(value) {
+      this.sendAction('on-minute-selected', value);
+    },
+
+    timeOfDaySelected: function(value) {
+      this.sendAction('on-time-of-day-selected', value);
     }
   }
 });

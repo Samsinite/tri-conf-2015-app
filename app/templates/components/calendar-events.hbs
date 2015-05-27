@@ -1,6 +1,6 @@
 <ul class="event-section">
-  <li class="event-section-title">{{moment eventsDay 'MMMM Do YYYY'}}</li>
-  {{#each calendarEvents as |event|}}
+  <li class="event-section-title">{{moment selectedDay 'MMMM Do YYYY'}}</li>
+  {{#each workoutEvents as |event|}}
     <li class="event">
       {{yield event}}
     </li>

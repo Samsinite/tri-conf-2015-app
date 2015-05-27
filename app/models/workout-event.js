@@ -3,5 +3,6 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   workout: DS.belongsTo('workout'),
 
-  datetime: DS.attr('date')
+  title: DS.attr('string'),
+  datetime: DS.attr('string')
 });

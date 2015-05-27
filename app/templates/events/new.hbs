@@ -1,4 +1,14 @@
-<form>
-  {{bootstrap-select-time label="Test"}}
-  {{bootstrap-select-time label="Test"}}
+<form {{action 'save' model on="submit"}}>
+  {{bootstrap-input label="Title"
+    placeholder="Enter a title..."
+    value=model.title}}
+  {{bootstrap-select-time
+    label="Time"
+    hour=hour
+    minute=minute
+    timeOfDay=timeOfDay
+    on-hour-selected="updateHour"
+    on-minute-selected="updateMinute"
+    on-time-of-day-selected="updateTimeOfDay"}}
+  <button type="submit" class="btn btn-primary">Save</button>
 </form>

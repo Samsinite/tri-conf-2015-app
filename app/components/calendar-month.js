@@ -3,10 +3,14 @@ import moment from 'moment';
 
 export default Ember.Component.extend({
   classNames: ['calendar-month-component'],
-  day: moment(),
+  selectedDay: null,
 
-  momentDay: Ember.computed('day', function() {
-    return moment(this.get('day'));
+  someThing: Ember.observer('selectedDay', function() {
+    console.log('selectedDay changed...');
+  }),
+
+  momentDay: Ember.computed('selectedDay', function() {
+    return moment(this.get('selectedDay'));
   }),
 
   dayInWeekNumber: Ember.computed('momentDay', function() {
@@ -67,6 +71,8 @@ export default Ember.Component.extend({
   rows: Ember.computed('momentDay', 'yearNumber', 'monthNumber', 'daysInMonth', function() {
     var momentDay = this.get('momentDay');
 
+    console.log('calculating rows');
+
     if (momentDay) {
       var yearNumber = this.get('yearNumber');
       var monthNumber = this.get('monthNumber');
@@ -107,7 +113,6 @@ export default Ember.Component.extend({
 
   actions: {
     selectDay: function(day) {
-      this.set('day', day);
       this.sendAction('on-day-selected', day);
     },
 
@@ -122,7 +127,7 @@ export default Ember.Component.extend({
 
         var newDay = moment({year: yearNumber, month: previousMonthNumber, day: 1});
 
-        this.set('day', newDay);
+        this.sendAction('on-day-selected', newDay);
     },
 
     moveTimeRangeForward: function() {
@@ -136,7 +141,7 @@ export default Ember.Component.extend({
 
         var newDay = moment({year: yearNumber, month: nextMonthNumber, day: 1});
 
-        this.set('day', newDay);
+        this.sendAction('on-day-selected', newDay);
     }
   }
 });
