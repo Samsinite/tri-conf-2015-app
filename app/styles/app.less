@@ -8,7 +8,7 @@ html {
 
 body {
   margin: 0;
-  background-color: #F5F5F5;
+  background-color: #FFFFFF;
 }
 
 *, *:before, *:after {
@@ -21,18 +21,21 @@ a {
 
 #top-nav {
   position: fixed;
+  z-index: 100;
   top: 0;
   left: 0;
   right: 0;
-  height: 32px;
-  background-color: #4A4A4A;
+  height: 40px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 2px 6px 2px #59585a;
+  -moz-box-shadow: 0 2px 6px 2px #59585a;
+  box-shadow: 0 2px 6px 2px #59585a;
 
-  h1 {
-    margin: 0;
+
+  img {
+    margin: 2px 0 0 25px;
     padding: 4px;
-    font-size: 24px;
-    line-height: 24px;
-    color: #FF9B56;
+    height: 38px;
   }
 }
 
@@ -42,7 +45,7 @@ a {
   left: 0;
   bottom: 0;
   width: 240px;
-  background-color: #E79054;
+  background-color: #72BEB6;
   color: white;
   padding-top: 24px;
 
@@ -78,7 +81,7 @@ a {
     }
 
     &.active {
-      background-color: #9B9B9B;
+      background-color: #58585A;
 
       &:after {
         position: absolute;
@@ -89,7 +92,7 @@ a {
         content: ' ';
         border-top: 20px solid transparent;
         border-bottom: 20px solid transparent;
-        border-left: 24px solid #9B9B9B;
+        border-left: 24px solid #58585A;
       }
     }
   }
@@ -99,8 +102,43 @@ a {
   margin-top: 32px;
   margin-left: 264px;
   padding: 8px;
+
+  h3 {
+    color: #16aa9d;
+  }
 }
 
+.panel {
+  padding: 10px;
+  background-color: #F1F1F1;
+
+  .media-body {
+
+    .event-time {
+      text-align: right;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.panel-activism {
+  background-color: #D5C6E0;
+}
+
+.panel-entrepreneurship {
+  background-color: #A3CAEF;
+}
+
+.panel-community {
+  background-color: #ACDBA9;
+}
+
+.panel-art-music-culture {
+  background-color: #EAC092;
+}
 
 /* small screens like phones */
 @media (max-width: 647px) {
