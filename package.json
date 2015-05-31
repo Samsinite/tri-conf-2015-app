@@ -39,6 +39,7 @@
     "ember-export-application-global": "^1.0.2",
     "ember-localforage-adapter": "0.7.1",
     "ember-moment": "1.1.1",
+    "emberfire": "1.4.5",
     "emberx-select": "1.1.2"
   }
 }
