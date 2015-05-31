@@ -1,22 +1,73 @@
-<div id="scheduler">
-  <div class="dynamic-column">
-    {{#calendar-month selectedDay=selectedDay on-day-selected="daySelected" as |day|}}
-      <div class="day-title">
-        {{#if day}}
-          {{moment day 'D'}}
-        {{/if}}
+<h3>Tri-Conf Events</h3>
+<div class="col-md-6">
+  <div class="panel panel-community">
+    <div class="media">
+      <div class="media-body">
+        <div class="row">
+          <div class="col-md-9"><h4 class="media-heading">Fitness Demonstration</h4></div>
+          <div class="col-md-3"><h4 class="media-heading event-time ">Saturday</h4></div>
+        </div>
+        <div class="row">
+          <div class="col-md-9"><p>Speaker: Suzy Awesomesauce</p>
+            <p>Track: Community</p>
+            <p>Location: John Day Park, Stage</p></div>
+          <div class="col-md-3"><h4 class="media-heading event-time ">2:00 PM</h4></div>
+        </div>
       </div>
-      {{#timespan-events start=day end=day as |event|}}
-        <div class="event">{{event.title}}</div>
-      {{/timespan-events}}
-    {{/calendar-month}}
-  </div><!--
---><div class="dynamic-column">
-    {{#calendar-events start=selectedDay end=selectedDay on-select="eventSelected" on-add="addEvent" as |event|}}
-      <div class="event-title">{{event.title}}</div>
-      <div class="event-time">{{event.dateTime}}</div>
-      <div class="event-details">{{event.details}}</div>
-      <a class="right-action" {{action "destroyEvent" event}}><i class="fa fa-times"></i></a>
-    {{/calendar-events}}
+    </div>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="panel panel-art-music-culture">
+    <div class="media">
+      <div class="media-body">
+        <div class="row">
+          <div class="col-md-9"><h4 class="media-heading">Elements of Art</h4></div>
+          <div class="col-md-3"><h4 class="media-heading event-time ">Saturday</h4></div>
+        </div>
+        <div class="row">
+          <div class="col-md-9"><p>Speaker: Jose Awesomesauce</p>
+            <p>Track: Art Music Culture</p>
+            <p>Location: Richland Public Library, Room A</p></div>
+          <div class="col-md-3"><h4 class="media-heading event-time ">3:00 PM</h4></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="panel panel-activism">
+    <div class="media">
+      <div class="media-body">
+        <div class="row">
+          <div class="col-md-9"><h4 class="media-heading">Domestic Violence Solutions</h4></div>
+          <div class="col-md-3"><h4 class="media-heading event-time ">Saturday</h4></div>
+        </div>
+        <div class="row">
+          <div class="col-md-9"><p>Speaker: Erinn Awesomesauce</p>
+            <p>Track: Activism</p>
+            <p>Location: Community Center, Large Room</p></div>
+          <div class="col-md-3"><h4 class="media-heading event-time ">5:00 PM</h4></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="panel panel-entrepreneurship">
+    <div class="media">
+      <div class="media-body">
+        <div class="row">
+          <div class="col-md-9"><h4 class="media-heading">Fusing Great Ideas</h4></div>
+          <div class="col-md-3"><h4 class="media-heading event-time ">Saturday</h4></div>
+        </div>
+        <div class="row">
+          <div class="col-md-9"><p>Speaker: Buster Awesomesauce</p>
+            <p>Track: Entrepreneurship</p>
+            <p>Location: Richland Public Library, Room A</p></div>
+          <div class="col-md-3"><h4 class="media-heading event-time ">2:00 PM</h4></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
