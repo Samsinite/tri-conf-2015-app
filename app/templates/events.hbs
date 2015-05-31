@@ -1,1 +1,21 @@
-{{outlet}}
+<h3>Tri-Conf Events</h3>
+{{#each event in model}}
+<div class="col-md-6">
+  <div {{bind-attr class=':panel event.track.style'}}>
+    <div class="media">
+      <div class="media-body">
+        <div class="row">
+          <div class="col-md-9"><h4 class="media-heading">{{event.title}}</h4></div>
+          <div class="col-md-3"><h4 class="media-heading event-time ">{{event.day}}</h4></div>
+        </div>
+        <div class="row">
+          <div class="col-md-9"><p>Speaker: {{event.speaker}}</p>
+            <p>Track: {{event.track.name}}</p>
+            <p>Location: {{event.location.name}}</p></div>
+          <div class="col-md-3"><h4 class="media-heading event-time ">{{event.time}}</h4></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
