@@ -33,8 +33,8 @@ a {
 
 
   img {
-    margin: 2px 0 0 25px;
     padding: 4px;
+    margin: 2px 0 0 25px;
     height: 38px;
   }
 }
@@ -126,12 +126,29 @@ a {
 
     .event-time {
       text-align: right;
+
+      p {
+        text-align: center;
+        font-size: 12px;
+        font-weight: 700;
+      }
     }
 
     p {
+      font-size: 12px;
       margin: 0;
+
+      label {
+        font-weight: 700;
+      }
     }
+
+
   }
+}
+
+.filter {
+  padding-top: 15px;
 }
 
 .tech {
@@ -198,13 +215,22 @@ a {
 }
 
 
-
-
-
-
-
 /* small screens like phones */
 @media (max-width: 647px) {
+
+#top-nav {
+  text-align: center;
+
+  img {
+    padding: 4px;
+    height: 38px;
+  }
+}
+
+}
+
+.filter {
+  padding-top: 50px;
 }
 
 @import 'calendar-month-component';

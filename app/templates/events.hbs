@@ -1,18 +1,26 @@
-<h3>Tri-Conf Events</h3>
+
+<div class="panel container-fluid filter">
+  <form role="search">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search">
+    </div>
+  </form>
+
+</div>
+
 {{#each event in model}}
 <div class="col-md-6">
   <div {{bind-attr class=':panel event.track.style'}}>
+    <div class="panel-heading">
+      <h2 class="panel-title">{{event.title}}</h2>
+    </div>
     <div class="media">
       <div class="media-body">
         <div class="row">
-          <div class="col-md-9"><h4 class="media-heading">{{event.title}}</h4></div>
-          <div class="col-md-3"><h4 class="media-heading event-time ">{{event.day}}</h4></div>
-        </div>
-        <div class="row">
-          <div class="col-md-9"><p>Speaker: {{event.speaker}}</p>
-            <p>Track: {{event.track.name}}</p>
-            <p>Location: {{event.location.name}}</p></div>
-          <div class="col-md-3"><h4 class="media-heading event-time ">{{event.time}}</h4></div>
+          <div class="col-xs-9"><p><label>Speaker:</label> {{event.speaker}}</p>
+            <p><label>Track:</label> {{event.track.name}}</p>
+            <p><label>Location:</label> {{event.location.name}}</p></div>
+          <div class="col-xs-3 event-time"><p>{{event.time}}</p><p>{{event.day}}</p></div>
         </div>
       </div>
     </div>
