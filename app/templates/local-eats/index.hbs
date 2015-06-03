@@ -1,11 +1,4 @@
-<div class="panel container-fluid filter">
-  <form role="search">
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Search">
-    </div>
-  </form>
-</div>
-
+<div class="add-new"><button {{action 'openModal' 'local-eats/new'}}><i class="fa fa-plus-square icon"></i> Add A New Panel</button></div>
 {{#each restaurant in model}}
   {{#link-to 'check-in'}}
     <div class="col-md-6">
@@ -27,3 +20,4 @@
     </div>
   {{/link-to}}
 {{/each}}
+{{outlet 'modal'}}
