@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'ember-fit-bit',
+    modulePrefix: 'tri-conf-app',
     environment: environment,
     contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
     firebase: 'https://blistering-inferno-3979.firebaseio.com/',
