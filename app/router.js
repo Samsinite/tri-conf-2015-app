@@ -7,7 +7,12 @@ var Router = Ember.Router.extend({
 
 export default Router.map(function() {
   this.route('events', { path: '/' });
-  this.route('local-food');
+
+  this.route('local-eats', function() {
+    this.route('index');
+    this.route('local-eats-check-in')
+  });
+
   this.route('check-in');
   this.route('stop-watch');
 
