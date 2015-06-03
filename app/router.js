@@ -6,7 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 export default Router.map(function() {
-  this.route('scheduler', { path: '/' });
+  this.route('events', { path: '/' });
+  this.route('local-food');
+  this.route('check-in');
   this.route('stop-watch');
 
   this.route('workout-builder', function() {
@@ -19,9 +21,10 @@ export default Router.map(function() {
     // Edit Workout (by workout id)
     this.route('edit', { path: ':workout_id/edit' });
   });
-
+/*
   this.route('events', function() {
     this.route('edit', { path: ':event_id/edit' });
     this.route('new');
   });
+*/
 });

@@ -4,6 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ember-fit-bit',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    firebase: 'https://blistering-inferno-3979.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
