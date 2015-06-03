@@ -5,20 +5,21 @@
     </div>
   </form>
 </div>
-{{#each event in model}}
+
+{{#each restaurant in model}}
   {{#link-to 'check-in'}}
     <div class="col-md-6">
-      <div {{bind-attr class=':panel event.track.style'}}>
+      <div class="panel triConf">
         <div class="panel-heading">
-          <h2 class="panel-title">{{event.title}}</h2>
+          <h2 class="panel-title">{{restaurant.name}}</h2>
         </div>
         <div class="media">
           <div class="media-body">
             <div class="row">
-              <div class="col-xs-9"><p><label>Speaker:</label> {{event.speaker}}</p>
-                <p><label>Track:</label> {{event.track.name}}</p>
-                <p><label>Location:</label> {{event.location.name}}</p></div>
-              <div class="col-xs-3 event-time"><p>{{event.time}}</p><p>{{event.day}}</p></div>
+              <div class="col-xs-9">
+                <p><label>Cuisine:</label> {{restaurant.type}}</p>
+                <p><label>Location:</label> {{restaurant.location}}</p></div>
+              <div class="col-xs-3 event-time"><p>{{restaurant.hours}}</p></div>
             </div>
           </div>
         </div>

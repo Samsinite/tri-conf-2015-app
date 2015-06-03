@@ -39,6 +39,25 @@ a {
   }
 }
 
+#check-in {
+  padding-top: 30px;
+}
+
+.btn-check-in {
+  background-color: #17AA9D;
+  color: #ffffff;
+
+  &:hover {
+    color: #ffffff;
+  }
+
+  &:active {
+    color: #ffffff;
+  }
+}
+
+
+
 #side-nav {
   position: fixed;
   top: 32px;
@@ -108,9 +127,17 @@ a {
   }
 }
 
+.filter {
+  padding-top: 15px;
+}
+
 .media {
   margin-top: 0px;
   padding: 5px;
+}
+
+.full-width {
+  width: 100%;
 }
 
 .panel {
@@ -125,30 +152,26 @@ a {
   .media-body {
 
     .event-time {
-      text-align: right;
 
-      p {
-        text-align: center;
-        font-size: 12px;
+      a, p {
+        color: #000000;
+        text-align: right;
+        font-size: 14px;
         font-weight: 700;
       }
+
     }
 
-    p {
-      font-size: 12px;
+    a, p {
+      color: #000000;
+      font-size: 14px;
       margin: 0;
 
       label {
         font-weight: 700;
       }
     }
-
-
   }
-}
-
-.filter {
-  padding-top: 15px;
 }
 
 .tech {
@@ -214,24 +237,46 @@ a {
   }
 }
 
-
 /* small screens like phones */
 @media (max-width: 647px) {
 
 #top-nav {
   text-align: center;
+  margin-left: -20px;
 
   img {
-    padding: 4px;
+    padding-top: 4px;
     height: 38px;
   }
-}
-
 }
 
 .filter {
   padding-top: 50px;
 }
+
+.panel {
+
+    .media-body {
+
+      .event-time {
+
+        p {
+          font-size: 12px;
+        }
+      }
+
+      p {
+        font-size: 12px;
+      }
+    }
+}
+
+}
+
+
+
+
+
 
 @import 'calendar-month-component';
 @import 'timespan-events-component';

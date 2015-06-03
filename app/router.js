@@ -7,6 +7,8 @@ var Router = Ember.Router.extend({
 
 export default Router.map(function() {
   this.route('events', { path: '/' });
+  this.route('local-food');
+  this.route('check-in');
   this.route('stop-watch');
 
   this.route('workout-builder', function() {
