@@ -14,7 +14,7 @@ export default Router.map(function() {
   });
 
   this.route('check-in');
-  this.route('stop-watch');
+  this.route('leaderboard');
 
   this.route('workout-builder', function() {
     // Workout List View
