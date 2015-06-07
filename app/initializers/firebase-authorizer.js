@@ -2,7 +2,6 @@
 import Ember from "ember";
 import config from '../config/environment';
 import Firebase from 'firebase';
-import Promise from 'promise';
 
 export default {
   name: "Session",
@@ -41,7 +40,7 @@ export default {
       }.on("init"),
 
       login: function(provider) {
-        return new Promise((resolve, reject) => {
+        return new Ember.RSVP.Promise((resolve, reject) => {
           this.get("ref").authWithOAuthPopup(provider, function(error, user) {
             if (user) {
               resolve(user);
