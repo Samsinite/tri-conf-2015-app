@@ -1,6 +1,8 @@
 
 import Ember from "ember";
-import config from '../config/environment'
+import config from '../config/environment';
+import Firebase from 'firebase';
+import Promise from 'promise';
 
 export default {
   name: "Session",
@@ -24,13 +26,13 @@ export default {
               var displayName = authData[authData.provider].displayName;
               user.set('displayName', displayName);
               session.set('user', user);
-            }, function(reason){
+            }, function(){
               store.unloadRecord(store.recordForId('user', authData.auth.uid));
               var displayName = authData[authData.provider].displayName;
               var user = store.createRecord('user', {id: authData.auth.uid, points: 0, displayName: displayName});
               user.save();
               session.set('user', user);
-            })
+            });
           } else {
             session.set("isAuthenticated", false);
             session.set("provider", null);
