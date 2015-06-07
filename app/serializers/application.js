@@ -1,4 +1,4 @@
-import LFSerializer from 'ember-localforage-adapter/serializers/localforage';
+// app/serializers/application.js
+import FirebaseSerializer from 'emberfire/serializers/firebase';
 
-export default LFSerializer.extend({
-});
+export default FirebaseSerializer.extend();
