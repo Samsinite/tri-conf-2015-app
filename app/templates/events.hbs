@@ -1,4 +1,7 @@
 <h3>Tri-Conf Events</h3>
+{{#if session.user.isAdmin}}
+<button class="btn btn-primary"><i class="fa fa-plus icon"></i></button>
+{{/if}}
 {{#each event in model}}
 <div class="col-md-6">
   <div {{bind-attr class=':panel event.track.style'}}>
