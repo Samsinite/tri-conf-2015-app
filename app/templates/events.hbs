@@ -9,14 +9,12 @@
     </div>
     <div class="col-lg-8 col-med-8 col-sm-8">
       <ul class="nav nav-tabs nav-pills">
-        <li class="pill-triconf"><a href="#">All</a></li>
-        <li class="pill-tech"><a href="#">Tech</a></li>
-        <li class="pill-entrepreneurship"><a href="#">Entrepreneurship</a></li>
-        <li class="pill-art-and-design"><a href="#">Art/Design</a></li>
-        <li class="pill-music"><a href="#">Music</a></li>
-        <li class="pill-culture"><a href="#">Culture</a></li>
-        <li class="pill-food"><a href="#">Food</a></li>
-        <li class="pill-activism"><a href="#">Activism</a></li>
+        <li class="pill-triconf"><a href="#" {{action 'filterAll'}}>All</a></li>
+        <li class="pill-music"><a href="#" {{action 'filterCulture'}}>Culture/Arts/Music</a></li>
+        <li class="pill-activism"><a href="#"{{action 'filterCommunity'}}>Community/Issues/Sustainability</a></li>
+        <li class="pill-tech"><a href="#" {{action 'filterTechnology'}}>Tech</a></li>
+        <li class="pill-art-and-design"><a href="#"{{action 'filterDesign'}}>Design/Communication</a></li>
+        <li class="pill-entrepreneurship" {{action 'filterEntrepreneurship'}}><a href="#">Entrepreneurship</a></li>
       </ul>
     </div>
   </div>
@@ -24,7 +22,7 @@
 {{#each event in model}}
   {{#link-to 'check-in'}}
     <div class="col-md-6">
-      <div {{bind-attr class=':panel event.track.style'}}>
+      <div {{bind-attr class=':panel event.track.style :event'}}>
         <div class="panel-heading">
           <h2 class="panel-title">{{event.title}}</h2>
         </div>
