@@ -11,4 +11,17 @@
 </nav>
 <div id="application-container">
   {{outlet}}
+<nav id="top-menu">
+  <ul>
+  	<li><a {{action 'loadRoot'}}><i class="fa fa-flag icon"></i> Event List</a></li>
+    <li><a {{action 'loadLocalEats'}}><i class="fa fa-cutlery icon"></i> Local Eats</a></li>
+    <li><a {{action 'loadLeaderboards'}}><i class="fa fa-users icon"></i> Leader Boards</a></li>
+    <li><a {{action 'loadAchievements'}}><i class="fa fa-trophy icon"></i> Achievements</a></li>
+  </ul>
+  {{#if isExpanded}}
+  <p><a {{action 'closeMenu'}} class="menu-button">Menu</a></p>
+  {{else}}
+  <p><a {{action 'openMenu'}} class="menu-button">Menu</a></p>
+  {{/if}}
+</nav>
 </div>
