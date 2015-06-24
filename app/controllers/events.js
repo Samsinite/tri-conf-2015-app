@@ -3,6 +3,7 @@ import { createSortableArray } from '../models/sortable-array';
 
 export default Ember.Controller.extend({
   selectedTrack: "all",
+
   filterTracks: function() {
     var trackName = this.get('selectedTrack');
     this.model.tracks.forEach(function(track){
@@ -13,6 +14,7 @@ export default Ember.Controller.extend({
       }
     });
   }.observes('selectedTrack'),
+
   allTracksHidden: function() {
     return this.get('selectedTrack') !== "all";
   }.property('selectedTrack'),
