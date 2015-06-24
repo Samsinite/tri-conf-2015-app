@@ -11,7 +11,7 @@
 </nav>
 <div id="application-container">
   {{outlet}}
-<nav id="top-menu" {{bind-attr class='isExpanded:lowered:raised'}}>
+<nav id="top-menu" class="{{if isExpanded 'lowered' 'raised'}}">
   <ul>
     <li><a {{action 'menuLoad' 'events'}}><i class="fa fa-flag icon"></i> Event List</a></li>
     <li><a {{action 'menuLoad' 'local-eats'}}><i class="fa fa-cutlery icon"></i> Local Eats</a></li>
