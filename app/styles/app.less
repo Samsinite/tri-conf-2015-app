@@ -175,10 +175,18 @@ a {
   }
 }
 
+.event.disabled {
+  display: none;
+}
+
+
 .tech {
   background-color: #DEE1F1;
   .panel-heading {
     background-color: #5C75B9;
+  }
+  &.technologyHidden {
+    display: none;
   }
 }
 
@@ -194,12 +202,18 @@ a {
   .panel-heading {
     background-color: #ecc617;
   }
+  &.entrepreneurshipHidden {
+    display: none;
+  }
 }
 
 .art-and-design {
   background-color: #FFE3B3;
   .panel-heading {
     background-color: #ED9C28;
+  }
+  &.cultureHidden {
+    display: none;
   }
 }
 
@@ -228,6 +242,9 @@ a {
   background-color: #FBC6B6;
   .panel-heading {
     background-color: #DD5D4A;
+  }
+  &.communityHidden {
+    display: none;
   }
 }
 
@@ -284,6 +301,77 @@ a {
   li.pill-activism > a {
     background-color: #B65FA5;
   }
+
+  li.disabled > a {
+    background-color: #ddd;
+  }
+}
+
+#top-menu {
+   display: none;
+}
+
+#top-menu {
+  background-color: #72BEB6;
+  color: white;
+  position: absolute;
+  left: -8px;
+  width: 105%;
+  top: -90px;
+  -webkit-transition: .3s ease-out;
+  -moz-transition: .3s ease-out;
+  -o-transition: .3s ease-out;
+  transition: .3s ease-out;
+
+  a {
+    color: white;
+    &:hover {
+      text-decoration: none;
+    }
+    &.menu-button {
+      margin-left: 1.2em;
+      padding-bottom: .8em;
+      display: block;
+      padding-top: 12px;
+    }
+  }
+  i {
+    width: 1em;
+  }
+  ul {
+    padding-top: 24px;
+    list-style-type: none;
+    padding-left: 1.2em;
+    margin-bottom: 0;
+  }
+  li {
+    font-size: 1.2em;
+    line-height: 1.2em;
+    margin-bottom: .5em;
+  }
+  &.raised {
+    top: -90px;
+  }
+  &.lowered {
+    top: 40px;
+  }
+}
+
+/* 800px and smaller (tablets, phones, etc) */
+
+@media (max-width: 800px) {
+  #side-nav {
+    display: none;
+  }
+
+  #top-menu {
+    display: block;
+  }
+
+  #application-container {
+    margin-left: 0;
+    padding-top: 6em;
+  }
 }
 
 /* small screens like phones */
@@ -297,10 +385,6 @@ a {
     padding-top: 4px;
     height: 38px;
   }
-}
-
-.filter {
-  padding-top: 50px;
 }
 
 .panel {
