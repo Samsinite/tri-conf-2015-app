@@ -10,18 +10,16 @@
     <div class="col-lg-8 col-med-8 col-sm-8">
       <ul class="nav nav-tabs nav-pills">
         <li class="pill-triconf"><a href="#">All</a></li>
-        <li class="pill-tech"><a href="#">Tech</a></li>
-        <li class="pill-entrepreneurship"><a href="#">Entrepreneurship</a></li>
-        <li class="pill-art-and-design"><a href="#">Art/Design</a></li>
-        <li class="pill-music"><a href="#">Music</a></li>
-        <li class="pill-culture"><a href="#">Culture</a></li>
-        <li class="pill-food"><a href="#">Food</a></li>
-        <li class="pill-activism"><a href="#">Activism</a></li>
+        {{#each model.tracks as |track|}}
+        <li {{bind-attr class="track.style"}}>
+          {{track.name}}
+        </li>
+        {{/each}}
       </ul>
     </div>
   </div>
 </div>
-{{#each event in model}}
+{{#each model.events as |event|}}
   {{#link-to 'check-in'}}
     <div class="col-md-6">
       <div {{bind-attr class=':panel event.track.style'}}>
