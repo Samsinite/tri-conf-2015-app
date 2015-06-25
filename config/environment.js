@@ -4,7 +4,15 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ember-fit-bit',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' wss://*.firebaseio.com" },
+    contentSecurityPolicy: {
+  'default-src': "'none'",
+  'script-src': "'self'",
+  'font-src': "'self' *",
+  'connect-src': "'self' *",
+  'img-src': "'self'",
+  'style-src': "'self' *",
+  'media-src': "'self'"
+},
     firebase: 'https://blistering-inferno-3979.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
