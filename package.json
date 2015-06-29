@@ -1,7 +1,7 @@
 {
-  "name": "ember-fit-bit",
+  "name": "tri-conf-app",
   "version": "0.0.0",
-  "description": "Small description for ember-fit-bit goes here",
+  "description": "Small description for tri-conf-app goes here",
   "private": true,
   "directories": {
     "doc": "doc",

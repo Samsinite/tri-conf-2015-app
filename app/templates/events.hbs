@@ -9,10 +9,10 @@
     </div>
     <div class="col-lg-8 col-med-8 col-sm-8">
       <ul class="nav nav-tabs nav-pills">
-        <li class="pill-triconf"><a href="#">All</a></li>
+        <li class="pill-triconf"><a href="#" {{action 'filter' 'all'}}>All</a></li>
         {{#each model.tracks as |track|}}
-        <li {{bind-attr class="track.style"}}>
-          {{track.name}}
+        <li class="pill-{{track.style}} {{if track.isHidden 'disabled'}}">
+          <a href="#" {{action 'filter' track.name}}>{{track.name}}</a>
         </li>
         {{/each}}
       </ul>
@@ -22,7 +22,7 @@
 {{#each model.events as |event|}}
   {{#link-to 'check-in'}}
     <div class="col-md-6">
-      <div {{bind-attr class=':panel event.track.style'}}>
+      <div class="panel event {{event.track.style}} {{if event.track.isHidden 'disabled'}}">
         <div class="panel-heading">
           <h2 class="panel-title">{{event.title}}</h2>
         </div>

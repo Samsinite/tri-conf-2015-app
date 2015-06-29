@@ -2,12 +2,12 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'ember-fit-bit',
+    modulePrefix: 'tri-conf-app',
     environment: environment,
       contentSecurityPolicy: {
     'default-src': "'none'",
     'script-src': "'self'",
-    'font-src': "'self'",
+    'font-src': "'self' *",
     'connect-src': "'self' *",
     'img-src': "'self'",
     'style-src': "'self' *",
