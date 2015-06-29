@@ -2,6 +2,15 @@
   <img src="images/TriConf-logo.png" />
 </nav>
 <nav id="side-nav">
+{{#if session.isAuthenticated}}
+admin? {{session.user.isAdmin}}
+{{session.user.displayName}}
+Points: {{session.user.points}}
+<button class="btn btn-primary" {{action 'logout'}}><i class="fa fa-{{session.provider}} icon"></i> Logout</button>
+{{else}}
+<button class="btn btn-primary" {{action 'login' 'twitter'}}><i class="fa fa-twitter icon"></i> Login</button>
+<button class="btn btn-primary" {{action 'login' 'facebook'}}><i class="fa fa-facebook icon"></i> Login</button>
+{{/if}}
   <ul>
     <li>{{#link-to 'events'}}<i class="fa fa-flag icon"></i>Event List{{/link-to}}</li>
     <li>{{#link-to 'local-eats'}}<i class="fa fa-cutlery icon"></i>Local Eats{{/link-to}}</li>

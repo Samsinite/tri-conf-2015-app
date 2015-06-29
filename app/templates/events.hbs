@@ -19,6 +19,9 @@
     </div>
   </div>
 </div>
+{{#if session.user.isAdmin}}
+<button class="btn btn-primary"><i class="fa fa-plus icon"></i></button>
+{{/if}}
 {{#each event in model}}
   {{#link-to 'check-in'}}
     <div class="col-md-6">
