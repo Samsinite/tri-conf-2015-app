@@ -13,7 +13,6 @@ export default Router.map(function() {
     this.route('local-eats-check-in')
   });
 
-  this.route('check-in');
   this.route('leaderboard');
 
   this.route('workout-builder', function() {

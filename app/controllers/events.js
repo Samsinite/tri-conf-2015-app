@@ -29,6 +29,9 @@ export default Ember.Controller.extend({
 		},
 		filterTechnology : function() {
 			this.set('isTechnologyEventsHidden', !this.get('isTechnologyEventsHidden'));
-		}
+		},
+    checkIn : function(event){
+      event.toggleProperty('checkedIn');
+    }
 	}
 });
