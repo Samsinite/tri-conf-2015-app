@@ -1,4 +1,5 @@
 .leaderboard {
+	
 	margin-bottom: 1em;
 	background-color: #b0b2ff;
 	padding: 0 .8em;
@@ -8,10 +9,14 @@
 		&:nth-child(even) {
 			background-color: #cdceff;
 		}
+		&:last-child {
+			.border-radiuses(0, 4px, 4px, 0);
+		}
 	}
 	.heading {
 		padding-top: .8em;
 		background-color: #8a8df0;
+		.border-radiuses(4px, 0, 0, 4px);
 	}
 	.score {
 		float: right;
