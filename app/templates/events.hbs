@@ -9,7 +9,7 @@
     </div>
     <div class="col-lg-8 col-med-8 col-sm-8">
       <ul class="nav nav-tabs nav-pills">
-        <li class="pill-triconf"><a href="#" {{action 'filter' 'all'}}>All</a></li>
+        <li class="pill-triconf {{if allTracksHidden 'disabled'}}"><a href="#" {{action 'filter' 'all'}}>All</a></li>
         {{#each model.tracks as |track|}}
         <li class="pill-{{track.style}} {{if track.isHidden 'disabled'}}">
           <a href="#" {{action 'filter' track.name}}>{{track.name}}</a>
@@ -20,26 +20,16 @@
   </div>
 </div>
 {{#if session.user.isAdmin}}
-<button class="btn btn-primary"><i class="fa fa-plus icon"></i></button>
+<button class="btn btn-primary" {{action 'createEvent'}}><i class="fa fa-plus icon"></i></button>
 {{/if}}
 {{#each model.events as |event|}}
-  {{#link-to 'check-in'}}
-    <div class="col-md-6">
-      <div class="panel event {{event.track.style}} {{if event.track.isHidden 'disabled'}}">
-        <div class="panel-heading">
-          <h2 class="panel-title">{{event.title}}</h2>
-        </div>
-        <div class="media">
-          <div class="media-body">
-            <div class="row">
-              <div class="col-xs-9"><p><label>Speaker:</label> {{event.speaker}}</p>
-                <p><label>Track:</label> {{event.track.name}}</p>
-                <p><label>Location:</label> {{event.location.name}}</p></div>
-              <div class="col-xs-3 event-time"><p>{{event.time}}</p><p>{{event.day}}</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  {{/link-to}}
+  {{#unless event.track.isHidden}}
+    {{event-component
+        event=event
+        onEdit="editEvent"
+        onRemove="removeEvent"
+        onSave="saveEvent"
+        tracks=model.tracks
+        locations=model.locations}}
+  {{/unless}}
 {{/each}}

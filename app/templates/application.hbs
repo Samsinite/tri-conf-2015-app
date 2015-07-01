@@ -3,9 +3,6 @@
 </nav>
 <nav id="side-nav">
 {{#if session.isAuthenticated}}
-admin? {{session.user.isAdmin}}
-{{session.user.displayName}}
-Points: {{session.user.points}}
 <button class="btn btn-primary" {{action 'logout'}}><i class="fa fa-{{session.provider}} icon"></i> Logout</button>
 {{else}}
 <button class="btn btn-primary" {{action 'login' 'twitter'}}><i class="fa fa-twitter icon"></i> Login</button>

@@ -2,10 +2,10 @@
 <label class="{{if srOnly 'sr-only' ''}}" for="{{inputId}}">{{label}}</label>
 {{/if}}
 {{#if isEditing}}
-{{input value=value
-  placeholder=placeholder
-  elementId=inputId
-  classNames="form-control"}}
+{{ember-selectize selection=selection
+    content=content
+    optionLabelPath=optionLabelPath
+    optionValuePath=optionValuePath}}
 {{else}}
   {{value}}
 {{/if}}
