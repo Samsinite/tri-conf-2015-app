@@ -10,7 +10,7 @@ export default Router.map(function() {
 
   this.route('local-eats', function() {
     this.route('index');
-    this.route('local-eats-check-in')
+    this.route('local-eats-check-in');
   });
 
   this.route('leaderboard');
@@ -25,10 +25,4 @@ export default Router.map(function() {
     // Edit Workout (by workout id)
     this.route('edit', { path: ':workout_id/edit' });
   });
-  /*
-    this.route('events', function() {
-      this.route('edit', { path: ':event_id/edit' });
-      this.route('new');
-    });
-  */;
 });

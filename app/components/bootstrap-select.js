@@ -7,10 +7,9 @@ function generateUUID() {
 }
 
 export default Ember.Component.extend({
-  classNames: ['form-group', 'bootstrap-input-component'],
-  isEditing: false,
+  classNames: ['form-group', 'bootstrap-select-component'],
 
   inputId: Ember.computed(function() {
-    return `bootstrap-input-${generateUUID()}`;
+    return `bootstrap-select-${generateUUID()}`;
   })
 });

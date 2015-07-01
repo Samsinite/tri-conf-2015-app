@@ -53,6 +53,7 @@ export default {
 
       logout: function() {
         this.get("ref").unauth();
+        this.set("user", null);
       },
 
       auth: function() {

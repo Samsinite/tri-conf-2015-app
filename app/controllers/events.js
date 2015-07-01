@@ -1,37 +1,50 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	isAllEventsHidden : false,
-	isCultureEventsHidden : false,
-	isCommunityEventsHidden : false,
-	isDesignEventsHidden : false,
-	isEntrepreneurshipEventsHidden : false,
-	isTechnologyEventsHidden : false,
-	eventType : function() {
-		console.log(true);
-		return true;
-	},
+  editingEvent: null,
+  allTracksHidden: false,
 	actions : {
-		filterAll : function(){
-			this.set('isAllEventsHidden', !this.get('isAllEventsHidden'));
-		},
-		filterCulture : function(){
-			this.set('isCultureEventsHidden', !this.get('isCultureEventsHidden'));
-		},
-		filterCommunity : function(){
-			this.set('isCommunityEventsHidden', !this.get('isCommunityEventsHidden'));
-		},
-		filterDesign : function(){
-			this.set('isDesignEventsHidden', !this.get('isDesignEventsHidden'));
-		},
-		filterEntrepreneurship : function() {
-			this.set('isEntrepreneurshipEventsHidden', !this.get('isEntrepreneurshipEventsHidden'));
-		},
-		filterTechnology : function() {
-			this.set('isTechnologyEventsHidden', !this.get('isTechnologyEventsHidden'));
-		},
     checkIn : function(event){
       event.toggleProperty('checkedIn');
+    },
+    editEvent: function(event){
+      if(this.editingEvent){
+        this.editingEvent.set('isEditing', false);
+      }
+      event.set('isEditing', true);
+      this.editingEvent = event;
+    },
+    removeEvent: function(event){
+      if(this.editingEvent === event) {
+        this.editingEvent = null;
+      }
+      event.destroyRecord();
+    },
+    createEvent: function() {
+      if(this.editingEvent) {
+        this.editEvent.set('isEditing', false);
+      }
+      this.editingEvent = this.store.createRecord('event');
+      this.editingEvent.set('isEditing', true);
+    },
+    saveEvent: function(event) {
+      event.save();
+      event.set('isEditing', false);
+      this.editingEvent = null;
+    },
+    filter: function(trackName) {
+      if(trackName === "all") {
+        this.set('allTracksHidden', false);
+      } else {
+        this.set('allTracksHidden', true);
+      }
+      this.model.tracks.forEach(function(track){
+        if(track.get('name') === trackName || trackName === "all"){
+          track.set('isHidden', false);
+        } else {
+          track.set('isHidden', true);
+        }
+      });
     }
 	}
 });

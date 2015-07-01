@@ -9,44 +9,28 @@
     </div>
     <div class="col-lg-8 col-med-8 col-sm-8">
       <ul class="nav nav-tabs nav-pills">
-        <li class="pill-triconf {{if isAllEventsHidden 'disabled'}}"><a href="#" {{action 'filterAll'}}>All</a></li>
-        <li class="pill-music {{if isCultureEventsHidden 'disabled'}}"><a href="#" {{action 'filterCulture'}}>Culture/Arts/Music</a></li>
-        <li class="pill-activism {{if isCommunityEventsHidden 'disabled'}}"><a href="#"{{action 'filterCommunity'}}>Community/Issues/Sustainability</a></li>
-        <li class="pill-tech {{if isTechnologyEventsHidden 'disabled'}}"><a href="#" {{action 'filterTechnology'}}>Tech</a></li>
-        <li class="pill-art-and-design {{if isDesignEventsHidden 'disabled'}}"><a href="#"{{action 'filterDesign'}}>Design/Communication</a></li>
-        <li class="pill-entrepreneurship {{if isEntrepreneurshipEventsHidden 'disabled'}}" {{action 'filterEntrepreneurship'}}><a href="#">Entrepreneurship</a></li>
+        <li class="pill-triconf {{if allTracksHidden 'disabled'}}"><a href="#" {{action 'filter' 'all'}}>All</a></li>
+        {{#each model.tracks as |track|}}
+        <li class="pill-{{track.style}} {{if track.isHidden 'disabled'}}">
+          <a href="#" {{action 'filter' track.name}}>{{track.name}}</a>
+        </li>
+        {{/each}}
       </ul>
     </div>
   </div>
 </div>
 {{#if session.user.isAdmin}}
-<button class="btn btn-primary"><i class="fa fa-plus icon"></i></button>
+<button class="btn btn-primary" {{action 'createEvent'}}><i class="fa fa-plus icon"></i></button>
 {{/if}}
-{{#each event in model}}
-    <div class="col-md-6">
-      <div class="panel event {{event.track.style}} {{if isAllEventsHidden 'disabled'}} {{if isCultureEventsHidden 'cultureHidden'}} {{if isCommunityEventsHidden 'communityHidden'}} {{if isTechnologyEventsHidden 'technologyHidden'}} {{if isDesignEventsHidden 'designHidden'}} {{if isEntrepreneurshipEventsHidden 'entrepreneurshipHidden'}}">
-        <div class="panel-heading">
-          <h2 class="panel-title">{{event.title}}</h2>
-        </div>
-        <div class="media">
-          <div class="media-body">
-            <div class="row">
-              <div class="col-xs-7">
-                <p><label>Time/Day:</label> {{event.time}} / {{event.day}}</p>
-                <p><label>Speaker:</label> {{event.speaker}}</p>
-                <p><label>Track:</label> {{event.track.name}}</p>
-                <p><label>Location:</label> {{event.location.name}}</p>
-              </div>
-
-              <div class="col-xs-5 check-in">
-                <div class="well check-in-well" {{action 'checkIn' event}}>
-                <i class="fa fa-{{if event.checkedIn 'check-square' 'square'}}-o"></i>
-                <h4>Did it!</h4>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+{{#each model.events as |event|}}
+  {{#unless event.track.isHidden}}
+    {{event-component
+        event=event
+        onEdit="editEvent"
+        onRemove="removeEvent"
+        onSave="saveEvent"
+        checkIn="checkIn"
+        tracks=model.tracks
+        locations=model.locations}}
+  {{/unless}}
 {{/each}}
