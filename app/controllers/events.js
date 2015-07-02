@@ -14,11 +14,18 @@ export default Ember.Controller.extend({
        event.toggleProperty('checkedIn');
     },
     editEvent: function(event){
-      if(this.editingEvent){
+      if(this.get('editingEvent')) {
         this.editingEvent.set('isEditing', false);
       }
       event.set('isEditing', true);
       this.editingEvent = event;
+    },
+    cancelChange: function(event){
+      event.rollback();
+      if(this.get('editingEvent') === event) {
+        this.set('editingEvent', null);
+      }
+      event.set('isEditing', false);
     },
     removeEvent: function(event){
       if(this.editingEvent === event) {
