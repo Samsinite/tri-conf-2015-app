@@ -6,6 +6,7 @@ export default DS.Model.extend({
   speaker: DS.attr('string'),
   day: DS.attr('string'),
   time: DS.attr('string'),
+  createdAt: DS.attr('date', { defaultValue: function() { return new Date(); } }),
   location: DS.belongsTo('location', {async: true}),
-  attendees: DS.hasMany('user', {async: true})
+  attendees: DS.hasMany('user', {async: true}),
 });

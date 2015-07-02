@@ -22,7 +22,7 @@
 {{#if session.user.isAdmin}}
 <button class="btn btn-primary" {{action 'createEvent'}}><i class="fa fa-plus icon"></i></button>
 {{/if}}
-{{#each model.events as |event|}}
+{{#each sortedEvents as |event|}}
   {{#unless event.track.isHidden}}
     {{event-component
         event=event

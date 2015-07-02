@@ -1,11 +1,17 @@
 import Ember from 'ember';
+import { createSortableArray } from '../models/sortable-array';
 
 export default Ember.Controller.extend({
   editingEvent: null,
   allTracksHidden: false,
+
+  sortedEvents: Ember.computed('model.events', function() {
+    return createSortableArray(this.get('model.events'), ['createdAt'], false);
+  }),
+
 	actions : {
     checkIn : function(event){
-      event.toggleProperty('checkedIn');
+       event.toggleProperty('checkedIn');
     },
     editEvent: function(event){
       if(this.editingEvent){
