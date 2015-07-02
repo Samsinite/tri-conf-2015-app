@@ -38,13 +38,14 @@
                     value=event.location.name
                     isEditing=event.isEditing}}</p>
               </div>
-
+              {{#if session.isAuthenticated}}
               <div class="col-xs-5 check-in">
                 <div class="well check-in-well" {{action 'checkIn' event}}>
                 <i class="fa fa-{{if attended 'check-square' 'square'}}-o"></i>
                 <h4>Did it!</h4>
                 </div>
               </div>
+              {{/if}}
             </div>
           </div>
         </div>
