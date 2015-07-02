@@ -1,10 +1,12 @@
 <form class="form-inline" {{action 'saveEvent' on='submit'}}>
   <div class="col-md-6">
     <div class="panel event {{event.track.style}}">
-        <div class="panel-heading">
+        <div class="panel-heading row">
+          <div class="col-xs-8">
           <h2 class="panel-title">{{bootstrap-input value=event.title isEditing=event.isEditing}}</h2>
+          </div>
           {{#if session.user.isAdmin}}
-          <div class="col-xs-6 edit-panel">
+          <div class="col-xs-4 edit-panel">
             {{#if event.isEditing}}
               <button class="btn btn-primary" type='submit'><i class="fa fa-floppy-o"></i></button>
             {{else}}
@@ -18,7 +20,8 @@
           <div class="media-body">
             <div class="row">
               <div class="col-xs-7">
-                <p><label>Time/Day:</label> {{bootstrap-input value=event.time isEditing=event.isEditing}} / {{bootstrap-input value=event.day isEditing=event.isEditing}}</p>
+                <p><label>Day:</label> {{bootstrap-input value=event.day isEditing=event.isEditing}}</p>
+                <p><label>Time:</label> {{bootstrap-input value=event.time isEditing=event.isEditing}}</p>
                 <p>{{bootstrap-input label="Speaker:" value=event.speaker isEditing=event.isEditing}}</p>
                 <p>{{bootstrap-select
                     label="Track:"
