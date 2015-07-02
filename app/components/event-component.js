@@ -18,11 +18,11 @@ export default Ember.Component.extend({
     saveEvent: function() {
       this.sendAction('onSave', this.get('event'));
     },
-    trackChanged: function(trackName) {
-      this.sendAction('trackChanged', this.get('event'), trackName);
-    },
-    checkIn: function(event) {
+    checkIn: function() {
       this.sendAction('checkIn', this.get('event'));
+    },
+    cancelChange: function() {
+      this.sendAction('onCancel', this.get('event'));
     }
   }
 });
