@@ -11,7 +11,15 @@ export default Ember.Controller.extend({
 
 	actions : {
     checkIn : function(event){
-       event.toggleProperty('checkedIn');
+      var user = this.get('session.user');
+      user.get('attendedEvents').then(function(events) {
+        if(events.indexOf(event) > -1) {
+          events.removeObject(event);
+        } else {
+          events.pushObject(event);
+        }
+        user.save();
+      });
     },
     editEvent: function(event){
       if(this.get('editingEvent')) {
