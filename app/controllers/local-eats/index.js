@@ -8,14 +8,16 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
-    cancelChange: function(Restaurant){
-      Restaurant.rollback();
+    cancelChange: function(restaurant){
+      restaurant.rollback();
     },
-    removeRestaurant: function(Restaurant){
-      Restaurant.destroyRecord();
+    removeRestaurant: function(restaurant){
+      if (window.confirm(`Are you sure you want to delete restaurant ${restaurant.get('title')}? This action cannot be undone.`)) {
+        restaurant.destroyRecord();
+      }
     },
     createRestaurant: function() {
-      this.editingRestaurant = this.store.createRecord('Restaurant');
+      this.editingRestaurant = this.store.createRecord('restaurant');
     },
     saveRestaurant: function(restaurant) {
       restaurant.save();

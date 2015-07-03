@@ -39,7 +39,9 @@ export default Ember.Controller.extend({
       if(this.editingEvent === event) {
         this.editingEvent = null;
       }
-      event.destroyRecord();
+      if (window.confirm(`Are you sure you want to delete event ${event.get('title')}? This action cannot be undone.`)) {
+        event.destroyRecord();
+      }
     },
     createEvent: function() {
       if(this.editingEvent) {
