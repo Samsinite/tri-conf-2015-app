@@ -13,9 +13,11 @@
     "loader.js": "ember-cli/loader.js#3.2.0",
     "qunit": "~1.17.1",
     "bootstrap": "~3.3.2",
-    "ember-cli-moment-shim": "~0.1.0",
+    "ember-cli-moment-shim": "~0.2.0",
     "localforage": "~1.2.1",
     "selectize": "~0.12.1",
-    "firebase": "^2.1.0"
+    "firebase": "^2.1.0",
+    "moment": "~2.10.3",
+    "eonasdan-bootstrap-datetimepicker": "~4.14.30"
   }
 }

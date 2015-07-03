@@ -1,12 +1,10 @@
 <form class="form-inline" {{action 'saveEvent' on='submit'}}>
   <div class="col-md-6">
     <div class="panel event {{event.track.style}}">
-        <div class="panel-heading row">
-          <div class="col-xs-8">
+        <div class="panel-heading">
           <h2 class="panel-title">{{bootstrap-input value=event.title isEditing=event.isEditing}}</h2>
-          </div>
           {{#if session.user.isAdmin}}
-          <div class="col-xs-4 edit-panel">
+          <div class="col-xs-6 edit-panel">
             {{#if event.isEditing}}
               <button class="btn btn-primary" {{action 'cancelChange'}}><i class="fa fa-undo"></i></button>
               <button class="btn btn-primary" type='submit'><i class="fa fa-floppy-o"></i></button>
@@ -21,8 +19,11 @@
           <div class="media-body">
             <div class="row">
               <div class="col-xs-7">
-                <p><label>Day:</label> {{bootstrap-input value=event.day isEditing=event.isEditing}}</p>
-                <p><label>Time:</label> {{bootstrap-input value=event.time isEditing=event.isEditing}}</p>
+                <p><label>Time/Day:</label>
+                {{bootstrap-select-time
+                  date=event.date
+                  isEditing=event.isEditing}}
+                  </p>
                 <p>{{bootstrap-input label="Speaker:" value=event.speaker isEditing=event.isEditing}}</p>
                 <p>{{bootstrap-select
                     label="Track:"
@@ -31,7 +32,8 @@
                     optionValuePath="content.id"
                     optionLabelPath="content.name"
                     value=event.track.name
-                    isEditing=event.isEditing}}</p>
+                    isEditing=event.isEditing
+                    placeholder="Event Track         "}}</p>
                 <p>{{bootstrap-select
                     label="Location:"
                     selection=event.location
@@ -39,7 +41,8 @@
                     optionValuePath="content.id"
                     optionLabelPath="content.name"
                     value=event.location.name
-                    isEditing=event.isEditing}}</p>
+                    isEditing=event.isEditing
+                    placeholder="Location      "}}</p>
               </div>
 
               <div class="col-xs-5 check-in">
