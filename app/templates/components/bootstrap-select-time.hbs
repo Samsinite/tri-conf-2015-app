@@ -4,31 +4,7 @@
 {{#if isEditing}}
 <p class="form-inline">
 {{bs-datetimepicker date=date mindate=mindate maxdate=maxdate forceDateOutput=true}}
-{{!--
-  {{ember-selectize value=hour
-    action="hourSelected"
-    content=selectionHours
-    classNames="form-control"
-    optionLabelPath="content"
-    optionValuePath="content"
-    placeholder="    "}}
-    <strong>:</strong>
-    {{ember-selectize value=minute
-      action="minuteSelected"
-      content=selectionMinutes
-      classNames="form-control"
-      optionLabelPath="content"
-      optionValuePath="content"
-      placeholder="    "}}
-    {{ember-selectize value=timeOfDay
-      action="timeOfDaySelected"
-      content=selectionTimeOfDay
-      classNames="form-control"
-      optionLabelPath="content"
-      optionValuePath="content"
-      placeholder="    "}}
-      --}}
 </p>
 {{else}}
-  {{date}}
+  {{moment date "dddd HH:mm"}}
 {{/if}}

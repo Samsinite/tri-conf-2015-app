@@ -19,25 +19,11 @@
           <div class="media-body">
             <div class="row">
               <div class="col-xs-7">
-                {{event.date}}
                 <p><label>Time/Day:</label>
                 {{bootstrap-select-time
                   date=event.date
                   isEditing=event.isEditing}}
-                {{!bootstrap-select-time
-                  value=event.time
-                  isEditing=event.isEditing
-                  hour=event.hour
-                  minute=event.minute
-                  timeOfDay=event.ampm}}
-                {{!bootstrap-select
-                  value=event.day
-                  isEditing=event.isEditing
-                  selection=event.day
-                  optionLabelPath="content"
-                  optionValuePath="content"
-                  content=days
-                  placeholder="Event Day   "}}</p>
+                  </p>
                 <p>{{bootstrap-input label="Speaker:" value=event.speaker isEditing=event.isEditing}}</p>
                 <p>{{bootstrap-select
                     label="Track:"
