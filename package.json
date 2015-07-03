@@ -21,6 +21,7 @@
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
     "ember-bootstrap": "0.1.2",
+    "ember-bootstrap-datetimepicker": "^0.4.1",
     "ember-camp-css": "0.0.1",
     "ember-cli": "0.2.3",
     "ember-cli-app-version": "0.3.3",

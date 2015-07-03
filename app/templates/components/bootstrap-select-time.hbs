@@ -1,27 +1,34 @@
+{{#if label}}
 <label for="{{hourSelectId}}">{{label}}</label>
+{{/if}}
+{{#if isEditing}}
 <p class="form-inline">
-  {{x-select value=hour
+{{bs-datetimepicker date=date mindate=mindate maxdate=maxdate}}
+{{!--
+  {{ember-selectize value=hour
     action="hourSelected"
     content=selectionHours
     classNames="form-control"
     optionLabelPath="content"
-    optionValuePath="content"~}}
-  {{~#if selectionMinutes~}}
+    optionValuePath="content"
+    placeholder="    "}}
     <strong>:</strong>
-    {{~x-select value=minute
+    {{ember-selectize value=minute
       action="minuteSelected"
       content=selectionMinutes
       classNames="form-control"
       optionLabelPath="content"
-      optionValuePath="content"}}
-  {{/if}}
-  {{#if selectionTimeOfDay}}
-    {{x-select value=timeOfDay
+      optionValuePath="content"
+      placeholder="    "}}
+    {{ember-selectize value=timeOfDay
       action="timeOfDaySelected"
       content=selectionTimeOfDay
       classNames="form-control"
       optionLabelPath="content"
-      optionValuePath="content"}}
-  {{/if}}
+      optionValuePath="content"
+      placeholder="    "}}
+      --}}
 </p>
-
+{{else}}
+  {{date}}
+{{/if}}
