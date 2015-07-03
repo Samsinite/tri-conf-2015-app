@@ -1,0 +1,31 @@
+<form class="form-inline" {{action 'saveRestaurant' on='submit'}}>
+  <div class="col-md-6">
+    <div class="panel triConf">
+      <div class="panel-heading row">
+        <h2 class="panel-title col-xs-8">{{bootstrap-input value=restaurant.name isEditing=isEditing}}</h2>
+        {{#if session.user.isAdmin}}
+        <div class="col-xs-4 edit-panel">
+          {{#if isEditing}}
+            <button class="btn btn-primary" {{action 'cancelChange'}}><i class="fa fa-undo"></i></button>
+            <button class="btn btn-primary" type='submit'><i class="fa fa-floppy-o"></i></button>
+          {{else}}
+            <button class="btn btn-primary" {{action 'removeRestaurant'}}><i class="fa fa-remove"></i></button>
+            <button class="btn btn-primary" {{action 'editRestaurant'}}><i class="fa fa-pencil"></i></button>
+          {{/if}}
+        </div>
+        {{/if}}
+
+      </div>
+      <div class="media">
+        <div class="media-body">
+          <div class="row">
+            <div class="col-xs-9">
+              <p>{{bootstrap-input label="Type:" value=restaurant.type isEditing=isEditing}}</p>
+              <p>{{bootstrap-input label="Location:" value=restaurant.location isEditing=isEditing}}</p></div>
+            <div class="col-xs-3 event-time"><p>{{bootstrap-input value=restaurant.hours isEditing=isEditing}}</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
