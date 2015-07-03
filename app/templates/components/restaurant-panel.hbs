@@ -2,7 +2,7 @@
   <div class="col-md-6">
     <div class="panel triConf">
       <div class="panel-heading row">
-        <h2 class="panel-title col-xs-8">{{bootstrap-input value=restaurant.name isEditing=isEditing}}</h2>
+        <h2 class="panel-title col-xs-8">{{bootstrap-input value=restaurant.name isEditing=isEditing placeholder="Name"}}</h2>
         {{#if session.user.isAdmin}}
         <div class="col-xs-4 edit-panel">
           {{#if isEditing}}
@@ -19,10 +19,10 @@
       <div class="media">
         <div class="media-body">
           <div class="row">
-            <div class="col-xs-9">
-              <p>{{bootstrap-input label="Type:" value=restaurant.type isEditing=isEditing}}</p>
-              <p>{{bootstrap-input label="Location:" value=restaurant.location isEditing=isEditing}}</p></div>
-            <div class="col-xs-3 event-time"><p>{{bootstrap-input value=restaurant.hours isEditing=isEditing}}</p></div>
+            <div class="col-xs-6">
+              <p>{{bootstrap-input label="Type:" value=restaurant.type isEditing=isEditing placeholder="Type"}}</p>
+              <p>{{bootstrap-input label="Location:" value=restaurant.location isEditing=isEditing placeholder="Location"}}</p></div>
+            <div class="col-xs-6 event-time"><p>{{bootstrap-input value=restaurant.hours isEditing=isEditing placeholder="Hours"}}</p></div>
           </div>
         </div>
       </div>
