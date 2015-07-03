@@ -7,7 +7,21 @@ export default Ember.Component.extend({
   session: injectSession('main'),
   event: null,
   tracks: null,
-  days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+  attended: false,
+  attendedUpdate: function() {
+    if(this.get('session.isAuthenticated')) {
+      var didAttend = false;
+      var that = this;
+      this.get('session.user.attendedEvents').then(function(attendedEvents){
+        attendedEvents.forEach(function(event){
+          if(event === that.get('event')) {
+            didAttend = true;
+          }
+        });
+        that.set('attended', didAttend);
+      });
+    }
+  }.observes('event', 'session.user.attendedEvents').on('init'),
 
   actions: {
     editEvent: function(){
