@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
   allTracksHidden: false,
 
   sortedEvents: Ember.computed('model.events', function() {
-    return createSortableArray(this.get('model.events'), ['createdAt'], false);
+    return createSortableArray(this.get('model.events'), ['date'], true);
   }),
 
 	actions : {

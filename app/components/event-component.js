@@ -7,6 +7,7 @@ export default Ember.Component.extend({
   session: injectSession('main'),
   event: null,
   tracks: null,
+  days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
 
   actions: {
     editEvent: function(){
