@@ -21,25 +21,27 @@
           <div class="media-body">
             <div class="row">
               <div class="col-xs-7">
-                <p><label>Day:</label> {{bootstrap-input value=event.day isEditing=event.isEditing}}</p>
-                <p><label>Time:</label> {{bootstrap-input value=event.time isEditing=event.isEditing}}</p>
-                <p>{{bootstrap-input label="Speaker:" value=event.speaker isEditing=event.isEditing}}</p>
-                <p>{{bootstrap-select
-                    label="Track:"
-                    selection=event.track
-                    content=tracks
-                    optionValuePath="content.id"
-                    optionLabelPath="content.name"
-                    value=event.track.name
-                    isEditing=event.isEditing}}</p>
-                <p>{{bootstrap-select
-                    label="Location:"
-                    selection=event.location
-                    content=locations
-                    optionValuePath="content.id"
-                    optionLabelPath="content.name"
-                    value=event.location.name
-                    isEditing=event.isEditing}}</p>
+                <div class="form-group">
+                  <p class="dayTime"><label>Day/Time:</label> {{bootstrap-input value=event.day isEditing=event.isEditing}} /
+                 {{bootstrap-input value=event.time isEditing=event.isEditing}}</p>
+                  <p>{{bootstrap-input label="Speaker:" value=event.speaker isEditing=event.isEditing}}</p>
+                  <p>{{bootstrap-select
+                      label="Track:"
+                      selection=event.track
+                      content=tracks
+                      optionValuePath="content.id"
+                      optionLabelPath="content.name"
+                      value=event.track.name
+                      isEditing=event.isEditing}}</p>
+                  <p>{{bootstrap-select
+                      label="Location:"
+                      selection=event.location
+                      content=locations
+                      optionValuePath="content.id"
+                      optionLabelPath="content.name"
+                      value=event.location.name
+                      isEditing=event.isEditing}}</p>
+                </div>
               </div>
 
               <div class="col-xs-5 check-in">
