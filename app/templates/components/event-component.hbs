@@ -2,7 +2,7 @@
   <div class="col-md-6">
     <div class="panel event {{event.track.style}}">
         <div class="panel-heading row">
-          <h2 class="col-xs-6 panel-title">{{bootstrap-input value=event.title isEditing=event.isEditing}}</h2>
+          <h2 class="{{if session.user.isAdmin 'col-xs-6'}}  panel-title">{{bootstrap-input value=event.title isEditing=event.isEditing}}</h2>
           {{#if session.user.isAdmin}}
           <div class="col-xs-6 edit-panel">
             {{#if event.isEditing}}
