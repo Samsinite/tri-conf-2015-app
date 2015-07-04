@@ -7,6 +7,10 @@ export default Ember.Component.extend({
   session: injectSession('main'),
   restaurant: null,
   isEditing: false,
+  isNew: function() {
+    console.log('isNew was called');
+    this.set('isEditing', this.get('restaurant.isNew'));
+  }.observes('restaurant').on('init'),
 
   actions: {
     editRestaurant: function(){
