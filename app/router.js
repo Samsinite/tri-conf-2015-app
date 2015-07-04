@@ -7,6 +7,7 @@ var Router = Ember.Router.extend({
 
 export default Router.map(function() {
   this.route('events', { path: '/' });
+  this.route('challenges');
 
   this.route('local-eats', function() {
     this.route('index');
