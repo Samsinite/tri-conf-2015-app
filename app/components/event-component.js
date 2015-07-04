@@ -8,6 +8,13 @@ export default Ember.Component.extend({
   event: null,
   tracks: null,
   attended: false,
+  saveDate: null,
+  displayDate: function(key, value, oldValue) {
+    if(arguments.length > 1) {
+      this.set('saveDate', value);
+    }
+    return this.get('event.date');
+  }.property('event.date'),
   attendedUpdate: function() {
     if(this.get('session.isAuthenticated')) {
       var didAttend = false;
@@ -31,6 +38,9 @@ export default Ember.Component.extend({
       this.sendAction('onRemove', this.get('event'));
     },
     saveEvent: function() {
+      if(this.get('saveDate') !== null) {
+        this.set('event.date', this.get('saveDate'));
+      }
       this.sendAction('onSave', this.get('event'));
     },
     checkIn: function() {
