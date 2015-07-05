@@ -1,0 +1,17 @@
+<div class="panel container-fluid filter">
+  <form role="search">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search">
+    </div>
+  </form>
+</div>
+{{#if session.user.isAdmin}}
+<button class="btn btn-primary" {{action 'createChallenge'}}><i class="fa fa-plus icon"></i></button>
+{{/if}}
+{{#each sortedChallenges as |challenge|}}
+  {{challenge-panel
+      challenge=challenge
+      onRemove="removeChallenge"
+      onSave="saveChallenge"
+      onCancel="cancelChange"}}
+{{/each}}
