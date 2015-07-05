@@ -13,20 +13,20 @@ export default Ember.Component.extend({
   }.observes('item').on('init'),
 
   actions: {
-    editChallenge: function(){
+    edit: function(){
       this.set('isEditing', true);
-      this.sendAction('onEdit', this.get('challenge'));
+      this.sendAction('onEdit', this.get('item'));
     },
-    removeChallenge: function(){
-      this.sendAction('onRemove', this.get('challenge'));
+    remove: function(){
+      this.sendAction('onRemove', this.get('item'));
     },
-    saveChallenge: function() {
+    save: function() {
       this.set('isEditing', false);
-      this.sendAction('onSave', this.get('challenge'));
+      this.sendAction('onSave', this.get('item'));
     },
-    cancelChange: function() {
+    cancel: function() {
       this.set('isEditing', false);
-      this.sendAction('onCancel', this.get('challenge'));
+      this.sendAction('onCancel', this.get('item'));
     },
   }
 });

@@ -28,14 +28,9 @@
                   type="textarea"
                   placeholder="Description"}}</p>
           </div>
-          {{#if session.isAuthenticated}}
-           <div class="col-xs-4 check-in">
-             <div class="well check-in-well" {{action 'checkIn' challenge}}>
-              <i class="fa fa-{{if achieved 'check-square' 'square'}}-o"></i>
-              <p>Did&nbsp;it!</p>
-              </div>
-          </div>
-          {{/if}}
+          {{#complete-check checkIn="checkIn" activity=challenge activityList=session.user.achieved}}
+            <p>Did&nbsp;it!</p>
+          {{/complete-check}}
         </div>
       </div>
     </div>

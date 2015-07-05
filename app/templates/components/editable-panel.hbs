@@ -1,4 +1,4 @@
-<form class="form-inline" {{action 'saveChallenge' on='submit'}}>
+<form class="form-inline" {{action 'save' on='submit'}}>
   <div class="col-md-6">
     <div class="panel {{class}}">
       <div class="panel-heading row">
@@ -6,11 +6,11 @@
         {{#if session.user.isAdmin}}
         <div class="col-xs-4 edit-panel">
           {{#if isEditing}}
-            <button class="btn btn-primary" {{action 'cancelChange'}}><i class="fa fa-undo"></i></button>
+            <button class="btn btn-primary" {{action 'cancel'}}><i class="fa fa-undo"></i></button>
             <button class="btn btn-primary" type='submit'><i class="fa fa-floppy-o"></i></button>
           {{else}}
-            <button class="btn btn-primary" {{action 'removeChallenge'}}><i class="fa fa-remove"></i></button>
-            <button class="btn btn-primary" {{action 'editChallenge'}}><i class="fa fa-pencil"></i></button>
+            <button class="btn btn-primary" {{action 'remove'}}><i class="fa fa-remove"></i></button>
+            <button class="btn btn-primary" {{action 'edit'}}><i class="fa fa-pencil"></i></button>
           {{/if}}
         </div>
         {{/if}}

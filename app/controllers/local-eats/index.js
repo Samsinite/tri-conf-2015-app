@@ -26,10 +26,8 @@ export default Ember.Controller.extend({
       var user = this.get('session.user');
       user.get('ateAt').then(function(restaurants) {
         if(restaurants.indexOf(restaurant) > -1) {
-          console.log('disabling');
           restaurants.removeObject(restaurant);
         } else {
-          console.log('enabling');
           restaurants.pushObject(restaurant);
         }
         user.save();
