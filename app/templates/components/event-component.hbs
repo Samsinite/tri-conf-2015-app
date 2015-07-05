@@ -2,15 +2,15 @@
   <div class="col-md-6">
     <div class="panel event {{event.track.style}}">
         <div class="panel-heading row">
-          <h2 class="{{if session.user.isAdmin 'col-xs-6'}}  panel-title">{{bootstrap-input value=event.title isEditing=event.isEditing}}</h2>
+          <h2 class="{{if session.user.isAdmin 'col-xs-8'}}  panel-title">{{bootstrap-input value=event.title isEditing=event.isEditing}}</h2>
           {{#if session.user.isAdmin}}
-          <div class="col-xs-6 edit-panel">
+          <div class="col-xs-4 edit-panel">
             {{#if event.isEditing}}
-              <button class="btn btn-primary save-button" type='submit'><i class="fa fa-floppy-o"></i></button>
-              <button class="btn btn-primary" {{action 'cancelChange'}}><i class="fa fa-undo"></i></button>
+              <button class="btn save-button" type='submit'><i class="fa fa-floppy-o"></i></button>
+              <button class="btn" {{action 'cancelChange'}}><i class="fa fa-undo"></i></button>
             {{else}}
-              <button class="btn btn-primary" {{action 'removeEvent'}}><i class="fa fa-remove"></i></button>
-              <button class="btn btn-primary" {{action 'editEvent'}}><i class="fa fa-pencil"></i></button>
+              <button class="btn" {{action 'removeEvent'}}><i class="fa fa-remove"></i></button>
+              <button class="btn" {{action 'editEvent'}}><i class="fa fa-pencil"></i></button>
             {{/if}}
           </div>
           {{/if}}
@@ -18,7 +18,7 @@
         <div class="media">
           <div class="media-body">
             <div class="row">
-              <div class="col-xs-7">
+              <div class="col-xs-9">
                 <div class="form-group">
                   <p class="dayTime"><label>Time/Day:</label>
                   {{bootstrap-select-time
@@ -34,7 +34,8 @@
                       optionLabelPath="content.name"
                       value=event.track.name
                       isEditing=event.isEditing
-                      placeholder="Event Track         "}}</p>
+                      placeholder="Event Track"
+                      }}</p>
                   <p>{{bootstrap-select
                       label="Location:"
                       selection=event.location
@@ -43,11 +44,11 @@
                       optionLabelPath="content.name"
                       value=event.location.name
                       isEditing=event.isEditing
-                      placeholder="Location      "}}</p>
+                      placeholder="Location"}}</p>
                 </div>
               </div>
               {{#if session.isAuthenticated}}
-              <div class="col-xs-5 check-in">
+              <div class="col-xs-3 check-in">
                 <div class="well check-in-well" {{action 'checkIn' event}}>
                 <i class="fa fa-{{if attended 'check-square' 'square'}}-o"></i>
                 <p>Did it!</p>
