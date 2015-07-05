@@ -9,10 +9,35 @@
 <button class="btn btn-primary" {{action 'createChallenge'}}><i class="fa fa-plus icon"></i></button>
 {{/if}}
 {{#each sortedChallenges as |challenge|}}
-  {{challenge-panel
-      challenge=challenge
+  {{#editable-panel
+      item=challenge
+      title=challenge.name
+      class="triconf"
       onRemove="removeChallenge"
       onSave="saveChallenge"
       onCancel="cancelChange"
-      checkIn="checkIn"}}
+      as |isEditing|}}
+    <div class="media">
+      <div class="media-body">
+        <div class="row">
+          <div class="col-xs-8">
+            <p>{{bootstrap-input
+                  label="description:"
+                  value=challenge.description
+                  isEditing=isEditing
+                  type="textarea"
+                  placeholder="Description"}}</p>
+          </div>
+          {{#if session.isAuthenticated}}
+           <div class="col-xs-4 check-in">
+             <div class="well check-in-well" {{action 'checkIn' challenge}}>
+              <i class="fa fa-{{if achieved 'check-square' 'square'}}-o"></i>
+              <p>Did&nbsp;it!</p>
+              </div>
+          </div>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  {{/editable-panel}}
 {{/each}}

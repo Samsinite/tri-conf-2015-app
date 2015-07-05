@@ -1,0 +1,22 @@
+<form class="form-inline" {{action 'saveChallenge' on='submit'}}>
+  <div class="col-md-6">
+    <div class="panel {{class}}">
+      <div class="panel-heading row">
+        <h2 class="panel-title col-xs-8">{{bootstrap-input value=title isEditing=isEditing placeholder="Title"}}</h2>
+        {{#if session.user.isAdmin}}
+        <div class="col-xs-4 edit-panel">
+          {{#if isEditing}}
+            <button class="btn btn-primary" {{action 'cancelChange'}}><i class="fa fa-undo"></i></button>
+            <button class="btn btn-primary" type='submit'><i class="fa fa-floppy-o"></i></button>
+          {{else}}
+            <button class="btn btn-primary" {{action 'removeChallenge'}}><i class="fa fa-remove"></i></button>
+            <button class="btn btn-primary" {{action 'editChallenge'}}><i class="fa fa-pencil"></i></button>
+          {{/if}}
+        </div>
+        {{/if}}
+
+      </div>
+      {{yield isEditing}}
+    </div>
+  </div>
+</form>
