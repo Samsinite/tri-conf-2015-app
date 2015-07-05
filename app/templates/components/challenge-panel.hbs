@@ -19,13 +19,22 @@
       <div class="media">
         <div class="media-body">
           <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-8">
               <p>{{bootstrap-input
                     label="description:"
                     value=challenge.description
                     isEditing=isEditing
                     type="textarea"
-                    placeholder="Description"}}</p></div>
+                    placeholder="Description"}}</p>
+            </div>
+            {{#if session.isAuthenticated}}
+             <div class="col-xs-4 check-in">
+               <div class="well check-in-well" {{action 'checkIn' event}}>
+               <i class="fa fa-{{if achieved 'check-square' 'square'}}-o"></i>
+               <p>Did&nbsp;it!</p>
+              </div>
+            </div>
+            {{/if}}
           </div>
         </div>
       </div>
