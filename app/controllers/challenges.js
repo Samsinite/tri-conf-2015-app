@@ -8,6 +8,17 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
+    checkIn : function(challenge){
+      var user = this.get('session.user');
+      user.get('achieved').then(function(challenges) {
+        if(challenges.indexOf(challenge) > -1) {
+          challenges.removeObject(challenge);
+        } else {
+          challenges.pushObject(challenge);
+        }
+        user.save();
+      });
+    },
     cancelChange: function(challenge){
       challenge.rollback();
     },

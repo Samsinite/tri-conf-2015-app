@@ -26,7 +26,15 @@
               <p>{{bootstrap-input label="Discount:" value=restaurant.discount isEditing=isEditing placeholder="Discount"}}</p>
               {{/if}}
             </div>
-            <div class="col-xs-6 event-time"><p>{{bootstrap-input value=restaurant.hours isEditing=isEditing placeholder="Hours"}}</p></div>
+            <div class="col-xs-2 event-time"><p>{{bootstrap-input value=restaurant.hours isEditing=isEditing placeholder="Hours"}}</p></div>
+            {{#if session.isAuthenticated}}
+            <div class="col-xs-4 check-in">
+              <div class="well check-in-well" {{action 'checkIn' event}}>
+              <i class="fa fa-{{if ateAt 'check-square' 'square'}}-o"></i>
+              <p>Ate&nbsp;it!</p>
+              </div>
+            </div>
+            {{/if}}
           </div>
         </div>
       </div>
