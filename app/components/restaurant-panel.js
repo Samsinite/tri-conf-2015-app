@@ -10,6 +10,9 @@ export default Ember.Component.extend({
   isNew: function() {
     this.set('isEditing', this.get('restaurant.isNew'));
   }.observes('restaurant').on('init'),
+  hasDiscount: function() {
+    return this.restaurant.get('discount') || (this.get('isEditing') && this.get('session.user.isAdmin'));
+  }.property('restaurant.discount', 'isEditing', 'session.user.isAdmin'),
 
   actions: {
     editRestaurant: function(){

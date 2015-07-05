@@ -21,7 +21,11 @@
           <div class="row">
             <div class="col-xs-6">
               <p>{{bootstrap-input label="Type:" value=restaurant.type isEditing=isEditing placeholder="Type"}}</p>
-              <p>{{bootstrap-input label="Location:" value=restaurant.location isEditing=isEditing placeholder="Location"}}</p></div>
+              <p>{{bootstrap-input label="Location:" value=restaurant.location isEditing=isEditing placeholder="Location"}}</p>
+              {{#if hasDiscount}}
+              <p>{{bootstrap-input label="Discount:" value=restaurant.discount isEditing=isEditing placeholder="Discount"}}</p>
+              {{/if}}
+            </div>
             <div class="col-xs-6 event-time"><p>{{bootstrap-input value=restaurant.hours isEditing=isEditing placeholder="Hours"}}</p></div>
           </div>
         </div>
