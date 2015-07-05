@@ -57,9 +57,7 @@ a {
     &:focus {
       outline: none;
     }
-
   }
-
 }
 
 .check-in {
@@ -77,19 +75,6 @@ a {
   margin-bottom: 0;
   right: 10px;
 }
-
-// .btn-check-in {
-
-
-//   &:hover {
-
-//   }
-
-
-//   }
-// }
-
-
 
 #side-nav {
   position: fixed;
@@ -284,7 +269,7 @@ a {
   }
 }
 
-.music {
+.design {
   background-color: #EED7E8;
   .panel-heading {
     background-color: #DA6FAB;
@@ -364,7 +349,7 @@ a {
     background-color: #ED9C28;
   }
 
-  li.pill-music > a {
+  li.pill-design > a {
     background-color: #DA6FAB;
   }
 
@@ -386,6 +371,10 @@ a {
 
   li.disabled > a {
     background-color: #ddd;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -471,25 +460,28 @@ a {
     margin-left: 0;
     padding-top: 6em;
   }
-}
 
-.form-group {
-  margin-bottom: 0;
-}
 
-/* small screens like phones */
-@media (max-width: 647px) {
-
-#top-nav {
-  text-align: left;
-
-  img {
-    padding-top: 4px;
+  .form-group {
+    margin-bottom: 0;
   }
 
 }
 
-.panel {
+
+/* small screens like phones */
+@media (max-width: 647px) {
+
+  #top-nav {
+    text-align: left;
+
+    img {
+      padding-top: 4px;
+    }
+
+  }
+
+  .panel {
 
     .media-body {
 
@@ -504,18 +496,13 @@ a {
         font-size: 12px;
       }
     }
+  }
+
+  .form-group {
+    margin-bottom: 0;
+  }
+
 }
-
-.form-group {
-  margin-bottom: 0;
-}
-
-}
-
-
-
-
-
 
 @import 'calendar-month-component';
 @import 'timespan-events-component';
