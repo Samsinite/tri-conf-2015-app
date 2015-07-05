@@ -2,10 +2,20 @@
 <label class="{{if srOnly 'sr-only' ''}}" for="{{inputId}}">{{label}}</label>
 {{/if}}
 {{#if isEditing}}
-{{input value=value
-  placeholder=placeholder
-  elementId=inputId
-  classNames="form-control"}}
+  {{#if isInput}}
+    {{input value=value
+      placeholder=placeholder
+      elementId=inputId
+      classNames="form-control"}}
+  {{/if}}
+  {{#if isTextArea}}
+    {{textarea value=value
+      placeholder=placeholder
+      elementId=inputId
+      cols=cols
+      rows=rows
+      }}
+    {{/if}}
 {{else}}
   {{value}}
 {{/if}}
