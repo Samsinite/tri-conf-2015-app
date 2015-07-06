@@ -4,6 +4,7 @@ import inject from 'ember-cli-injection/inject';
 var injectSession = inject('session');
 
 export default Ember.Component.extend({
+  classNames: ["col-xs-4", "check-in"],
   session: injectSession('main'),
   activity: null,
   activityList: null,

@@ -1,8 +1,6 @@
 {{#if session.isAuthenticated}}
- <div class="col-xs-4 check-in">
    <div class="well check-in-well" {{action 'checkIn'}}>
    <i class="fa fa-{{if completed 'check-square' 'square'}}-o"></i>
    <p>{{yield}}</p>
   </div>
-</div>
 {{/if}}
