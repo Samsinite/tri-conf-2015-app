@@ -2,7 +2,6 @@ import Ember from 'ember';
 import { createSortableArray } from '../models/sortable-array';
 
 export default Ember.Controller.extend({
-  editingEvent: null,
   allTracksHidden: false,
 
   sortedEvents: Ember.computed('model.events', function() {
