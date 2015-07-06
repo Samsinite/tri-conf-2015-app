@@ -8,4 +8,13 @@ export default DS.Model.extend({
   location: DS.belongsTo('location', {async: true}),
   attendees: DS.hasMany('user', {async: true}),
   date: DS.attr('date'),
+
+  saveDate: null,
+  displayDate: function(key, value, oldValue) {
+    if(arguments.length > 1) {
+      this.set('saveDate', value);
+    }
+    return this.get('date');
+  }.property('date'),
+
 });
