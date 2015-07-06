@@ -4,10 +4,31 @@
   {{/if}}
 </div>
 {{#each sortedRestaurants as |restaurant|}}
-  {{restaurant-panel
-      restaurant=restaurant
+  {{#editable-panel
+      item=restaurant
+      title=restaurant.name
+      panelClass="triconf"
       onRemove="removeRestaurant"
       onSave="saveRestaurant"
       onCancel="cancelChange"
-      checkIn="checkIn"}}
+      as |isEditing|}}
+    <div class="media">
+      <div class="media-body">
+        <div class="row">
+          <div class="col-xs-6">
+            <p>{{bootstrap-input label="Type:" value=restaurant.type isEditing=isEditing placeholder="Type"}}</p>
+            <p>{{bootstrap-input label="Location:" value=restaurant.location isEditing=isEditing placeholder="Location"}}</p>
+            {{#if hasDiscount}}
+            <p>{{bootstrap-input label="Discount:" value=restaurant.discount isEditing=isEditing placeholder="Discount"}}</p>
+            {{/if}}
+          </div>
+          <div class="col-xs-2 event-time"><p>{{bootstrap-input value=restaurant.hours isEditing=isEditing placeholder="Hours"}}</p></div>
+        {{#complete-check checkIn="checkIn" activity=restaurant activityList=session.user.ateAt}}
+          <p>Ate&nbsp;it!</p>
+        {{/complete-check}}
+        </div>
+      </div>
+    </div>
+
+  {{/editable-panel}}
 {{/each}}

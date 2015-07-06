@@ -25,14 +25,51 @@
 </div>
 {{#each sortedEvents as |event|}}
   {{#unless event.track.isHidden}}
-    {{event-component
-        event=event
-        onEdit="editEvent"
-        onRemove="removeEvent"
-        onSave="saveEvent"
-        checkIn="checkIn"
-        onCancel="cancelChange"
-        tracks=model.tracks
-        locations=model.locations}}
+    {{#editable-panel
+      item=event
+      onRemove="removeEvent"
+      onSave="saveEvent"
+      onCancel="cancelChange"
+      panelClass=event.track.style
+      title=event.title as |isEditing|}}
+      <div class="media">
+        <div class="media-body">
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="form-group">
+                <p class="dayTime"><label>Time/Day:</label>
+                {{bootstrap-select-time
+                  date=event.displayDate
+                  isEditing=isEditing}}
+                  </p>
+                <p>{{bootstrap-input label="Speaker:" value=event.speaker isEditing=isEditing}}</p>
+                <p>{{bootstrap-select
+                    label="Track:"
+                    selection=event.track
+                    content=model.tracks
+                    optionValuePath="content.id"
+                    optionLabelPath="content.name"
+                    value=event.track.name
+                    isEditing=isEditing
+                    placeholder="Event Track"
+                    }}</p>
+                <p>{{bootstrap-select
+                    label="Location:"
+                    selection=event.location
+                    content=model.locations
+                    optionValuePath="content.id"
+                    optionLabelPath="content.name"
+                    value=event.location.name
+                    isEditing=isEditing
+                    placeholder="Location"}}</p>
+              </div>
+            </div>
+            {{#complete-check checkIn="checkIn" activity=event activityList=session.user.attendedEvents}}
+              <p>Saw&nbsp;it!</p>
+            {{/complete-check}}
+          </div>
+        </div>
+      </div>
+  {{/editable-panel}}
   {{/unless}}
 {{/each}}
