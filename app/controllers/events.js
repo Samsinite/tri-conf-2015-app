@@ -32,7 +32,9 @@ export default Ember.Controller.extend({
       this.editingEvent = this.store.createRecord('event');
     },
     saveEvent: function(event) {
-      event.set('date', event.get('saveDate'));
+      if(event.get('saveDate')) {
+        event.set('date', event.get('saveDate'));
+      }
       event.save();
     },
     filter: function(trackName) {
