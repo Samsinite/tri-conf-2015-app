@@ -10,11 +10,14 @@ export default DS.Model.extend({
   date: DS.attr('date'),
 
   saveDate: null,
-  displayDate: function(key, value, oldValue) {
-    if(arguments.length > 1) {
+  displayDate: Ember.computed('date', {
+    set: function(key, value) {
       this.set('saveDate', value);
+      return value;
+    },
+    get: function() {
+      return this.get('date');
     }
-    return this.get('date');
-  }.property('date'),
+  }),
 
 });

@@ -30,9 +30,11 @@
                   type="textarea"
                   placeholder="Description"}}</p>
           </div>
-          {{#complete-check checkIn="checkIn" activity=challenge activityList=session.user.achieved}}
-            <p>Did&nbsp;it!</p>
-          {{/complete-check}}
+          {{#unless isEditing}}
+            {{#complete-check checkIn="checkIn" activity=challenge activityList=session.user.achieved}}
+              <p>Did&nbsp;it!</p>
+            {{/complete-check}}
+          {{/unless}}
         </div>
       </div>
     </div>
