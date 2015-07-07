@@ -7,7 +7,7 @@
         <div class="col-xs-4 edit-panel">
           {{#if isEditing}}
             <button class="btn save-button" type='submit'><i class="fa fa-floppy-o"></i></button>
-            <button class="btn" {{action 'cancelChange'}}><i class="fa fa-undo"></i></button>
+            <button class="btn" {{action 'cancel'}}><i class="fa fa-undo"></i></button>
           {{else}}
             <button class="btn" {{action 'remove'}}><i class="fa fa-remove"></i></button>
             <button class="btn" {{action 'edit'}}><i class="fa fa-pencil"></i></button>
