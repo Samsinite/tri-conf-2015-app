@@ -1,6 +1,6 @@
 <div class="row filter">
   {{#if session.user.isAdmin}}
-    <button class="add-panel" {{action 'createEvent'}}><i class="fa fa-plus icon"> Add New Restaurant</i></button>
+    <button class="add-panel" {{action 'createRestaurant'}}><i class="fa fa-plus icon"> Add New Restaurant</i></button>
   {{/if}}
 </div>
 {{#each sortedRestaurants as |restaurant|}}
@@ -18,7 +18,7 @@
           <div class="col-xs-6">
             <p>{{bootstrap-input label="Type:" value=restaurant.type isEditing=isEditing placeholder="Type"}}</p>
             <p>{{bootstrap-input label="Location:" value=restaurant.location isEditing=isEditing placeholder="Location"}}</p>
-            {{#if hasDiscount}}
+            {{#if (discount-check restaurant.discount session.user.isAdmin isEditing)}}
             <p>{{bootstrap-input label="Discount:" value=restaurant.discount isEditing=isEditing placeholder="Discount"}}</p>
             {{/if}}
           </div>

@@ -9,10 +9,7 @@ export default Router.map(function() {
   this.route('events', { path: '/' });
   this.route('challenges');
 
-  this.route('local-eats', function() {
-    this.route('index');
-    this.route('local-eats-check-in');
-  });
+  this.route('restaurants');
 
   this.route('leaderboard');
 

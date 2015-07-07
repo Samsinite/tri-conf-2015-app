@@ -1,8 +1,7 @@
 import Ember from 'ember';
-import { createSortableArray } from '../../models/sortable-array';
+import { createSortableArray } from '../models/sortable-array';
 
 export default Ember.Controller.extend({
-
   sortedRestaurants: Ember.computed('model', function() {
     return createSortableArray(this.get('model'), ['createdAt'], false);
   }),
