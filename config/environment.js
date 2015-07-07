@@ -15,7 +15,7 @@ module.exports = function(environment) {
   },
     firebase: 'https://blistering-inferno-3979.firebaseio.com/',
     baseURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
