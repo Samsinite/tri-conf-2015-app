@@ -5,9 +5,11 @@
     </div>
   </form>
 </div>
-{{#if session.user.isAdmin}}
-<button class="btn btn-primary" {{action 'createChallenge'}}><i class="fa fa-plus icon"></i></button>
-{{/if}}
+<div class="row">
+  {{#if session.user.isAdmin}}
+    <button class="add-panel" {{action 'createChallenge'}}><i class="fa fa-plus icon"> Add New Event</i></button>
+  {{/if}}
+</div>
 {{#each sortedChallenges as |challenge|}}
   {{#editable-panel
       item=challenge
