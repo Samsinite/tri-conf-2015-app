@@ -2,11 +2,42 @@ import Ember from 'ember';
 import { createSortableArray } from '../models/sortable-array';
 
 export default Ember.Controller.extend({
-  allTracksHidden: false,
+  selectedTrack: "all",
+  filterTracks: function() {
+    var trackName = this.get('selectedTrack');
+    this.model.tracks.forEach(function(track){
+      if(track.get('name') === trackName || trackName === "all"){
+        track.set('isHidden', false);
+      } else {
+        track.set('isHidden', true);
+      }
+    });
+  }.observes('selectedTrack'),
+  allTracksHidden: function() {
+    return this.get('selectedTrack') !== "all";
+  }.property('selectedTrack'),
+  searchString: "",
 
   sortedEvents: Ember.computed('model.events', function() {
     return createSortableArray(this.get('model.events'), ['date'], true);
   }),
+
+  filterEvents: function() {
+    var str = this.get('searchString').toLowerCase();
+    var selectedTrack = this.get('selectedTrack');
+    this.model.events.forEach(function(event){
+      var title = (event.get('title') || "").toLowerCase();
+      var speaker = (event.get('speaker') || "").toLowerCase();
+      var trackName = event.get('track.name');
+      var eventInSelectedTrack = trackName === selectedTrack || selectedTrack === "all";
+      var eventInSearch = str === "" || title.indexOf(str) > -1 || speaker.indexOf(str) > -1;
+      if(eventInSelectedTrack && eventInSearch) {
+        event.set('isHidden', false);
+      } else {
+        event.set('isHidden', true);
+      }
+    });
+  }.observes("selectedTrack", "searchString"),
 
 	actions : {
     checkIn : function(event){
@@ -37,19 +68,8 @@ export default Ember.Controller.extend({
       }
       event.save();
     },
-    filter: function(trackName) {
-      if(trackName === "all") {
-        this.set('allTracksHidden', false);
-      } else {
-        this.set('allTracksHidden', true);
-      }
-      this.model.tracks.forEach(function(track){
-        if(track.get('name') === trackName || trackName === "all"){
-          track.set('isHidden', false);
-        } else {
-          track.set('isHidden', true);
-        }
-      });
+    setTrack: function(trackName) {
+      this.set('selectedTrack', trackName);
     }
 	}
 });
