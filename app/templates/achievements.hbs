@@ -14,18 +14,18 @@
 				<div class="row achievement">
 					<div class="col-xs-12 title">
 						<h3>
-							Walking 
-							{{{walkingStars}}}
+							Walking
+              {{achievement-stars starCount=walkingLevel}}
 						</h3>
 					</div>
 				</div>
-				{{#if walkingQuote}}
-				<div class="row">
-					<div class="col-xs-12 quote">
-						{{{walkingQuote}}}
-					</div>
-				</div>
-				{{/if}}
+        {{#if (get-prop walkingQuotes walkingLevel)}}
+          <div class="row">
+            <div class="col-xs-12 quote">
+              <p>{{{get-prop walkingQuotes walkingLevel}}}</p>
+            </div>
+          </div>
+        {{/if}}
 			</div>
 		</div>
 		<div class="row">
@@ -33,18 +33,18 @@
 				<div class="row achievement">
 					<div class="col-xs-12 title">
 						<h3>
-							Biking 
-							{{{bikingStars}}}
+							Biking
+              {{achievement-stars starCount=bikingLevel}}
 						</h3>
 					</div>
 				</div>
-				{{#if bikingQuote}}
-				<div class="row">
-					<div class="col-xs-12 quote">
-						{{{bikingQuote}}}
-					</div>
-				</div>
-				{{/if}}
+        {{#if (get-prop bikingQuotes bikingLevel)}}
+          <div class="row">
+            <div class="col-xs-12 quote">
+              <p>{{{get-prop bikingQuotes bikingLevel}}}</p>
+            </div>
+          </div>
+        {{/if}}
 			</div>
 		</div>
 		<div class="row">
@@ -53,17 +53,17 @@
 					<div class="col-xs-12 title">
 						<h3>
 							Shuttling
-							{{{shuttlingStars}}}
+              {{achievement-stars starCount=shuttlingLevel}}
 						</h3>
 					</div>
 				</div>
-				{{#if shuttlingQuote}}
-				<div class="row">
-					<div class="col-xs-12 quote">
-						{{{shuttlingQuote}}}
-					</div>
-				</div>
-				{{/if}}
+        {{#if (get-prop shuttlingQuotes shuttlingLevel)}}
+          <div class="row">
+            <div class="col-xs-12 quote">
+              <p>{{{get-prop shuttlingQuotes shuttlingLevel}}}</p>
+            </div>
+          </div>
+        {{/if}}
 			</div>
 		</div>
 		{{#if bikingShuttlingWalking}}
@@ -86,127 +86,119 @@
 			</div>
 		</div>
 		{{/if}}
-		<a {{action 'changeStars' 'walking'}}>walking</a>
-		<a {{action 'changeStars' 'biking'}}>biking</a>
-		<a {{action 'changeStars' 'shuttling'}}>shuttling</a>
 		<div class="row">
 			<div class="col-xs-12">
 				<h2>Locations</h2>
 			</div>
 		</div>
 		{{#if fuse}}
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="row achievement">
-					<div class="col-xs-12 title">
-						<h3>
-							FUSE
-						</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 quote">
-					<p>"Coworking is not about shared office space, it’s about making a dynamo of serendipity, and that wheel can turn for anyone who just takes the step inside." &#8212; Erik Ralston</p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row achievement">
+            <div class="col-xs-12 title">
+              <h3>
+                FUSE
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 quote">
+            <p>"Coworking is not about shared office space, it’s about making a dynamo of serendipity, and that wheel can turn for anyone who just takes the step inside." &#8212; Erik Ralston</p>
+            </div>
+          </div>
+        </div>
+      </div>
 		{{/if}}
 		{{#if johnDamPlaza}}
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="row achievement">
-					<div class="col-xs-12 title">
-						<h3>
-							John Dam Plaza
-						</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 quote">
-					<p>"Nature surrounds us, from parks and backyards to streets and alleyways. Next time you go out for a walk, tread gently and remember that we are both inhabitants and stewards of nature in our neighbourhoods." &#8212; David Suzuki</p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row achievement">
+            <div class="col-xs-12 title">
+              <h3>
+                John Dam Plaza
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 quote">
+            <p>"Nature surrounds us, from parks and backyards to streets and alleyways. Next time you go out for a walk, tread gently and remember that we are both inhabitants and stewards of nature in our neighbourhoods." &#8212; David Suzuki</p>
+            </div>
+          </div>
+        </div>
+      </div>
 		{{/if}}
 		{{#if adventuresUnderground}}
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="row achievement">
-					<div class="col-xs-12 title">
-						<h3>
-							Adventures Underground
-						</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 quote">
-					<p>“Begin at the beginning," the King said, very gravely, "and go on till you come to the end: then stop.” &#8212; Lewis Carroll, Alice in Wonderland</p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row achievement">
+            <div class="col-xs-12 title">
+              <h3>
+                Adventures Underground
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 quote">
+            <p>“Begin at the beginning," the King said, very gravely, "and go on till you come to the end: then stop.” &#8212; Lewis Carroll, Alice in Wonderland</p>
+            </div>
+          </div>
+        </div>
+      </div>
 		{{/if}}
 		{{#if uptownTheater}}
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="row achievement">
-					<div class="col-xs-12 title">
-						<h3>
-							Uptown Theater
-						</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 quote">
-					<p>"The theater is so endlessly fascinating because it's so accidental. It's so much like life." &#8212; Arthur Miller</p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row achievement">
+            <div class="col-xs-12 title">
+              <h3>
+                Uptown Theater
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 quote">
+            <p>"The theater is so endlessly fascinating because it's so accidental. It's so much like life." &#8212; Arthur Miller</p>
+            </div>
+          </div>
+        </div>
+      </div>
 		{{/if}}
 		{{#if richlandPublicLibrary}}
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="row achievement">
-					<div class="col-xs-12 title">
-						<h3>
-							Richland Public Library
-						</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 quote">
-					<p>"A library is the delivery room for the birth of ideas, a place where history comes to life." &#8212; Norman Cousins</p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row achievement">
+            <div class="col-xs-12 title">
+              <h3>
+                Richland Public Library
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 quote">
+            <p>"A library is the delivery room for the birth of ideas, a place where history comes to life." &#8212; Norman Cousins</p>
+            </div>
+          </div>
+        </div>
+      </div>
 		{{/if}}
 		{{#if allLocations}}
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="row achievement">
-					<div class="col-xs-12 title">
-						<h3>
-							All of the Places
-						</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 quote">
-					<p>You've been to every TriConf location! Very impressive!</p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row achievement">
+            <div class="col-xs-12 title">
+              <h3>
+                All of the Places
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 quote">
+            <p>You've been to every TriConf location! Very impressive!</p>
+            </div>
+          </div>
+        </div>
+      </div>
 		{{/if}}
-		<a {{action 'changeBoolean' 'fuse'}}>Fuse</a>
-		<a {{action 'changeBoolean' 'johnDamPlaza'}}>John Dam Plaza</a>
-		<a {{action 'changeBoolean' 'adventuresUnderground'}}>Adventures Underground</a>
-		<a {{action 'changeBoolean' 'uptownTheater'}}>Uptown Theater</a>
-		<a {{action 'changeBoolean' 'richlandPublicLibrary'}}>Richland Public Library</a>
 		<div class="row">
 			<div class="col-xs-12">
 				<h2>Film</h2>
@@ -217,200 +209,192 @@
 				<div class="row achievement">
 					<div class="col-xs-12 title">
 						<h3>
-							Films Watched 
-							{{{filmStars}}}
+							Films Watched
+              {{achievement-stars starCount=filmLevel}}
 						</h3>
 					</div>
 				</div>
-				{{#if walkingQuote}}
-				<div class="row">
-					<div class="col-xs-12 quote">
-						{{{filmQuote}}}
-					</div>
-				</div>
-				{{/if}}
+        {{#if (get-prop filmQuotes filmLevel)}}
+          <div class="row">
+            <div class="col-xs-12 quote">
+              <p>{{{get-prop filmQuotes filmLevel}}}</p>
+            </div>
+          </div>
+        {{/if}}
 			</div>
 		</div>
-		<a {{action 'changeStars' 'film'}}>film</a>
 		<div class="row">
 			<div class="col-xs-12">
 				<h2>Music</h2>
 			</div>
 		</div>
 		{{#if fridayMusic}}
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="row achievement">
-					<div class="col-xs-12 title">
-						<h3>
-							Friday Music
-						</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 quote">
-					<p>"Music is a moral law. It gives soul to the universe, wings to the mind, flight to the imagination, and charm and gaiety to life and to everything." &#8212; Plato</p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row achievement">
+            <div class="col-xs-12 title">
+              <h3>
+                Friday Music
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 quote">
+            <p>"Music is a moral law. It gives soul to the universe, wings to the mind, flight to the imagination, and charm and gaiety to life and to everything." &#8212; Plato</p>
+            </div>
+          </div>
+        </div>
+      </div>
 		{{/if}}
 		{{#if saturdayMusic}}
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="row achievement">
-					<div class="col-xs-12 title">
-						<h3>
-							Saturday Music
-						</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 quote">
-					<p>"Music is a higher revelation than all wisdom and philosophy." &#8212; Ludwig van Beethoven</p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row achievement">
+            <div class="col-xs-12 title">
+              <h3>
+                Saturday Music
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 quote">
+            <p>"Music is a higher revelation than all wisdom and philosophy." &#8212; Ludwig van Beethoven</p>
+            </div>
+          </div>
+        </div>
+      </div>
 		{{/if}}
 		{{#if allMusic}}
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="row achievement">
-					<div class="col-xs-12 title">
-						<h3>
-							Friday + Saturday
-						</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 quote">
-					<p>Two days of music?! Can't beat that! ^_-</p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row achievement">
+            <div class="col-xs-12 title">
+              <h3>
+                Friday + Saturday
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 quote">
+            <p>Two days of music?! Can't beat that! ^_-</p>
+            </div>
+          </div>
+        </div>
+      </div>
 		{{/if}}
-		<a {{action 'changeBoolean' 'fridayMusic'}}>Friday Music</a>
-		<a {{action 'changeBoolean' 'saturdayMusic'}}>Saturday Music</a>
 		<div class="row">
 			<div class="col-xs-12">
 				<h2>Talks</h2>
 			</div>
 		</div>
 		{{#if cultureArtsMusic}}
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="row achievement">
-					<div class="col-xs-12 title">
-						<h3>
-							Culture/Arts/Music
-						</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 quote">
-					<p>"Culture makes people understand each other better. And if they understand each other better in their soul, it is easier to overcome the economic and political barriers. But first they have to understand that their neighbour is, in the end, just like them, with the same problems, the same questions." &#8212; Paulo Coelho</p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row achievement">
+            <div class="col-xs-12 title">
+              <h3>
+                Culture/Arts/Music
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 quote">
+            <p>"Culture makes people understand each other better. And if they understand each other better in their soul, it is easier to overcome the economic and political barriers. But first they have to understand that their neighbour is, in the end, just like them, with the same problems, the same questions." &#8212; Paulo Coelho</p>
+            </div>
+          </div>
+        </div>
+      </div>
 		{{/if}}
 		{{#if communityIssuesSustainability}}
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="row achievement">
-					<div class="col-xs-12 title">
-						<h3>
-							Community/Issues/Sustainability
-						</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 quote">
-					<p>"If we each take responsibility in shifting our own behavior, we can trigger the type of change that is necessary to achieve sustainability for our race or this planet. We change our planet, our environment, our humanity every day, every year, every decade, and every millennia." &#8212; Yehuda Berg</p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row achievement">
+            <div class="col-xs-12 title">
+              <h3>
+                Community/Issues/Sustainability
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 quote">
+            <p>"If we each take responsibility in shifting our own behavior, we can trigger the type of change that is necessary to achieve sustainability for our race or this planet. We change our planet, our environment, our humanity every day, every year, every decade, and every millennia." &#8212; Yehuda Berg</p>
+            </div>
+          </div>
+        </div>
+      </div>
 		{{/if}}
 		{{#if technology}}
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="row achievement">
-					<div class="col-xs-12 title">
-						<h3>
-							Technology
-						</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 quote">
-					<p>"Technology gives us power, but it does not and cannot tell us how to use that power. Thanks to technology, we can instantly communicate across the world, but it still doesn't help us know what to say." &#8212 Jonathan Sacks</p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row achievement">
+            <div class="col-xs-12 title">
+              <h3>
+                Technology
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 quote">
+            <p>"Technology gives us power, but it does not and cannot tell us how to use that power. Thanks to technology, we can instantly communicate across the world, but it still doesn't help us know what to say." &#8212 Jonathan Sacks</p>
+            </div>
+          </div>
+        </div>
+      </div>
 		{{/if}}
 		{{#if designCommunication}}
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="row achievement">
-					<div class="col-xs-12 title">
-						<h3>
-							Design/Communication
-						</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 quote">
-					<p>"Good design is making something intelligible and memorable. Great design is making something memorable and meaningful." &#8212; Dieter Rams</p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row achievement">
+            <div class="col-xs-12 title">
+              <h3>
+                Design/Communication
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 quote">
+            <p>"Good design is making something intelligible and memorable. Great design is making something memorable and meaningful." &#8212; Dieter Rams</p>
+            </div>
+          </div>
+        </div>
+      </div>
 		{{/if}}
 		{{#if entrepreneurship}}
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="row achievement">
-					<div class="col-xs-12 title">
-						<h3>
-							Entrepreneurship
-						</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 quote">
-					<p>"We begin to change the world when we stimulate long-term prosperity using technology. There is not a problem that's large enough that innovation and entrepreneurship can't solve." &#8212; Naveen Jain</p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row achievement">
+            <div class="col-xs-12 title">
+              <h3>
+                Entrepreneurship
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 quote">
+            <p>"We begin to change the world when we stimulate long-term prosperity using technology. There is not a problem that's large enough that innovation and entrepreneurship can't solve." &#8212; Naveen Jain</p>
+            </div>
+          </div>
+        </div>
+      </div>
 		{{/if}}
 		{{#if allTalks}}
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="row achievement">
-					<div class="col-xs-12 title">
-						<h3>
-							One of each category
-						</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 quote">
-					<p>You have attended talks in every category! Many and varied are your interests.</p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row achievement">
+            <div class="col-xs-12 title">
+              <h3>
+                One of each category
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 quote">
+            <p>You have attended talks in every category! Many and varied are your interests.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 		{{/if}}
-		<a {{action 'changeBoolean' 'cultureArtsMusic'}}>Culture/Arts/Music</a>
-		<a {{action 'changeBoolean' 'communityIssuesSustainability'}}>Community/Issues/Sustainability</a>
-		<a {{action 'changeBoolean' 'technology'}}>Technology</a>
-		<a {{action 'changeBoolean' 'designCommunication'}}>Design/Communication</a>
-		<a {{action 'changeBoolean' 'entrepreneurship'}}>Entrepreneurship</a>
 	</div>
 
 {{outlet}}

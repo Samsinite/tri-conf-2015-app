@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	isExpanded: false,
-	actions : {
+    isExpanded: false,
+    actions : {
     closeMenu: function() {
       this.set('isExpanded', false);
     },
