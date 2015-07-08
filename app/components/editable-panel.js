@@ -8,6 +8,11 @@ export default Ember.Component.extend({
   item: null,
   title: "",
   isEditing: false,
+
+  onLogout: function() {
+    this.set('isEditing', false);
+  }.observes('session.user'),
+
   isNew: function() {
     this.set('isEditing', this.get('item.isNew'));
   }.observes('item').on('init'),
