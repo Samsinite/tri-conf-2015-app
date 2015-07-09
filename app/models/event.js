@@ -9,6 +9,7 @@ export default DS.Model.extend({
   location: DS.belongsTo('location', {async: true}),
   attendees: DS.hasMany('user', {async: true}),
   date: DS.attr('date'),
+  length: DS.attr('string', {defaultValue: function() {return "30 minutes"}}),
 
   saveDate: null,
   displayDate: Ember.computed('date', {

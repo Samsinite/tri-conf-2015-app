@@ -39,8 +39,9 @@
                   date=event.displayDate
                   isEditing=isEditing}}
                 </p>
+                <p>{{bootstrap-input label="Length:" value=event.length isEditing=isEditing}}</p>
                 {{#if (hidden-field-check event.speaker session.user.isAdmin isEditing)}}
-                <p>{{bootstrap-input label="Speaker:" value=event.speaker isEditing=isEditing}}</p>
+                <p>{{bootstrap-input label="Presenter:" value=event.speaker isEditing=isEditing}}</p>
                 {{/if}}
                 <p>{{bootstrap-select
                     label="Track:"
