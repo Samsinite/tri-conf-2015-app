@@ -13,7 +13,7 @@ export default {
       provider: null,
       user: null,
 
-      addFirebaseCallback: function() {
+      addFirebaseCallback: Ember.on("init", function() {
         var session = this;
         var store = container.lookup('store:main');
 
@@ -37,7 +37,7 @@ export default {
             session.set("provider", null);
           }
         });
-      }.on("init"),
+      }),
 
       login: function(provider) {
         return new Ember.RSVP.Promise((resolve, reject) => {
@@ -56,9 +56,9 @@ export default {
         this.set("user", null);
       },
 
-      auth: function() {
+      auth: Ember.computed("isAuthenticated", function() {
         return this.get("ref").getAuth();
-      }.property("isAuthenticated")
+      })
     });
     app.register("session:main", session);
     app.inject("controller", "session", "session:main");

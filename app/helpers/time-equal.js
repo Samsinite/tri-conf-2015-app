@@ -12,6 +12,6 @@ export function timeEqual(t1, t2) {
   }
 }
 
-export default function(params) {
-  return timeEqual(read(params[0]), read(params[1]));
-}
+export default Ember.Helper.helper(function([t1, t2]) {
+  return timeEqual(read(t1), read(t2));
+});

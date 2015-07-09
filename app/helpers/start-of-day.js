@@ -16,6 +16,6 @@ export function startOfDay(day) {
   }
 }
 
-export default function(params) {
-  return startOfDay(read(params[0]));
-}
+export default Ember.Helper.helper(function([day]) {
+  return startOfDay(read(day));
+});
