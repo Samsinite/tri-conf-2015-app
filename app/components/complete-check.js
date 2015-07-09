@@ -8,12 +8,11 @@ export default Ember.Component.extend({
 
   completed: function () {
     var didComplete = false;
-    var that = this;
-    if(this.get('activityList')) {
-      this.get('activityList').forEach(function(activity){
-        if(activity === that.get('activity')) {
-          didComplete = true;
-        }
+    var activityList = this.get('activityList');
+
+    if (activityList) {
+      return !!activityList.find((activity) => {
+        return activity.get('id') === this.get('activity.id');
       });
     }
     return didComplete;
