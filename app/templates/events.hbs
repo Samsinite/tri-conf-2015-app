@@ -1,19 +1,19 @@
 <div class="panel container-fluid filter">
   <div class="row">
-      <div class="form-group">
-        {{input classNames="form-control" placeholder="Search" value=searchString}}
-      </div>
-  </div>
-  <div class="row">
-    <ul class="nav nav-tabs nav-pills">
-      <li class="pill-triconf {{if allTracksHidden 'disabled'}}"><a href="#" {{action 'setTrack' 'all'}}>All</a></li>
-      {{#each model.tracks as |track|}}
-      <li class="pill-{{track.style}} {{if track.isHidden 'disabled'}}">
-        <a href="#" {{action 'setTrack' track.name}}>{{track.name}}</a>
-      </li>
-      {{/each}}
-    </ul>
-  </div>
+       <div class="form-group">
+         {{input classNames="form-control" placeholder="Search" value=searchString}}
+       </div>
+   </div>
+   <div class="row">
+     <ul class="nav nav-tabs nav-pills">
+       <li class="pill-triconf {{if allTracksHidden 'disabled'}}"><a href="#" {{action 'setTrack' 'all'}}>All</a></li>
+       {{#each model.tracks as |track|}}
+       <li class="pill-{{track.style}} {{if track.isHidden 'disabled'}}">
+         <a href="#" {{action 'setTrack' track.name}}>{{track.name}}</a>
+       </li>
+       {{/each}}
+     </ul>
+   </div>
 </div>
 <div class="row">
   {{#if session.user.isAdmin}}

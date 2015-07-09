@@ -19,7 +19,7 @@ export function isToday(day) {
   }
 }
 
-export default function(params) {
-  return isToday(read(params[0]));
-}
+export default Ember.Helper.helper(function([today]) {
+  return isToday(read(today));
+});
 
