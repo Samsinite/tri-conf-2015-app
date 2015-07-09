@@ -15,14 +15,14 @@
     <div class="media">
       <div class="media-body">
         <div class="row">
-          <div class="col-xs-6">
+          <div class="col-xs-8">
             <p>{{bootstrap-input label="Type:" value=restaurant.type isEditing=isEditing placeholder="Type"}}</p>
+            <p>{{bootstrap-input label="Hours:" value=restaurant.hours isEditing=isEditing placeholder="Hours"}}</p>
             <p>{{bootstrap-input label="Location:" value=restaurant.location isEditing=isEditing placeholder="Location"}}</p>
             {{#if (hidden-field-check restaurant.discount session.user.isAdmin isEditing)}}
             <p>{{bootstrap-input label="Discount:" value=restaurant.discount isEditing=isEditing placeholder="Discount"}}</p>
             {{/if}}
           </div>
-          <div class="col-xs-2 event-time"><p>{{bootstrap-input value=restaurant.hours isEditing=isEditing placeholder="Hours"}}</p></div>
         {{#unless isEditing}}
         {{#complete-check checkIn="checkIn" activity=restaurant activityList=session.user.ateAt}}
           <p>Ate&nbsp;it!</p>
