@@ -2,6 +2,7 @@ import Ember from 'ember';
 import { createSortableArray } from '../models/sortable-array';
 
 export default Ember.Controller.extend({
+  applicationController: Ember.inject.controller("application"),
   sortedRestaurants: Ember.computed('model', function() {
     return createSortableArray(this.get('model'), ['createdAt'], false);
   }),
@@ -9,14 +10,19 @@ export default Ember.Controller.extend({
   actions: {
     checkIn: function(restaurant) {
       var user = this.get('session.user');
-      user.get('ateAt').then(function(restaurants) {
-        if(restaurants.indexOf(restaurant) > -1) {
-          restaurants.removeObject(restaurant);
-        } else {
-          restaurants.pushObject(restaurant);
-        }
-        user.save();
-      });
+      if(!user) {
+        var app = this.get('applicationController');
+        app.showModal('login-modal');
+      } else {
+        user.get('ateAt').then(function(restaurants) {
+          if(restaurants.indexOf(restaurant) > -1) {
+            restaurants.removeObject(restaurant);
+          } else {
+            restaurants.pushObject(restaurant);
+          }
+          user.save();
+        });
+      }
     },
     cancelChange: function(restaurant){
       restaurant.rollback();

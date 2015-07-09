@@ -1,6 +1,4 @@
-{{#if session.isAuthenticated}}
-   <div class="well check-in-well" {{action 'checkIn'}}>
-   <i class="fa fa-{{if completed 'check-square' 'square'}}-o"></i>
-   <p>{{yield}}</p>
-  </div>
-{{/if}}
+ <div class="well check-in-well" {{action 'checkIn'}}>
+ <i class="fa fa-{{if completed 'check-square' 'square'}}-o"></i>
+ <p>{{yield}}</p>
+</div>

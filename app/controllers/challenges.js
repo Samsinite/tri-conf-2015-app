@@ -2,7 +2,7 @@ import Ember from 'ember';
 import { createSortableArray } from '../models/sortable-array';
 
 export default Ember.Controller.extend({
-
+  applicationController: Ember.inject.controller("application"),
   sortedChallenges: Ember.computed('model', function() {
     return createSortableArray(this.get('model'), ['createdAt'], false);
   }),
@@ -10,14 +10,19 @@ export default Ember.Controller.extend({
   actions: {
     checkIn : function(challenge){
       var user = this.get('session.user');
-      user.get('achieved').then(function(challenges) {
-        if(challenges.indexOf(challenge) > -1) {
-          challenges.removeObject(challenge);
-        } else {
-          challenges.pushObject(challenge);
-        }
-        user.save();
-      });
+      if(!user) {
+        var app = this.get('applicationController');
+        app.showModal('login-modal');
+      } else {
+        user.get('achieved').then(function(challenges) {
+          if(challenges.indexOf(challenge) > -1) {
+            challenges.removeObject(challenge);
+          } else {
+            challenges.pushObject(challenge);
+          }
+          user.save();
+        });
+      }
     },
     cancelChange: function(challenge){
       challenge.rollback();
