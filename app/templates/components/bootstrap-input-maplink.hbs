@@ -1,0 +1,21 @@
+{{#if label}}
+<label class="{{if srOnly 'sr-only' ''}}" for="{{inputId}}">{{label}}</label>
+{{/if}}
+{{#if isEditing}}
+  {{#if isInput}}
+    {{input value=value
+      placeholder=placeholder
+      elementId=inputId
+      classNames="form-control"}}
+  {{/if}}
+  {{#if isTextArea}}
+    {{textarea value=value
+      placeholder=placeholder
+      elementId=inputId
+      cols=cols
+      rows=rows
+      }}
+    {{/if}}
+{{else}}
+  <a href="https://www.google.com/maps/dir/Current+Location/{{{value}}} Richland WA" target="_blank" class="decorated">{{{value}}}</a>
+{{/if}}
