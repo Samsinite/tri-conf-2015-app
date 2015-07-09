@@ -23,4 +23,5 @@ export default Router.map(function() {
     // Edit Workout (by workout id)
     this.route('edit', { path: ':workout_id/edit' });
   });
+  this.route('achievements');
 });
