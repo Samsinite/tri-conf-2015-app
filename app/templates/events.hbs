@@ -16,7 +16,7 @@
    </div>
    <div class="row">
      <ul class="nav nav-tabs nav-pills">
-       <li class="pill-triconf {{if allLocationsHidden 'disabled'}}"><a href="#" {{action 'setTrack' 'all'}}>All</a></li>
+       <li class="pill-triconf {{if allLocationsHidden 'disabled'}}"><a href="#" {{action 'setLocation' 'all'}}>All</a></li>
        {{#each model.locations as |location|}}
        <li class="pill-triconf {{if location.isHidden 'disabled'}}">
          <a href="#" {{action 'setLocation' location.name}}>{{location.name}}</a>
