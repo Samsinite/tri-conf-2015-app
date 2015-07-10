@@ -39,8 +39,9 @@
                   date=event.displayDate
                   isEditing=isEditing}}
                 </p>
+                <p>{{bootstrap-input label="Length:" value=event.length isEditing=isEditing}}</p>
                 {{#if (hidden-field-check event.speaker session.user.isAdmin isEditing)}}
-                <p>{{bootstrap-input label="Speaker:" value=event.speaker isEditing=isEditing}}</p>
+                <p>{{bootstrap-input label="Presenter:" value=event.speaker isEditing=isEditing}}</p>
                 {{/if}}
                 <p>{{bootstrap-select
                     label="Track:"
@@ -62,6 +63,9 @@
                     isEditing=isEditing
                     placeholder="Location"}}</p>
               </div>
+                {{#if (hidden-field-check event.description session.user.isAdmin isEditing)}}
+                <p>{{bootstrap-input label="Description:" value=event.description isEditing=isEditing type='textarea'}}</p>
+                {{/if}}
             </div>
             {{#unless isEditing}}
               {{#complete-check checkIn="checkIn" activity=event activityList=session.user.attendedEvents}}
