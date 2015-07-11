@@ -5,14 +5,18 @@
        </div>
    </div>
    <div class="row">
-     <ul class="nav nav-tabs nav-pills">
-       <li class="pill-triconf {{if allTracksHidden 'disabled'}}"><a href="#" {{action 'setTrack' 'all'}}>All</a></li>
-       {{#each model.tracks as |track|}}
-       <li class="pill-{{track.style}} {{if track.isHidden 'disabled'}}">
-         <a href="#" {{action 'setTrack' track.name}}>{{track.name}}</a>
-       </li>
-       {{/each}}
-     </ul>
+     {{ember-selectize selection=selectedTrack
+         content=trackNames
+         optionLabelPath="content.name"
+         optionValuePath="content.id"
+         placeholder="Fliter Track"}}
+   </div>
+   <div class="row">
+     {{ember-selectize selection=selectedLocation
+         content=locationNames
+         optionLabelPath="content.venue"
+         optionValuePath="content.venue"
+         placeholder="Fliter Locations"}}
    </div>
 </div>
 <div class="row">
@@ -32,7 +36,7 @@
       <div class="media">
         <div class="media-body">
           <div class="row">
-            <div class="col-xs-{{if isEditing '12' '8'}}">
+            <div class="col-xs-{{if isEditing '12' '8'}} inner-panel">
               <div class="form-group">
                 <p class="dayTime"><label>Time/Day:</label>
                 {{bootstrap-select-time

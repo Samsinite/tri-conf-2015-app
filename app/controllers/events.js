@@ -3,10 +3,32 @@ import { createSortableArray } from '../models/sortable-array';
 
 export default Ember.Controller.extend({
   applicationController: Ember.inject.controller("application"),
-  selectedTrack: "all",
 
+  selectedLocation: {venue: "All"},
+  filterLocations: function() {
+    var locationVenue = this.get('selectedLocation.venue');
+    this.model.locations.forEach(function(location){
+      if(location.get('venue') === locationVenue || locationVenue === "All"){
+        location.set('isHidden', false);
+      } else {
+        location.set('isHidden', true);
+      }
+    });
+  }.observes('selectedLocation'),
+  locationNames: function() {
+    var allLocations = [{venue: "All"}];
+    this.model.locations.forEach(function(location) {
+      if(! allLocations.find(function(i){return i.venue === location.get('venue')})) {
+        allLocations.push({venue: location.get('venue')});
+      }
+    });
+    return allLocations;
+  }.property('model.locations.@each.venue'),
+
+
+  selectedTrack: {name: "All", id: "all"},
   filterTracks: function() {
-    var trackName = this.get('selectedTrack');
+    var trackName = this.get('selectedTrack.name');
     this.model.tracks.forEach(function(track){
       if(track.get('name') === trackName || trackName === "all"){
         track.set('isHidden', false);
@@ -15,10 +37,14 @@ export default Ember.Controller.extend({
       }
     });
   }.observes('selectedTrack'),
+  trackNames: function() {
+    var allTracks = [{id: "all", name: "All"}];
+    this.model.tracks.forEach(function(track) {
+      allTracks.push(track);
+    });
+    return allTracks;
+  }.property('model.tracks.@each.name'),
 
-  allTracksHidden: function() {
-    return this.get('selectedTrack') !== "all";
-  }.property('selectedTrack'),
   searchString: "",
 
   sortedEvents: Ember.computed('model.events', function() {
@@ -27,20 +53,25 @@ export default Ember.Controller.extend({
 
   filterEvents: function() {
     var str = this.get('searchString').toLowerCase();
-    var selectedTrack = this.get('selectedTrack');
+    var selectedTrack = this.get('selectedTrack.name');
+    var selectedVenue = this.get('selectedLocation.venue');
     this.model.events.forEach(function(event){
       var title = (event.get('title') || "").toLowerCase();
       var speaker = (event.get('speaker') || "").toLowerCase();
+      var description = (event.get('description') || "").toLowerCase();
       var trackName = event.get('track.name');
-      var eventInSelectedTrack = trackName === selectedTrack || selectedTrack === "all";
-      var eventInSearch = str === "" || title.indexOf(str) > -1 || speaker.indexOf(str) > -1;
-      if(eventInSelectedTrack && eventInSearch) {
+      var locationVenue = event.get('location.venue');
+      var eventInSelectedTrack = trackName === selectedTrack || selectedTrack === "All";
+      var eventInSelectedLocation = locationVenue === selectedVenue || selectedVenue === "All";
+      var eventInSearch = str === "" || title.indexOf(str) > -1 ||
+          speaker.indexOf(str) > -1 || description.indexOf(str) > -1;
+      if(eventInSelectedTrack && eventInSearch && eventInSelectedLocation) {
         event.set('isHidden', false);
       } else {
         event.set('isHidden', true);
       }
     });
-  }.observes("selectedTrack", "searchString"),
+  }.observes("selectedLocation", "selectedTrack", "searchString"),
 
 	actions : {
     checkIn : function(event){
@@ -78,6 +109,9 @@ export default Ember.Controller.extend({
     },
     setTrack: function(trackName) {
       this.set('selectedTrack', trackName);
+    },
+    setLocation: function(locationName) {
+      this.set('selectedLocation', locationName);
     }
 	}
 });

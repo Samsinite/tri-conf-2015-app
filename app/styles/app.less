@@ -101,6 +101,16 @@ a {
   }
 }
 
+.row {
+  margin: 0;
+}
+
+.inner-panel {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  line-height: 1.5em;
+}
+
 .check-in-well {
   position: absolute;
   width: 80px;
@@ -185,7 +195,7 @@ a {
 
 .media {
   margin-top: 0px;
-  padding: 5px;
+  padding: 5px 0;
 }
 
 .full-width {
@@ -207,12 +217,15 @@ a {
     margin: 0;
 
     h2 {
-      margin: 3px 0px;
-      padding-left: 0;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 5px;
+      margin-left: -4px;
     }
 
     .btn {
-      font-size: 10px;
+      font-size: 16px;
+      padding: 2px 5px;
     }
   }
 
@@ -233,19 +246,19 @@ a {
       a, p {
         color: #000000;
         text-align: right;
-        font-size: 14px;
-        font-weight: 700;
+        font-size: 12px;
+        font-weight: 300;
       }
 
     }
 
     a, p {
       color: #000000;
-      font-size: 14px;
+      font-size: 12px;
       margin: 0;
 
       label {
-        font-weight: 700;
+        font-weight: 500;
       }
 
       &.decorated {
@@ -259,7 +272,6 @@ a {
 .event.disabled {
   display: none;
 }
-
 
 .tech {
   background-color: #DEE1F1;
