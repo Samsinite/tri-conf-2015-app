@@ -8,6 +8,7 @@ export default Ember.Component.extend({
   item: null,
   title: "",
   isEditing: false,
+  hasBookmark: false,
 
   onLogout: function() {
     this.set('isEditing', false);
@@ -32,6 +33,9 @@ export default Ember.Component.extend({
     cancel: function() {
       this.set('isEditing', false);
       this.sendAction('onCancel', this.get('item'));
+    },
+    bookmark: function() {
+      this.sendAction('onBookmark', this.get('item'));
     },
   }
 });

@@ -2,9 +2,12 @@
   <div class="col-md-6">
     <div class="panel editable-panel {{panelClass}}">
       <div class="panel-heading row">
-        <h2 class="panel-title col-xs-11">{{bootstrap-input value=title isEditing=isEditing placeholder="Title"}}</h2>
-        {{#if session.user.isAdmin}}
+        <h2 class="panel-title col-xs-8">{{bootstrap-input value=title isEditing=isEditing placeholder="Title"}}</h2>
         <div class="col-xs-4 edit-panel">
+        {{#if hasBookmark}}
+          <button class="btn" {{action 'bookmark'}}><i class="fa fa-bookmark-o"></i></button>
+        {{/if}}
+        {{#if session.user.isAdmin}}
           {{#if isEditing}}
             <button class="btn save-button" type='submit'><i class="fa fa-floppy-o"></i></button>
             <button class="btn" {{action 'cancel'}}><i class="fa fa-undo"></i></button>
@@ -12,12 +15,8 @@
             <button class="btn" {{action 'remove'}}><i class="fa fa-remove"></i></button>
             <button class="btn" {{action 'edit'}}><i class="fa fa-pencil"></i></button>
           {{/if}}
-        </div>
-        {{else}}
-        <div class="col-xs-1 edit-panel">
-          <button class="btn"><i class="fa fa-bookmark-o"></i></button>
-        </div>
         {{/if}}
+      </div>
       </div>
       {{yield isEditing}}
     </div>

@@ -90,6 +90,22 @@ export default Ember.Controller.extend({
         });
       }
     },
+    bookmarkEvent : function(event){
+      var user = this.get('session.user');
+      if(!user) {
+        var app = this.get('applicationController');
+        app.showModal('login-modal');
+      } else {
+        user.get('bookmarkEvents').then(function(events) {
+          if(events.indexOf(event) > -1) {
+            events.removeObject(event);
+          } else {
+            events.pushObject(event);
+          }
+          user.save();
+        });
+      }
+    },
     cancelChange: function(event){
       event.rollback();
     },
