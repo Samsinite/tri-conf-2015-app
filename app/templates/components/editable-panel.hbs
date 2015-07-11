@@ -2,7 +2,7 @@
   <div class="col-md-6">
     <div class="panel editable-panel {{panelClass}}">
       <div class="panel-heading row">
-        <h2 class="panel-title col-xs-8">{{bootstrap-input value=title isEditing=isEditing placeholder="Title"}}</h2>
+        <h2 class="panel-title col-xs-11">{{bootstrap-input value=title isEditing=isEditing placeholder="Title"}}</h2>
         {{#if session.user.isAdmin}}
         <div class="col-xs-4 edit-panel">
           {{#if isEditing}}
@@ -13,8 +13,11 @@
             <button class="btn" {{action 'edit'}}><i class="fa fa-pencil"></i></button>
           {{/if}}
         </div>
+        {{else}}
+        <div class="col-xs-1 edit-panel">
+          <button class="btn"><i class="fa fa-bookmark-o"></i></button>
+        </div>
         {{/if}}
-
       </div>
       {{yield isEditing}}
     </div>
