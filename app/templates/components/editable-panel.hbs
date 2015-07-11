@@ -2,9 +2,9 @@
   <div class="col-md-6">
     <div class="panel editable-panel {{panelClass}}">
       <div class="panel-heading row">
-        <h2 class="panel-title col-xs-11">{{bootstrap-input value=title isEditing=isEditing placeholder="Title"}}</h2>
+        <h2 class="panel-title col-sm-10">{{bootstrap-input value=title isEditing=isEditing placeholder="Title"}}</h2>
         {{#if session.user.isAdmin}}
-        <div class="col-xs-4 edit-panel">
+        <div class="col-sm-2 edit-panel">
           {{#if isEditing}}
             <button class="btn save-button" type='submit'><i class="fa fa-floppy-o"></i></button>
             <button class="btn" {{action 'cancel'}}><i class="fa fa-undo"></i></button>
