@@ -8,7 +8,16 @@ export default Ember.Component.extend({
   item: null,
   title: "",
   isEditing: false,
-  hasBookmark: false,
+  bookmark: null,
+  hasBookmark: function() {
+    return !!this.get('bookmark');
+  }.property('bookmark'),
+  bookmarkSelected: function() {
+    return this.get('bookmark') === "selected";
+  }.property('bookmark'),
+  bookmarkUnselected: function() {
+    return this.get('bookmark') === "unselected";
+  }.property('bookmark'),
 
   onLogout: function() {
     this.set('isEditing', false);
