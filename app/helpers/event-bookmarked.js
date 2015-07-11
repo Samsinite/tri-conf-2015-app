@@ -5,20 +5,22 @@ export default Ember.Helper.extend({
   user: null,
 
   compute([user, event]) {
-    var bookmarkEventsPromise = user.get('bookmarkEvents');
+    if(user) {
+      var bookmarkEventsPromise = user.get('bookmarkEvents');
 
-    this.set('user', user);
+      this.set('user', user);
 
-    if (bookmarkEventsPromise) {
-      bookmarkEventsPromise.then((bookmarkEvents) => {
-        var isBookmarked = bookmarkEvents.find((bookmarkEvent) => {
-          return bookmarkEvent.get('id') === event.get('id');
+      if (bookmarkEventsPromise) {
+        bookmarkEventsPromise.then((bookmarkEvents) => {
+          var isBookmarked = bookmarkEvents.find((bookmarkEvent) => {
+            return bookmarkEvent.get('id') === event.get('id');
+          });
+
+          if (isBookmarked) {
+            this.set('isBookmarked', "selected");
+          }
         });
-
-        if (isBookmarked) {
-          this.set('isBookmarked', "selected");
-        }
-      });
+      }
     }
 
     return this.get('isBookmarked');
