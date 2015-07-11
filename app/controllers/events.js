@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
   locationNames: function() {
     var allLocations = [{venue: "All"}];
     this.model.locations.forEach(function(location) {
-      if(! allLocations.find(function(i){return i.venue === location.get('venue')})) {
+      if(! allLocations.find(function(i){return i.venue === location.get('venue');})) {
         allLocations.push({venue: location.get('venue')});
       }
     });
