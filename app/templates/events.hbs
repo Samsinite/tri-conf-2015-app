@@ -1,18 +1,18 @@
 <div class="panel container-fluid filter">
   <div class="row">
-     <div class="col-md-4">
+     <div class="col-sm-4">
        <div class="form-group search">
          {{input classNames="form-control" placeholder="Search" value=searchString}}
        </div>
      </div>
-     <div class="col-md-4">
+     <div class="col-sm-4">
      {{ember-selectize selection=selectedTrack
          content=trackNames
          optionLabelPath="content.name"
          optionValuePath="content.id"
          placeholder="Fliter Track"}}
      </div>
-     <div class="col-md-4">
+     <div class="col-sm-4">
      {{ember-selectize selection=selectedLocation
          content=locationNames
          optionLabelPath="content.venue"
