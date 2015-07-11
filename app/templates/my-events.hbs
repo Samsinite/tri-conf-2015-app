@@ -1,0 +1,59 @@
+<div class="row filter">
+</div>
+{{#if session.isAuthenticated}}
+  {{#each sortedEvents as |event|}}
+    {{#base-panel
+      item=event
+      onBookmark="bookmarkEvent"
+      panelClass=event.track.style
+      bookmark="selected"
+      title=event.title}}
+        <div class="media">
+          <div class="media-body">
+            <div class="row">
+              <div class="col-xs-8 inner-panel">
+                <div class="form-group">
+                  <p class="dayTime"><label>Time/Day:</label>
+                  {{bootstrap-select-time
+                    date=event.displayDate
+                    isEditing=false}}
+                  </p>
+                  <p>{{bootstrap-input label="Length:" value=event.length isEditing=false}}</p>
+                  {{#if event.speaker }}
+                  <p>{{bootstrap-input label="Presenter:" value=event.speaker isEditing=false}}</p>
+                  {{/if}}
+                  <p>{{bootstrap-select
+                      label="Track:"
+                      selection=event.track
+                      content=model.tracks
+                      optionValuePath="content.id"
+                      optionLabelPath="content.name"
+                      value=event.track.name
+                      isEditing=false
+                      placeholder="Event Track"
+                      }}</p>
+                  <p>{{bootstrap-select
+                      label="Location:"
+                      selection=event.location
+                      content=model.locations
+                      optionValuePath="content.id"
+                      optionLabelPath="content.name"
+                      value=event.location.name
+                      isEditing=false
+                      placeholder="Location"}}</p>
+                </div>
+                  {{#if event.description}}
+                  <p>{{bootstrap-input label="Description:" value=event.description isEditing=false type='textarea'}}</p>
+                  {{/if}}
+              </div>
+              {{#complete-check checkIn="checkIn" activity=event activityList=session.user.attendedEvents}}
+                <p>Saw&nbsp;it!</p>
+              {{/complete-check}}
+            </div>
+          </div>
+        </div>
+    {{/base-panel}}
+  {{/each}}
+{{else}}
+  Log in to bookmark events
+{{/if}}

@@ -1,0 +1,17 @@
+<div class="col-md-6">
+  <div class="panel editable-panel {{panelClass}}">
+    <div class="panel-heading row">
+      <h2 class="panel-title col-xs-8">{{title}}</h2>
+      <div class="col-xs-4 edit-panel">
+        {{#if hasBookmark}}
+          {{#if bookmarked}}
+            <button class="btn" {{action 'bookmark'}}><i class="fa fa-bookmark"></i></button>
+          {{else}}
+            <button class="btn" {{action 'bookmark'}}><i class="fa fa-bookmark-o"></i></button>
+          {{/if}}
+        {{/if}}
+    </div>
+    </div>
+    {{yield}}
+  </div>
+</div>
