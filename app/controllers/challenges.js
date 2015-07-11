@@ -22,6 +22,7 @@ export default Ember.Controller.extend({
             challenges.pushObject(challenge);
           }
           user.save();
+          challenge.save();
         });
       }
     },
