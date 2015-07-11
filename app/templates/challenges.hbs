@@ -23,12 +23,19 @@
       <div class="media-body">
         <div class="row">
           <div class="col-xs-8">
-            <p>{{bootstrap-input
+            <p>
+              {{bootstrap-input
                   label="description:"
                   value=challenge.description
                   isEditing=isEditing
                   type="textarea"
-                  placeholder="Description"}}</p>
+                  placeholder="Description"}}
+              {{bootstrap-select content=categories
+                  value=challenge.category
+                  label="Category:"
+                  placeholder="Category"
+                  isEditing=isEditing}}
+            </p>
           </div>
           {{#unless isEditing}}
             {{#complete-check checkIn="checkIn" activity=challenge activityList=session.user.achieved}}

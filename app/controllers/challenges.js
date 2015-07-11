@@ -2,6 +2,7 @@ import Ember from 'ember';
 import { createSortableArray } from '../models/sortable-array';
 
 export default Ember.Controller.extend({
+  categories: ["walking", "biking", "shuttling"],
   applicationController: Ember.inject.controller("application"),
   sortedChallenges: Ember.computed('model', function() {
     return createSortableArray(this.get('model'), ['createdAt'], false);
