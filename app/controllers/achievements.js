@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  walkingLevel: 0,
+  walkingLevel: 1,
   walkingQuotes: {
     '0': null,
     '1': '"We ourselves must walk the path." &#8212; Buddha',
@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
     '3': '"Every man must decide whether he will walk in the light of creative altruism or in the darkness of destructive selfishness." &#8212; Martin Luther King, Jr.'
   },
 
-  bikingLevel: 0,
+  bikingLevel: 1,
   bikingQuotes: {
     '0': null,
     '1': '"If you worried about falling off the bike, you\'d never get on." &#8212; Lance Armstrong',
@@ -17,7 +17,7 @@ export default Ember.Controller.extend({
     '3': '"I am a bike enthusiast; there\'s a certain amount of romance to bikes. They\'re both beautiful and utilitarian." – Dave Eggers'
   },
 
-  filmLevel: 0,
+  filmLevel: 1,
   filmQuotes: {
     '0': null,
     '1': '"A film is never really good unless the camera is an eye in the head of a poet." &#8212; Orson Welles',
@@ -25,7 +25,7 @@ export default Ember.Controller.extend({
     '3': '"Filmmaking, like any other art, is a very profound means of human communication; beyond the professional pleasure of succeeding or the pain of failing, you do want your film to be seen, to communicate itself to other people." &#8212; Kenneth Lonergan',
   },
 
-  shuttlingLevel : 0,
+  shuttlingLevel : 1,
   shuttlingQuotes: {
     '0': null,
     '1': '"I think the thing to do is enjoy the ride while you\'re on it." – Johnny Depp',
