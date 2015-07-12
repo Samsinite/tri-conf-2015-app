@@ -4,11 +4,11 @@ import { createSortableArray } from '../models/sortable-array';
 export default Ember.Controller.extend({
   applicationController: Ember.inject.controller("application"),
 
-  selectedLocation: {venue: "All"},
+  selectedLocation: {venue: "All Venues"},
   filterLocations: function() {
     var locationVenue = this.get('selectedLocation.venue');
     this.model.locations.forEach(function(location){
-      if(location.get('venue') === locationVenue || locationVenue === "All"){
+      if(location.get('venue') === locationVenue || locationVenue === "All Venues"){
         location.set('isHidden', false);
       } else {
         location.set('isHidden', true);
@@ -16,7 +16,7 @@ export default Ember.Controller.extend({
     });
   }.observes('selectedLocation'),
   locationNames: function() {
-    var allLocations = [{venue: "All"}];
+    var allLocations = [{venue: "All Venues"}];
     this.model.locations.forEach(function(location) {
       if(! allLocations.find(function(i){return i.venue === location.get('venue');})) {
         allLocations.push({venue: location.get('venue')});
@@ -26,11 +26,11 @@ export default Ember.Controller.extend({
   }.property('model.locations.@each.venue'),
 
 
-  selectedTrack: {name: "All", id: "all"},
+  selectedTrack: {name: "All Tracks", id: "all"},
   filterTracks: function() {
     var trackName = this.get('selectedTrack.name');
     this.model.tracks.forEach(function(track){
-      if(track.get('name') === trackName || trackName === "all"){
+      if(track.get('name') === trackName || trackName === "All Tracks"){
         track.set('isHidden', false);
       } else {
         track.set('isHidden', true);
@@ -38,7 +38,7 @@ export default Ember.Controller.extend({
     });
   }.observes('selectedTrack'),
   trackNames: function() {
-    var allTracks = [{id: "all", name: "All"}];
+    var allTracks = [{id: "all", name: "All Tracks"}];
     this.model.tracks.forEach(function(track) {
       allTracks.push(track);
     });
@@ -61,8 +61,8 @@ export default Ember.Controller.extend({
       var description = (event.get('description') || "").toLowerCase();
       var trackName = event.get('track.name');
       var locationVenue = event.get('location.venue');
-      var eventInSelectedTrack = trackName === selectedTrack || selectedTrack === "All";
-      var eventInSelectedLocation = locationVenue === selectedVenue || selectedVenue === "All";
+      var eventInSelectedTrack = trackName === selectedTrack || selectedTrack === "All Tracks";
+      var eventInSelectedLocation = locationVenue === selectedVenue || selectedVenue === "All Venues";
       var eventInSearch = str === "" || title.indexOf(str) > -1 ||
           speaker.indexOf(str) > -1 || description.indexOf(str) > -1;
       if(eventInSelectedTrack && eventInSearch && eventInSelectedLocation) {
