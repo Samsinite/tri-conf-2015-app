@@ -7,8 +7,6 @@ export default DS.Model.extend({
   speaker: DS.attr('string', { defaultValue: function() {return "";} }),
   createdAt: DS.attr('date', { defaultValue: function() { return new Date(); } }),
   location: DS.belongsTo('location', {async: true}),
-  attendees: DS.hasMany('user', {inverse: 'attendedEvents', async: true}),
-  bookmarkers: DS.hasMany('user', {inverse: 'bookmarkEvents', async: true}),
   date: DS.attr('date'),
   length: DS.attr('string', {defaultValue: function() {return "20 minutes";}}),
   description: DS.attr('string'),

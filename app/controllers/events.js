@@ -87,7 +87,6 @@ export default Ember.Controller.extend({
             events.pushObject(event);
           }
           user.save();
-          event.save();
         });
       }
     },
@@ -104,7 +103,6 @@ export default Ember.Controller.extend({
             events.pushObject(event);
           }
           user.save();
-          event.save();
         });
       }
     },
