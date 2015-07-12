@@ -21,6 +21,7 @@ export default Ember.Controller.extend({
             restaurants.pushObject(restaurant);
           }
           user.save();
+          restaurants.save();
         });
       }
     },
