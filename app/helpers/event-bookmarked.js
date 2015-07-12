@@ -18,6 +18,8 @@ export default Ember.Helper.extend({
 
           if (isBookmarked) {
             this.set('isBookmarked', "selected");
+          } else {
+            this.set('isBookmarked', "unselected");
           }
         });
       }
