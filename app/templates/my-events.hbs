@@ -53,7 +53,31 @@
           </div>
         </div>
     {{/base-panel}}
+    {{else}}
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel" id="my-events">
+            <i class="fa fa-bookmark large-icon"></i>
+              <h3>Future List of Amazing Things To Do</h3>
+                <p>While you're checking out the Events List, you can bookmark all of the amazing stuff that you want to see and do during this years TriConf. We'll save your todo list here for you so you don't forget.</p>
+          </div>
+        </div>
+      </div>
+
+
   {{/each}}
 {{else}}
-  Log in to bookmark events
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel" id="my-events">
+        <i class="fa fa-bookmark large-icon"></i>
+        <h3>You Should Log In!</h3>
+        <p>Then, while you're checking out the Events List, you can bookmark all of the amazing stuff that you want to see and do during this years TriConf. We'll save your todo list here for you so you don't forget.</p>
+        <div class="row">
+          <button class="login-btn" {{action 'login' 'twitter'}}><i class="fa fa-twitter icon"></i> Login</button>
+          <button class="login-btn" {{action 'login' 'facebook'}}><i class="fa fa-facebook icon"></i> Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
 {{/if}}
