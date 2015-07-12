@@ -41,7 +41,14 @@ export default {
 
       login: function(provider) {
         return new Ember.RSVP.Promise((resolve, reject) => {
-          this.get("ref").authWithOAuthPopup(provider, function(error, user) {
+          var ref = this.get('ref');
+          ref.authWithOAuthPopup(provider, (error, user) => {
+            if(error) {
+              ref.authWithOAuthRedirect(provider, (redirectError, redirectUser) => {
+                user = redirectUser;
+                error = redirectError;
+              });
+            }
             if (user) {
               resolve(user);
             } else {

@@ -35,7 +35,7 @@
       onCancel="cancelChange"
       onBookmark="bookmarkEvent"
       panelClass=event.track.style
-      hasBookmark=true
+      bookmark=(event-bookmarked session.user event)
       title=event.title as |isEditing|}}
       <div class="media">
         <div class="media-body">
