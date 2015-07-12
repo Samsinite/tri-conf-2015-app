@@ -4,9 +4,11 @@
 {{#if isEditing}}
 {{ember-selectize selection=selection
     content=content
+    value=value
     optionLabelPath=optionLabelPath
     optionValuePath=optionValuePath
-    placeholder=placeholder}}
+    placeholder=placeholder
+    select-item=selectItem}}
 {{else}}
   {{value}}
 {{/if}}

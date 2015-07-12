@@ -34,7 +34,15 @@
                   value=challenge.category
                   label="Category:"
                   placeholder="Category"
+                  optionValuePath="content"
+                  optionLabelPath="content"
                   isEditing=isEditing}}
+              {{bootstrap-input
+                  label="Completed Quote:"
+                  value=challenge.completedQuote
+                  isEditing=isEditing
+                  type="textarea"
+                  placeholder="Enter Quote if any..."}}
             </p>
           </div>
           {{#unless isEditing}}

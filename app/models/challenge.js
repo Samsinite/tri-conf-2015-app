@@ -5,4 +5,5 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   createdAt: DS.attr('date', { defaultValue: function() { return new Date(); } }),
   category: DS.attr('string'),
+  completedQuote: DS.attr('string')
 });
