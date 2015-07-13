@@ -5,7 +5,7 @@
 		<div class="row heading">
 		  <div class="col-xs-12"><h4 class="media-heading">Overall Awesome</h4></div>
 		</div>
-		{{#each eventsLeaderboard as |user index|}}
+		{{#each totalScoreLeaderboard as |user index|}}
 		<div class="row leader">
 			<div class="col-xs-12">{{add-one index}}. {{user.displayName}}<span class="score">{{user.totalScore}} points</span></div>
 		</div>
