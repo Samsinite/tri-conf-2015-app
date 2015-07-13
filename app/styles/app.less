@@ -88,16 +88,26 @@ a {
   cursor: pointer;
 
   i {
-    font-size: 30px;
+    font-size: 20px;
+  }
+
+  .sawit {
+    font-size: 21px;
+    padding-left: 5px;
   }
 
   .fa-check-square-o {
-    margin-right: -5px;
+    padding-right: 0;
   }
 
   .well {
     margin-right: 5px;
-    margint-top: 5px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding: 8px;
+    width: 100%;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
   }
 }
 
@@ -106,17 +116,13 @@ a {
 }
 
 .inner-panel {
-  padding-bottom: 5px;
-  padding-top: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   line-height: 1.5em;
-}
 
-.check-in-well {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  margin-bottom: 0;
-  right: 10px;
+  #text-field {
+    line-height: normal;
+  }
 }
 
 #side-nav {
@@ -195,7 +201,7 @@ a {
 
 .media {
   margin-top: 0px;
-  padding: 5px 0;
+  padding: 0;
 }
 
 .full-width {
@@ -221,6 +227,7 @@ a {
       font-weight: 500;
       margin-top: 5px;
       margin-left: -4px;
+      line-height: normal;
     }
 
     .btn {
@@ -293,7 +300,7 @@ a {
   }
 }
 
-.triconf {
+  .triconf {
   background-color: #C5E0DC;
   .panel-heading {
     background-color: #62C4B5;
@@ -308,10 +315,6 @@ a {
     background-color: #20AB96;
     color: #ffffff;
   }
-}
-
-.editable-panel {
-  min-height: 140px;
 }
 
 .entrepreneurship {
@@ -609,10 +612,12 @@ a {
     }
   }
 
-  .form-group {
-    margin-bottom: 0;
-  }
 
+
+}
+
+.form-group {
+  margin-bottom: 0;
 }
 
 @import 'calendar-month-component';

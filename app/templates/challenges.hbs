@@ -1,11 +1,4 @@
-<div class="panel container-fluid filter">
-  <form role="search">
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Search">
-    </div>
-  </form>
-</div>
-<div class="row">
+<div class="row filter">
   {{#if session.user.isAdmin}}
     <button class="add-panel" {{action 'createChallenge'}}><i class="fa fa-plus icon"> Add New Event</i></button>
   {{/if}}
@@ -21,8 +14,8 @@
       as |isEditing|}}
     <div class="media">
       <div class="media-body">
-        <div class="row">
-          <div class="col-xs-8">
+        <div class="row inner-panel">
+          <div class="col-md-12">
             <p>
               {{bootstrap-input
                   label="description:"
@@ -45,12 +38,12 @@
                   placeholder="Enter Quote if any..."}}
             </p>
           </div>
+        </div>
           {{#unless isEditing}}
             {{#complete-check checkIn="checkIn" activity=challenge activityList=session.user.achieved}}
-              <p>Did&nbsp;it!</p>
+                <span class="sawit">Did&nbsp;it!</span>
             {{/complete-check}}
           {{/unless}}
-        </div>
       </div>
     </div>
   {{/editable-panel}}
