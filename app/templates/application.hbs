@@ -19,8 +19,6 @@
     <li>{{#link-to 'achievements'}}<i class="fa fa-trophy icon"></i>Achievements{{/link-to}}</li>
   </ul>
 </nav>
-<div id="application-container">
-  {{outlet}}
 <nav id="top-menu" class="{{if isExpanded 'lowered' 'raised'}}">
   <ul>
     <li><a {{action 'menuLoad' 'events'}}><i class="fa fa-flag icon"></i> Event List</a></li>
@@ -36,6 +34,9 @@
   <p><a {{action 'openMenu'}} class="menu-button">Menu</a></p>
   {{/if}}
 </nav>
+<div id="application-container">
+  {{outlet}}
+
 </div>
 {{#if isModalVisible}}
   {{#modal-dialog}}
