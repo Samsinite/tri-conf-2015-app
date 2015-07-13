@@ -7,22 +7,32 @@ export default DS.Model.extend({
   achieved: DS.hasMany('challenge', {async: true}),
   displayName: DS.attr('string'),
   isAdmin: DS.attr('boolean', { readOnly: true }),
-  numEvents() {
-    return this.get('attendedEvents').length;
-  }.property('attendedEvents'),
-  numBookmarks() {
-    return this.get('attendedEvents').length;
-  }.property('attendedEvents'),
-  numRestaurants() {
-    return this.get('ateAt').length;
-  }.property('ateAt'),
-  numAchieved() {
-    return this.get('achieved').length;
-  }.property('achieved'),
-  totalChecks() {
-    return this.get('attendedEvents').length +
-            this.get('bookmarkEvent').length +
-            this.get('ateAt').length +
-            this.get('achieved').length;
-  }.property('attendedEvents', 'bookmarkEvent', 'ateAt', 'achieved'),
+  numEvents: Ember.computed('attendedEvents', {
+    get: function() {
+      return this.get('attendedEvents.length');
+    }
+  }),
+  numRestaurants: Ember.computed('ateAt', {
+    get: function() {
+      return this.get('ateAt.length');
+    }
+  }),
+  numBookmarks: Ember.computed('bookmarkEvents', {
+    get: function() {
+      return this.get('bookmarkEvents.length');
+    }
+  }),
+  numAchieved: Ember.computed('achieved', {
+    get: function() {
+      return this.get('achieved.length');
+    }
+  }),
+  totalScore: Ember.computed('numEvents', 'numRestaurants', 'numBookmarks', 'numAchieved', {
+    get: function() {
+      return  this.get('numEvents') +
+              this.get('numRestaurants') +
+              this.get('numBookmarks') +
+              this.get('numAchieved');
+    }
+  }),
 });

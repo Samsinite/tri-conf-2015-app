@@ -5,110 +5,62 @@
 		<div class="row heading">
 		  <div class="col-xs-12"><h4 class="media-heading">Overall Awesome</h4></div>
 		</div>
+		{{#each eventsLeaderboard as |user index|}}
 		<div class="row leader">
-			<div class="col-xs-12">1. Some Rando <span class="score">500pts</span></div>
+			<div class="col-xs-12">{{add-one index}}. {{user.displayName}}<span class="score">{{user.totalScore}} points</span></div>
 		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">2. Some Rando <span class="score">490pts</span></div>
-		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">3. Some Rando <span class="score">480pts</span></div>
-		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">4. Some Rando <span class="score">470pts</span></div>
-		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">5. Some Rando <span class="score">460pts</span></div>
-		</div>
+		{{/each}}
 	</div>
 </div>
 
 <div class="col-md-6">
 	<div class="leaderboard panel">
 		<div class="row heading">
-		  <div class="col-xs-12"><h4 class="media-heading">Most Restaurants</h4></div>
+		  <div class="col-xs-12"><h4 class="media-heading">Most Enlightened</h4></div>
 		</div>
+		{{#each eventsLeaderboard as |user index|}}
 		<div class="row leader">
-			<div class="col-xs-12">1. Some Rando <span class="score">500pts</span></div>
+			<div class="col-xs-12">{{add-one index}}. {{user.displayName}}<span class="score">{{user.numEvents}} events</span></div>
 		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">2. Some Rando <span class="score">490pts</span></div>
-		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">3. Some Rando <span class="score">480pts</span></div>
-		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">4. Some Rando <span class="score">470pts</span></div>
-		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">5. Some Rando <span class="score">460pts</span></div>
-		</div>
+		{{/each}}
 	</div>
 </div>
 
 <div class="col-md-6">
 	<div class="leaderboard panel">
 		<div class="row heading">
-		  <div class="col-xs-12"><h4 class="media-heading">Most Restaurants</h4></div>
+		  <div class="col-xs-12"><h4 class="media-heading">Most Glutunous</h4></div>
 		</div>
+		{{#each restaurantLeaderboard as |user index|}}
 		<div class="row leader">
-			<div class="col-xs-12">1. Some Rando <span class="score">500pts</span></div>
+			<div class="col-xs-12">{{add-one index}}. {{user.displayName}}<span class="score">{{user.numRestaurants}} restaurant</span></div>
 		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">2. Some Rando <span class="score">490pts</span></div>
-		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">3. Some Rando <span class="score">480pts</span></div>
-		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">4. Some Rando <span class="score">470pts</span></div>
-		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">5. Some Rando <span class="score">460pts</span></div>
-		</div>
+		{{/each}}
 	</div>
 </div>
+
 <div class="col-md-6">
 	<div class="leaderboard panel">
 		<div class="row heading">
-		  <div class="col-xs-12"><h4 class="media-heading">Most Restaurants</h4></div>
+		  <div class="col-xs-12"><h4 class="media-heading">Most Ambitious</h4></div>
 		</div>
+		{{#each bookmarkLeaderboard as |user index|}}
 		<div class="row leader">
-			<div class="col-xs-12">1. Some Rando <span class="score">500pts</span></div>
+			<div class="col-xs-12">{{add-one index}}. {{user.displayName}}<span class="score">{{user.numBookmarks}} bookmarks</span></div>
 		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">2. Some Rando <span class="score">490pts</span></div>
-		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">3. Some Rando <span class="score">480pts</span></div>
-		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">4. Some Rando <span class="score">470pts</span></div>
-		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">5. Some Rando <span class="score">460pts</span></div>
-		</div>
+		{{/each}}
 	</div>
 </div>
+
 <div class="col-md-6">
 	<div class="leaderboard panel">
 		<div class="row heading">
-		  <div class="col-xs-12"><h4 class="media-heading">Most Restaurants</h4></div>
+		  <div class="col-xs-12"><h4 class="media-heading">Most Adventurous</h4></div>
 		</div>
+		{{#each achievementLeaderboard as |user index|}}
 		<div class="row leader">
-			<div class="col-xs-12">1. Some Rando <span class="score">500pts</span></div>
+			<div class="col-xs-12">{{add-one index}}. {{user.displayName}}<span class="score">{{user.numAchieved}} achievements</span></div>
 		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">2. Some Rando <span class="score">490pts</span></div>
-		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">3. Some Rando <span class="score">480pts</span></div>
-		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">4. Some Rando <span class="score">470pts</span></div>
-		</div>
-		<div class="row leader">
-		  <div class="col-xs-12">5. Some Rando <span class="score">460pts</span></div>
-		</div>
+		{{/each}}
 	</div>
 </div>
