@@ -14,8 +14,8 @@
       as |isEditing|}}
     <div class="media">
       <div class="media-body">
-        <div class="row">
-          <div class="col-xs-8">
+        <div class="row inner-panel">
+          <div class="col-md-12">
             <p>{{bootstrap-input label="Type:" value=restaurant.type isEditing=isEditing placeholder="Type"}}</p>
             <p>{{bootstrap-input label="Hours:" value=restaurant.hours isEditing=isEditing placeholder="Hours"}}</p>
             <p>{{bootstrap-input-maplink label="Location:" value=restaurant.location isEditing=isEditing placeholder="Location"}}</p>
@@ -23,12 +23,12 @@
             <p>{{bootstrap-input label="Discount:" value=restaurant.discount isEditing=isEditing placeholder="Discount"}}</p>
             {{/if}}
           </div>
+        </div>
         {{#unless isEditing}}
         {{#complete-check checkIn="checkIn" activity=restaurant activityList=session.user.ateAt}}
           <p>Ate&nbsp;it!</p>
         {{/complete-check}}
         {{/unless}}
-        </div>
       </div>
     </div>
 

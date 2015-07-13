@@ -11,10 +11,10 @@
         <div class="media">
           <div class="media-body">
             <div class="row">
-              <div class="col-xs-8 inner-panel">
+              <div class="col-md-12 inner-panel my-events">
                 <div class="form-group">
-                  <p class="dayTime"><label>Time/Day:</label>
-                  {{bootstrap-select-time
+                  <p>{{bootstrap-select-time
+                    label="Day/Time: "
                     date=event.displayDate
                     isEditing=false}}
                   </p>
@@ -45,11 +45,11 @@
                   {{#if event.description}}
                   <p>{{bootstrap-input label="Description:" value=event.description isEditing=false type='textarea'}}</p>
                   {{/if}}
+                </div>
               </div>
               {{#complete-check checkIn="checkIn" activity=event activityList=session.user.attendedEvents}}
-                <p>Saw&nbsp;it!</p>
+                  <span class="sawit">Saw&nbsp;it!</span>
               {{/complete-check}}
-            </div>
           </div>
         </div>
     {{/base-panel}}

@@ -1,4 +1,6 @@
- <div class="well check-in-well" {{action 'checkIn'}}>
- <i class="fa fa-{{if completed 'check-square' 'square'}}-o"></i>
- <p>{{yield}}</p>
+ <div class="row">
+   <div class="well check-in-well" {{action 'checkIn'}}>
+    <span><i class="fa fa-{{if completed 'check-square' 'square'}}-o"></i></span>
+    {{yield}}
+    </div>
 </div>

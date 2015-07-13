@@ -2,7 +2,7 @@ import Ember from 'ember';
 import inject from 'ember-cli-injection/inject';
 
 export default Ember.Component.extend({
-  classNames: ["col-xs-4", "check-in"],
+  classNames: ["check-in"],
   activity: null,
   activityList: null,
 
