@@ -43,5 +43,11 @@ export default Ember.Controller.extend({
         });
       }
     },
+    login: function(provider) {
+      return this.get("session").login(provider);
+    },
+    logout: function() {
+      this.get('session').logout();
+    },
 	}
 });
