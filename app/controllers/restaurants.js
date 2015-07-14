@@ -4,7 +4,7 @@ import { createSortableArray } from '../models/sortable-array';
 export default Ember.Controller.extend({
   applicationController: Ember.inject.controller("application"),
   sortedRestaurants: Ember.computed('model', function() {
-    return createSortableArray(this.get('model'), ['createdAt'], false);
+    return createSortableArray(this.get('model'), ['name'], true);
   }),
 
   actions: {
@@ -29,7 +29,7 @@ export default Ember.Controller.extend({
       restaurant.rollback();
     },
     removeRestaurant: function(restaurant){
-      if (window.confirm(`Are you sure you want to delete restaurant "${restaurant.get('title')}"? This action cannot be undone.`)) {
+      if (window.confirm(`Are you sure you want to delete restaurant "${restaurant.get('name')}"? This action cannot be undone.`)) {
         restaurant.destroyRecord();
       }
     },
@@ -37,6 +37,9 @@ export default Ember.Controller.extend({
       this.editingRestaurant = this.store.createRecord('restaurant');
     },
     saveRestaurant: function(restaurant) {
+      if(restaurant.get('saveName')) {
+        restaurant.set('name', restaurant.get('saveName'));
+      }
       restaurant.save();
     },
   }

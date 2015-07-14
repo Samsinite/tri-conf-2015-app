@@ -8,4 +8,15 @@ export default DS.Model.extend(removeUserRelation, {
   hours: DS.attr('string'),
   discount: DS.attr('string'),
   createdAt: DS.attr('date', { defaultValue: function() { return new Date(); } }),
+
+  saveName: null,
+  displayName: Ember.computed('name', {
+    set: function(key, value) {
+      this.set('saveName', value);
+      return value;
+    },
+    get: function() {
+      return this.get('name');
+    }
+  }),
 });

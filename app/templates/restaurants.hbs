@@ -3,10 +3,11 @@
     <button class="add-panel" {{action 'createRestaurant'}}><i class="fa fa-plus icon"> Add New Restaurant</i></button>
   {{/if}}
 </div>
+<div class="panels">
 {{#each sortedRestaurants as |restaurant|}}
   {{#editable-panel
       item=restaurant
-      title=restaurant.name
+      title=restaurant.displayName
       panelClass="triconf"
       onRemove="removeRestaurant"
       onSave="saveRestaurant"
@@ -34,3 +35,4 @@
 
   {{/editable-panel}}
 {{/each}}
+</div>

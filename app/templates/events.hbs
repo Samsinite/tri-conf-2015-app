@@ -26,6 +26,7 @@
     <button class="add-panel" {{action 'createEvent'}}><i class="fa fa-plus icon"> Add New Event</i></button>
   {{/if}}
 </div>
+<div class="panels">
 {{#each sortedEvents as |event|}}
   {{#unless event.isHidden}}
     {{#editable-panel
@@ -87,3 +88,4 @@
   {{/editable-panel}}
   {{/unless}}
 {{/each}}
+</div>
