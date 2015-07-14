@@ -1,5 +1,41 @@
+.modal-dialog {
+  width: 35%;
+  .modal-header {
+    background-color: #62C4B5;
+    h4 {
+      color: #fff;
+    }
+  }
+  .login-btn {
+    padding: .4em 1em;
+    background-color: #62C4B5;
+    color: #fff;
+    border: 0;
+    font-size: 1.2em;
+    margin-right: .5em;
+    .border-radiuses(4px, 4px, 4px, 4px);
+  }
+}
+
 .modal-dialog-component {
   .modal {
     display: block;
   }
+}
+
+@media (max-width: 992px) {
+
+  .modal-dialog {
+    width: 65%;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .modal-dialog {
+    width: 85%;
+    margin: 3em auto;
+  }
+
 }
