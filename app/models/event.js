@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import DS from 'ember-data';
+import removeUserRelation from './remove-user-relation'
 
-export default DS.Model.extend({
+export default DS.Model.extend(removeUserRelation, {
   track: DS.belongsTo('track', {async: true}),
   title: DS.attr('string', { defaultValue: function() {return "";} }),
   speaker: DS.attr('string', { defaultValue: function() {return "";} }),
@@ -21,5 +22,4 @@ export default DS.Model.extend({
       return this.get('date');
     }
   }),
-
 });

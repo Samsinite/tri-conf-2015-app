@@ -4,13 +4,6 @@
       <div class="panel-heading row">
         <h2 class="panel-title col-xs-8">{{bootstrap-input value=title isEditing=isEditing placeholder="Title"}}</h2>
         <div class="col-xs-4 edit-panel">
-        {{#if hasBookmark}}
-          {{#if bookmarkSelected}}
-            <button class="btn" {{action 'bookmark'}}><i class="fa fa-bookmark"></i></button>
-          {{else}}
-            <button class="btn" {{action 'bookmark'}}><i class="fa fa-bookmark-o"></i></button>
-          {{/if}}
-        {{/if}}
         {{#if session.user.isAdmin}}
           {{#if isEditing}}
             <button class="btn save-button" type='submit'><i class="fa fa-floppy-o"></i></button>
@@ -18,6 +11,13 @@
           {{else}}
             <button class="btn" {{action 'remove'}}><i class="fa fa-remove"></i></button>
             <button class="btn" {{action 'edit'}}><i class="fa fa-pencil"></i></button>
+          {{/if}}
+        {{/if}}
+        {{#if hasBookmark}}
+          {{#if bookmarkSelected}}
+            <button class="btn" {{action 'bookmark'}}><i class="fa fa-bookmark"></i></button>
+          {{else}}
+            <button class="btn" {{action 'bookmark'}}><i class="fa fa-bookmark-o"></i></button>
           {{/if}}
         {{/if}}
       </div>
