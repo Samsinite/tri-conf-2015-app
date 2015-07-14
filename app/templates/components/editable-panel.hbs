@@ -5,13 +5,13 @@
         <h2 class="panel-title col-sm-8">{{bootstrap-input value=title isEditing=isEditing placeholder="Title"}}</h2>
         <div class="col-sm-4 edit-panel">
         {{#if session.user.isAdmin}}
-            {{#if isEditing}}
-              <button class="btn save-button" type='submit'><i class="fa fa-floppy-o"></i></button>
-              <button class="btn" {{action 'cancel'}}><i class="fa fa-undo"></i></button>
-            {{else}}
-              <button class="btn" {{action 'remove'}}><i class="fa fa-remove"></i></button>
-              <button class="btn" {{action 'edit'}}><i class="fa fa-pencil"></i></button>
-            {{/if}}
+          {{#if isEditing}}
+            <button class="btn save-button" type='submit'><i class="fa fa-floppy-o"></i></button>
+            <button class="btn" {{action 'cancel'}}><i class="fa fa-undo"></i></button>
+          {{else}}
+            <button class="btn" {{action 'remove'}}><i class="fa fa-remove"></i></button>
+            <button class="btn" {{action 'edit'}}><i class="fa fa-pencil"></i></button>
+          {{/if}}
         {{/if}}
         {{#if hasBookmark}}
           {{#if bookmarkSelected}}
