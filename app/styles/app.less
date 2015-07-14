@@ -457,7 +457,6 @@ a {
   background-color: #72BEB6;
   color: white;
   position: absolute;
-  left: -8px;
   width: 100%;
   top: -90px;
   z-index: 100;
@@ -540,6 +539,15 @@ a {
     margin-bottom: 10px;
     outline: none;
   }
+}
+
+/* 992px */
+@media (min-width: 992px) {
+
+  .ember-view:nth-child(odd) .col-md-6 {
+    clear: both;
+  }
+
 }
 
 /* 800px and smaller (tablets, phones, etc) */
