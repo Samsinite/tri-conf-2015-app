@@ -7,7 +7,7 @@
 {{#each sortedRestaurants as |restaurant|}}
   {{#editable-panel
       item=restaurant
-      title=restaurant.name
+      title=restaurant.displayName
       panelClass="triconf"
       onRemove="removeRestaurant"
       onSave="saveRestaurant"

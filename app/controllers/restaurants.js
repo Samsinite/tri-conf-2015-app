@@ -37,6 +37,9 @@ export default Ember.Controller.extend({
       this.editingRestaurant = this.store.createRecord('restaurant');
     },
     saveRestaurant: function(restaurant) {
+      if(restaurant.get('saveName')) {
+        restaurant.set('name', restaurant.get('saveName'));
+      }
       restaurant.save();
     },
   }
