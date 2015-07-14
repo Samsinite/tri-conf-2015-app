@@ -1,4 +1,4 @@
-<h3>Leaderboards</h3>
+<h3 class="leader-title">Leaderboards</h3>
 
 <div class="col-md-12 full">
 	<div class="leaderboard panel">
@@ -7,7 +7,7 @@
 		</div>
 		{{#each totalScoreLeaderboard as |user index|}}
 		<div class="row leader">
-			<div class="col-xs-12">{{add-one index}}. {{user.displayName}}<span class="score">{{user.totalScore}} points</span></div>
+			<div class="col-xs-12 text">{{add-one index}}. {{user.displayName}}<span class="score">{{user.totalScore}} points</span></div>
 		</div>
 		{{/each}}
 	</div>
@@ -20,7 +20,7 @@
 		</div>
 		{{#each eventsLeaderboard as |user index|}}
 		<div class="row leader">
-			<div class="col-xs-12">{{add-one index}}. {{user.displayName}}<span class="score">{{user.numEvents}} events</span></div>
+			<div class="col-xs-12 text">{{add-one index}}. {{user.displayName}}<span class="score">{{user.numEvents}} events</span></div>
 		</div>
 		{{/each}}
 	</div>
@@ -33,7 +33,7 @@
 		</div>
 		{{#each restaurantLeaderboard as |user index|}}
 		<div class="row leader">
-			<div class="col-xs-12">{{add-one index}}. {{user.displayName}}<span class="score">{{user.numRestaurants}} restaurant</span></div>
+			<div class="col-xs-12 text">{{add-one index}}. {{user.displayName}}<span class="score">{{user.numRestaurants}} restaurant</span></div>
 		</div>
 		{{/each}}
 	</div>
@@ -46,7 +46,7 @@
 		</div>
 		{{#each bookmarkLeaderboard as |user index|}}
 		<div class="row leader">
-			<div class="col-xs-12">{{add-one index}}. {{user.displayName}}<span class="score">{{user.numBookmarks}} bookmarks</span></div>
+			<div class="col-xs-12 text">{{add-one index}}. {{user.displayName}}<span class="score">{{user.numBookmarks}} bookmarks</span></div>
 		</div>
 		{{/each}}
 	</div>
@@ -59,7 +59,7 @@
 		</div>
 		{{#each achievementLeaderboard as |user index|}}
 		<div class="row leader">
-			<div class="col-xs-12">{{add-one index}}. {{user.displayName}}<span class="score">{{user.numAchieved}} achievements</span></div>
+			<div class="col-xs-12 text">{{add-one index}}. {{user.displayName}}<span class="score">{{user.numAchieved}} achievements</span></div>
 		</div>
 		{{/each}}
 	</div>

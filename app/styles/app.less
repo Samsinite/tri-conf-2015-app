@@ -18,7 +18,9 @@ body {
 a {
   cursor: pointer;
 }
-
+a, p, h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 1px;
+}
 #top-nav {
   position: fixed;
   z-index: 100;
@@ -149,8 +151,9 @@ a {
     .icon {
       position: absolute;
       left: 8px;
-      font-size: 28px;
+      font-size: 23px;
       line-height: 32px;
+      padding-left: 20px;
     }
   }
 
@@ -158,6 +161,7 @@ a {
     position: relative;
     background: none;
     color: white;
+    font-weight: 200;
     padding: 4px 4px 4px 60px;
     display: block;
 
@@ -167,7 +171,9 @@ a {
     }
 
     &.active {
-      background-color: #58585A;
+      background-color: #0F746B;
+      padding-left: 79px;
+      transition: all 0.5s ease;
 
       &:after {
         position: absolute;
@@ -178,7 +184,12 @@ a {
         content: ' ';
         border-top: 20px solid transparent;
         border-bottom: 20px solid transparent;
-        border-left: 24px solid #58585A;
+        border-left: 24px solid #0F746B;
+        transition: all 0.5s ease;
+      }
+      .icon{
+        margin-left: 10px;
+        transition: all 0.5s ease;
       }
     }
   }

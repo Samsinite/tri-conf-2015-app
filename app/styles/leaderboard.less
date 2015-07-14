@@ -1,25 +1,39 @@
+.leader-title{
+	margin-left: 14px;
+}
+
 .leaderboard {
-	
 	margin-bottom: 1em;
-	background-color: #b0b2ff;
+	background-color: #D7D8FF;
 	padding: 0 .8em;
 	.row {
 		margin-left: -11px;
 		margin-right: -11px;
 		&:nth-child(even) {
-			background-color: #cdceff;
+			background-color: #C3C4F7;
 		}
 		&:last-child {
 			.border-radiuses(0, 4px, 4px, 0);
 		}
 	}
 	.heading {
-		padding-top: .8em;
-		background-color: #8a8df0;
+		padding: .8em 0;
+		background-color: #5C5D7C;
+		color: #fff;
+
 		.border-radiuses(4px, 0, 0, 4px);
+		h4{
+			font-weight: 200;
+			letter-spacing: 1px;
+		}
 	}
 	.score {
 		float: right;
+		font-weight: bold;
+		color: #545564;
+	}
+	.text{
+		color: #545564;
 	}
 	.leader {
 		padding: .5em 0;
