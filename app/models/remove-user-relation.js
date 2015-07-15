@@ -12,7 +12,7 @@ export default Ember.Mixin.create({
             }
           });
         });
-        user.save()
+        user.save();
       });
     });
     return this._super();

@@ -44,7 +44,6 @@
     "ember-notify": "3.3.4",
     "ember-truth-helpers": "0.0.5",
     "ember-watson": "^0.5.6",
-    "emberfire": "1.4.5",
-    "emberx-select": "1.1.2"
+    "emberfire": "1.4.5"
   }
 }
