@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import DS from 'ember-data';
-import removeUserRelation from './remove-user-relation'
+import removeUserRelation from './remove-user-relation';
 
 export default DS.Model.extend(removeUserRelation, {
   track: DS.belongsTo('track', {async: true}),
