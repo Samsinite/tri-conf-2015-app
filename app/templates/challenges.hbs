@@ -24,6 +24,7 @@
                   isEditing=isEditing
                   type="textarea"
                   placeholder="Description"}}
+                  {{#if (hidden-field-check false session.isAdmin isEditing)}}
               {{bootstrap-select content=categories
                   value=challenge.category
                   label="Category:"
@@ -37,6 +38,7 @@
                   isEditing=isEditing
                   type="textarea"
                   placeholder="Enter Quote if any..."}}
+                  {{/if}}
             </p>
           </div>
         </div>
