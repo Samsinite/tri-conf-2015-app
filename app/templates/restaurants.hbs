@@ -3,7 +3,11 @@
     <button class="add-panel" {{action 'createRestaurant'}}><i class="fa fa-plus icon"> Add New Restaurant</i></button>
   {{/if}}
 </div>
+<div class="col-sm-12">
+<p>Hey cheaters! Only check off restaurants you've eaten at <strong><em>during</em></strong> TriConf! ;) Be sure to check out the places with special discounts for TriConfederates.</p>
+</div>
 <div class="panels">
+
 {{#each sortedRestaurants as |restaurant|}}
   {{#editable-panel
       item=restaurant
