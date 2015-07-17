@@ -8,5 +8,9 @@ export default Ember.Route.extend(ResetScroll, {
       locations: this.store.findAll('location'),
       tracks: this.store.findAll('track')
     });
-	}
+	},
+   setupController: function(controller, model) {
+      controller.set("model",model);
+      controller.filterEvents();
+   }
 });

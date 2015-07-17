@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import { createSortableArray } from '../models/sortable-array';
+import moment from 'moment';
 
 export default Ember.Controller.extend({
   applicationController: Ember.inject.controller("application"),
@@ -46,6 +47,8 @@ export default Ember.Controller.extend({
   }.property('model.tracks.@each.name'),
 
   searchString: "",
+  nowFilters: [{value:0,name:"All Times"},{value:2,name:"Next 2 Hours"}],
+  nowFilter:{value:2},
 
   sortedEvents: Ember.computed('model.events', function() {
     return createSortableArray(this.get('model.events'), ['date'], true);
@@ -55,23 +58,29 @@ export default Ember.Controller.extend({
     var str = this.get('searchString').toLowerCase();
     var selectedTrack = this.get('selectedTrack.name');
     var selectedVenue = this.get('selectedLocation.venue');
+    var nowFilter = this.get('nowFilter.value');
     this.model.events.forEach(function(event){
       var title = (event.get('title') || "").toLowerCase();
       var speaker = (event.get('speaker') || "").toLowerCase();
       var description = (event.get('description') || "").toLowerCase();
       var trackName = event.get('track.name');
       var locationVenue = event.get('location.venue');
+      var displayDate = moment(event.get('displayDate'));
       var eventInSelectedTrack = trackName === selectedTrack || selectedTrack === "All Tracks";
       var eventInSelectedLocation = locationVenue === selectedVenue || selectedVenue === "All Venues";
       var eventInSearch = str === "" || title.indexOf(str) > -1 ||
           speaker.indexOf(str) > -1 || description.indexOf(str) > -1;
-      if(eventInSelectedTrack && eventInSearch && eventInSelectedLocation) {
+      var now = moment(new Date());
+      var twohr = moment(now).add(nowFilter,'hour');
+      var last30 = moment(now).add(-30,'minute');
+      var eventIsNow = nowFilter == 0 || ( displayDate > last30 && displayDate < twohr );
+      if(eventInSelectedTrack && eventInSearch && eventInSelectedLocation && eventIsNow) {
         event.set('isHidden', false);
       } else {
         event.set('isHidden', true);
       }
     });
-  }.observes("selectedLocation", "selectedTrack", "searchString"),
+  }.observes("selectedLocation", "selectedTrack", "searchString","nowFilter"),
 
 	actions : {
     checkIn : function(event){

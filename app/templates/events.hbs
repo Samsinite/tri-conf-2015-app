@@ -1,23 +1,31 @@
 <div class="panel container-fluid filter">
   <div class="row">
-     <div class="col-sm-4">
+     <div class="col-sm-6 col-lg-3">
        <div class="form-group search">
          {{input classNames="form-control" placeholder="Search" value=searchString}}
        </div>
      </div>
-     <div class="col-sm-4 search-select">
+     <div class="col-sm-6 col-lg-3 search-select">
+       {{ember-selectize selection=nowFilter
+         content=nowFilters
+         optionLabelPath="content.name"
+         optionValuePath="content.value"
+         placeholder="Filter Time"}}
+     </div>
+     <div class="clearfix hidden-lg"></div>
+     <div class="col-sm-6 col-lg-3 search-select">
      {{ember-selectize selection=selectedTrack
          content=trackNames
          optionLabelPath="content.name"
          optionValuePath="content.id"
-         placeholder="Fliter Track"}}
+         placeholder="Filter Track"}}
      </div>
-     <div class="col-sm-4 search-select">
+     <div class="col-sm-6 col-lg-3 search-select">
      {{ember-selectize selection=selectedLocation
          content=locationNames
          optionLabelPath="content.venue"
          optionValuePath="content.venue"
-         placeholder="Fliter Locations"}}
+         placeholder="Filter Locations"}}
      </div>
    </div>
 </div>
